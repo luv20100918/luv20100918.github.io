@@ -8,17 +8,23 @@ pubDate: 2024-07-05
 
 ---
 
-## VSCode 설치 과정
+## VSCode 설치 과
+
+정
 
 **VSCode 다운로드**:먼저, VSCode 공식 웹사이트로 이동하여 설치 파일을 다운로드합니다.Visual Studio Code 다운로드(https://code.visualstudio.com/Download)**설치 파일 실행**:다운로드한 `.zip` 파일을 더블 클릭하여 압축을 해제합니다.압축이 해제되면 `Visual Studio Code.app` 파일을 Applications 폴더로 드래그 앤 드롭하여 이동시킵니다.**VSCode 실행**:Applications 폴더에서 `Visual Studio Code` 아이콘을 더블 클릭하여 실행합니다.처음 실행할 때 "Internet에서 다운로드한 앱입니다."라는 메시지가 나타나면, "열기"를 클릭합니다.---
 
-## 커맨드 라인에서 VSCode 실행
+## 커맨드 라인에서 VSCode 실
+
+행
 
 VSCode를 커맨드 라인에서 쉽게 실행할 수 있도록 설정할 수 있습니다.
 
 **VSCode에서 명령 팔레트 열기**:VSCode가 열려 있는 상태에서 `Cmd + Shift + P`를 눌러 명령 팔레트를 엽니다.**Shell Command 설치**:명령 팔레트에 `Shell Command: Install 'code' command in PATH`를 입력하고 Enter를 누릅니다.이 명령어를 실행하면, 터미널에서 `code` 명령어를 사용하여 VSCode를 실행할 수 있습니다.---
 
-## 설치 확인
+## 설치 확
+
+인
 
 터미널을 열고 다음 명령어를 입력하여 VSCode가 정상적으로 설치되었는지 확인합니다.
 
@@ -27,7 +33,9 @@ code --version
 
 ---
 
-## VSCode를 이용한 첫 번째 프로젝트 열기
+## VSCode를 이용한 첫 번째 프로젝트 열
+
+기
 
 **새 폴더 만들기**:터미널에서 프로젝트를 위한 새 폴더를 만듭니다.mkdir my-project
    cd my-project

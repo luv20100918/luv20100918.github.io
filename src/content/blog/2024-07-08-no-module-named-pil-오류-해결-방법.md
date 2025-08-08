@@ -14,6 +14,7 @@ Pillow는 Python Imaging Library(PIL)의 업그레이드된 버전으로, PIL이
 pip install pillow
 
 ```
+
 설치가 완료되면, 이제 Pillow를 임포트해서 사용할 수 있다. 예를 들어 이미지를 열고, 그 이미지를 다른 형식으로 저장하고 싶다면 다음과 같은 코드로 할 수 있다.
 
 ```javascript
@@ -28,6 +29,7 @@ image = Image.open('example.jpg')
 image.save('example.png')
 
 ```
+
 이제 오류가 발생하지 않고 정상적으로 작동할 것이다. 이런 식으로 간단한 명령어와 코드를 사용해 문제를 해결할 수 있다. 프로그래밍을 하다 보면 이런 사소한 오류가 자주 발생하는데, 이를 잘 해결하는 것이 중요하다.
 
 오늘도 즐거운 프로그래밍 되길 바란다!

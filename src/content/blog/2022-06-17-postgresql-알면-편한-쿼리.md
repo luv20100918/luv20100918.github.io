@@ -5,7 +5,9 @@ pubDate: 2022-06-17
 updatedDate: 2023-03-31
 ---
 
-### 테이블 코멘트(Comment) 조회```
+### 테이블 코멘트(Comment) 조
+
+회```
 
 SELECT PS.RELNAME    AS TABLE_NAME
       ,PD.DESCRIPTION AS TABLE_COMMENT
@@ -15,7 +17,9 @@ SELECT PS.RELNAME    AS TABLE_NAME
    AND PS.RELID   = PD.OBJOID
    AND PD.OBJSUBID  = 0
 
-```### 컬럼 코멘트(Comment) 조회```
+```
+
+### 컬럼 코멘트(Comment) 조회```
 SELECT PS.RELNAME    AS TABLE_NAME
       ,PA.ATTNAME     AS COLUMN_NAME
       ,PD.DESCRIPTION AS COLUMN_COMMENT
@@ -32,7 +36,9 @@ SELECT PS.RELNAME    AS TABLE_NAME
    AND PD.OBJSUBID  = PA.ATTNUM
  ORDER BY PS.RELNAME, PD.OBJSUBID
 
-```### 모든 테이블 삭제```
+```
+
+### 모든 테이블 삭제```
 SET @tables = NULL;
 SELECT GROUP_CONCAT(table_schema, '.', table_name) INTO @tables
   FROM information_schema.tables
@@ -42,7 +48,9 @@ PREPARE stmt FROM @tables;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
 
-```### 특정 유저에게 모든 테이블 권한 부여```
+```
+
+### 특정 유저에게 모든 테이블 권한 부여```
 GRANT ALL ON ALL TABLES IN SCHEMA '스키마이름' TO '유저명';
 
 ```

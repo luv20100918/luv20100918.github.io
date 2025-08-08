@@ -12,14 +12,18 @@ updatedDate: 2025-02-05
 
 히라가나, 가타카나 외우기
 
-## 요구사항
+## 요구사
+
+항
 
 1. 히라가나를 외웠는지 체크하고 점수를 매긴다.
 2. 가타카나를 외웠는지 체크하고 점수를 매긴다.
 3. 히라가나와 가타카나를 외우는 비율을 체크하고 점수를 매긴다.
 4. 히라가나와 가타카나를 외우는 비율이 100%가 되면 완료한다.
 
-## 화면설계
+## 화면설
+
+계
 
 메인화면에는 히라가나와 가타카나를 선택하는 버튼과 시작버튼이 있다. 
 시작버튼을 클릭하면 시험화면으로 전환되며 앞에서 선택한 언어에 맞는 문제가 랜덤으로 출력된다.
@@ -29,37 +33,51 @@ updatedDate: 2025-02-05
 틀린 문제는 좀더 많이 노출되며 100문제가 출력된 이후에 100점 만점 기준의 점수가 표기되며, 메인화면으로 이동하는 버튼과 분석화면으로 이동하는 버튼이 있다.
 분석화면에서는 틀린 문제와 맞은 문제의 비율이 표기되며 틀린 문제는 문제와 함께 출력된다.
 
-## Component Guidelines
+## Component Guideline
 
-### ShadCN Components
+s
+
+### ShadCN Component
+
+s
 
 - 모든 UI 컴포넌트는 ShadCN Components를 사용한다.
 - 컴포넌트를 사용 전 설치 여부를 확인해야 한다. `/components/ui/` 폴더 체크
 - 컴포넌트 설치 명령어를 사용해야 한다.: `npx shadcn@latest add [component-name]`
     - 주의 : `npx shadcn-ui@latest add [component-name]` 은 사용하지 않는다. 반드시 `npx shadcn@latest add [component-name]` 을 사용해야 한다.
 
-### Icons
+### Icon
+
+s
 
 - 모든 아이콘은 Lucide Icons를 사용한다.
 - 아이콘 임포트 방법: `import { IconName } from "lucide-react"`
 - 예시: `import { Search, Menu } from "lucide-react"`
 
-### Component Structure
+### Component Structur
+
+e
 
 - 컴포넌트는 `/components` 폴더에 위치해야 한다.
 - UI 컴포넌트는 `/components/ui` 폴더에 위치해야 한다.
 - 페이지별 컴포넌트는 `/app` 폴더 내 해당 라우트에 위치해야 한다.
 
-## Best Practices
+## Best Practice
+
+s
 
 - TypeScript를 사용하지 않는다. JSDOC를 사용한다.
 - 컴포넌트는 재사용이 가능하도록 설계해야 한다.
 
-## 에이전트 설명 및 역할
+## 에이전트 설명 및 역
+
+할
 
 You are an expert in JavaScript, Node.js, Next.js App Router, React, Shadcn UI, Radix UI and Tailwind.
 
-### Key Principles
+### Key Principle
+
+s
 
 - Write clean, well-documented JavaScript code with JSDoc comments
 - Use functional and declarative programming patterns; avoid classes
@@ -67,37 +85,49 @@ You are an expert in JavaScript, Node.js, Next.js App Router, React, Shadcn UI, 
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)
 - Structure files: exported component, subcomponents, helpers, static content
 
-### Naming Conventions
+### Naming Convention
+
+s
 
 - Use lowercase with dashes for directories (e.g., components/auth-wizard)
 - Favor named exports for components
 
-### JavaScript & JSDoc Usage
+### JavaScript & JSDoc Usag
+
+e
 
 - Use JSDoc for type documentation and IDE support
 - Document function parameters, return types, and component props
 - Include examples in JSDoc comments for complex functions
 - Use PropTypes for React component prop validation
 
-### Syntax and Formatting
+### Syntax and Formattin
+
+g
 
 - Use the "function" keyword for pure functions
 - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements
 - Use declarative JSX
 
-### UI and Styling
+### UI and Stylin
+
+g
 
 - Use Shadcn UI, Radix, and Tailwind for components and styling
 - Implement responsive design with Tailwind CSS; use a mobile-first approach
 
-### Performance Optimization
+### Performance Optimizatio
+
+n
 
 - Minimize 'use client', 'useEffect', and 'setState'; favor React Server Components (RSC)
 - Wrap client components in Suspense with fallback
 - Use dynamic loading for non-critical components
 - Optimize images: use WebP format, include size data, implement lazy loading
 
-### Key Conventions
+### Key Convention
+
+s
 
 - Use 'nuqs' for URL search parameter state management
 - Optimize Web Vitals (LCP, CLS, FID)

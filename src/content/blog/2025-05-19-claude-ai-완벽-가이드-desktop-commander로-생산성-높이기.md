@@ -7,11 +7,15 @@ updatedDate: 2025-05-19
 
 Claude AI는 일상 업무와 프로그래밍을 더 효율적으로 만들어주는 강력한 도구입니다. 이 가이드에서는 Claude를 최대한 활용하는 방법과 특히 Desktop Commander MCP를 통해 어떻게 생산성을 높일 수 있는지 상세히 알아보겠습니다.
 
-## **Claude란 무엇인가?**
+## **Claude란 무엇인
+
+가?**
 
 Claude는 Anthropic에서 개발한 AI 어시스턴트로, 자연어 처리 능력이 뛰어나고 다양한 작업을 수행할 수 있습니다. 코드 작성부터 문서 요약, 창의적인 글쓰기까지 다양한 영역에서 도움을 제공합니다.
 
-## **Claude 시작하기**
+## **Claude 시작하
+
+기**
 
 Claude를 시작하는 방법은 간단합니다:
 
@@ -25,7 +29,9 @@ Desktop Commander MCP의 주요 특징:
 
 Desktop Commander MCP를 설치하는 방법은 다음과 같습니다. 먼저 *Claude Desktop 앱*과 *Node.js(v18.18.0+)*가 설치되어 있어야 합니다.
 
-### **방법 1: Smithery를 통한 자동 설치**
+### **방법 1: Smithery를 통한 자동 설
+
+치**
 
 `npx -y @smithery/cli install @wonderwhy-er/desktop-commander --client claude`### **방법 2: NPX를 통한 직접 설치**
 
@@ -47,9 +53,13 @@ macOS: ***~/Library/Application Support/Claude/claude_desktop_config.json***Wind
   }
 }설치 후에는 반드시 Claude Desktop 앱을 재시작해야 합니다.
 
-## **Desktop Commander MCP로 할 수 있는 일**
+## **Desktop Commander MCP로 할 수 있는 
 
-### **1. 파일 시스템 탐색 및 조작**
+일**
+
+### **1. 파일 시스템 탐색 및 조
+
+작**
 
 Claude와 Desktop Commander MCP를 사용하면 로컬 파일 시스템을 쉽게 탐색하고 조작할 수 있습니다:
 
@@ -81,7 +91,9 @@ Claude는 Desktop Commander MCP를 통해 명령어를 실행할 수 있습니�
 
 빌드 및 테스트: "프로젝트를 빌드하고 테스트를 실행해줘"## **실제 사용 사례**
 
-### **사례 1: 코드 디버깅**
+### **사례 1: 코드 디버
+
+깅**
 
 상황: React 애플리케이션에서 무한 루프 문제가 발생했을 때
 
@@ -124,7 +136,9 @@ Claude: "JavaScript 파일을 찾아서 callback 패턴을 현대적인 비동�
 [Promise나 async/await 패턴으로 리팩토링]
 [변경사항 요약 제공]## **고급 팁과 트릭**
 
-### **1. 효과적인 프롬프트 작성하기**
+### **1. 효과적인 프롬프트 작성하
+
+기**
 
 Claude에게 요청할 때는 구체적이고 명확한 지시를 제공하는 것이 중요합니다:
 
@@ -155,29 +169,43 @@ Desktop Commander MCP는 구성 설정을 통해 보안을 관리할 수 있습�
 
 `"images/logo.png 파일을 보여줘"`## **자주 묻는 질문 (FAQ)**
 
-### **Q: Desktop Commander MCP는 어떤 운영체제에서 작동하나요?**
+### **Q: Desktop Commander MCP는 어떤 운영체제에서 작동하나
+
+요?**
 
 A: Desktop Commander MCP는 Windows, macOS, Linux 모두에서 작동합니다. 각 운영체제에 맞는 설정이 자동으로 적용됩니다.
 
-### **Q: Desktop Commander MCP 사용 시 보안 문제는 없나요?**
+### **Q: Desktop Commander MCP 사용 시 보안 문제는 없나
+
+요?**
 
 A: 보안을 위해 ***allowedDirectories*** 설정을 통해 접근 가능한 디렉토리를 제한하고, ***blockedCommands*** 설정을 통해 특정 명령어 실행을 제한할 수 있습니다. 중요한 작업을 수행하기 전에 항상 Claude가 제안하는 작업을 검토하는 것이 좋습니다.
 
-### **Q: Desktop Commander MCP를 사용하는 데 추가 비용이 발생하나요?**
+### **Q: Desktop Commander MCP를 사용하는 데 추가 비용이 발생하나
+
+요?**
 
 A: Desktop Commander MCP 자체는 무료 오픈소스 도구입니다. 사용하기 위해서는 Claude Pro 구독($20/월)이 필요하지만, API 토큰 비용과 같은 추가 비용은 발생하지 않습니다.
 
-### **Q: Desktop Commander MCP는 어떻게 업데이트하나요?**
+### **Q: Desktop Commander MCP는 어떻게 업데이트하나
+
+요?**
 
 A: npx나 Smithery를 통해 설치한 경우, Claude를 재시작할 때마다 자동으로 최신 버전으로 업데이트됩니다. 수동 설치의 경우 설정 명령을 다시 실행하여 업데이트할 수 있습니다.
 
-### **Q: 대규모 코드베이스에서도 작동하나요?**
+### **Q: 대규모 코드베이스에서도 작동하나
+
+요?**
 
 A: 네, 사용자들은 대규모 코드베이스(44K 파일, 1100만 라인의 코드)에서도 성공적으로 사용한 사례가 있습니다. Desktop Commander MCP는 여러 프로젝트와 서비스를 동시에 처리할 수 있어 복잡한 개발 환경에 적합합니다.
 
-## **실제 적용 가능한 개발 시나리오**
+## **실제 적용 가능한 개발 시나리
 
-### **시나리오 1: 팀 코드 리뷰 보조**
+오**
+
+### **시나리오 1: 팀 코드 리뷰 보
+
+조**
 
 팀에서 코드 리뷰 시간을 단축하고 싶을 때, Desktop Commander MCP와 Claude를 활용해 자동화된 1차 코드 리뷰를 진행할 수 있습니다.
 

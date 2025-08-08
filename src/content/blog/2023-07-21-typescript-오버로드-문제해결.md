@@ -18,11 +18,15 @@ const serviceCodes = computed(() => {
   return result;
 })
 
-```위 코드에서
+```
+
+위 코드에서
 ```
 return acc.concat(values); 
 
-```부분의 values 에서 에러가 발생했다.
+```
+
+부분의 values 에서 에러가 발생했다.
 에러내용은 아래와 같다.
 > 오버로드 1/2('(...items: ConcatArray<never>): never')에서 다음 오류가 발생했습니다. 오버로드 2/2('(...items: ConcatArray<never>): never')에서 다음 오류가 발생했습니다.ts(2769)결론은 애매한 타입 추론으로 인해 발생한 에러로 acc에 대한 타입만 명확하게 지정해주면된다.
 수정된 코드는 아래와 같다.
@@ -39,4 +43,6 @@ const serviceCodes = computed(() => {
   return result;
 });
 
-```acc에 명확한 string[] 타입을 지정했다.
+```
+
+acc에 명확한 string[] 타입을 지정했다.

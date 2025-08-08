@@ -5,7 +5,9 @@ pubDate: 2022-06-23
 updatedDate: 2023-03-31
 ---
 
-### Homebrew 설치하기
+### Homebrew 설치하
+
+기
 
 macOS에는 macOS 용 패키지 관리자 Homebrew가 있다. Homebrew를 이용하면 설정 과정이 단순하고, 환경변수 설정이 필요없고, 관리하기 편하다.
 
@@ -22,7 +24,9 @@ brew install cask
 Homebrew를 통해 프로그램을 설치하기 전엔 항상 아래의 명령어로 업데이트가 있는지 확인 후 진행한다.
 
 brew update
-### MySQL 설치
+### MySQL 설
+
+치
 
 설치할 MySQL 버전을 확인해준다.
 
@@ -30,7 +34,9 @@ brew search mysql
 원하는 버전의 MySQL을 설치해준다.(이 경우 최신버전)
 
 brew install mysql
-### MySQL 설정
+### MySQL 설
+
+정
 
 MySql을 실행한다.
 
@@ -47,7 +53,9 @@ quit or exit
 MySQL 서버 종료
 
 mysql.server stop
-### MySQL 삭제
+### MySQL 삭
+
+제
 
 아래의 명령어들을 입력해준다.
 
