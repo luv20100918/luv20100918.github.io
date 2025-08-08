@@ -35,8 +35,8 @@ Starting MySQL
 
 ```
 
-## 해결```
-/usr/local/Cellar/mysql@5.7/5.7.29/bin/mysqld
+## 해결/usr/local/Cellar/mysql@5.7/5.7.29/bin/mysqld
+
 - -initialize-insecure
 - -user=zhuyeel
 - -basedir=/usr/local/Cellar/mysql@5.7/5.7.29

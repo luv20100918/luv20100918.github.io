@@ -67,6 +67,7 @@ public class RentcarController {
 ```
 
 ## 차이점 요약### 역할과 목적OpenFeign: 외부 HTTP API를 호출하는 클라이언트 역할을 합니다.
+
 Controller: 클라이언트의 요청을 처리하고 응답을 반환하는 서버 측 컴포넌트입니다.
 
 ### 사용 위치OpenFeign: 주로 마이크로서비스 간 통신에 사용됩니
@@ -81,7 +82,7 @@ Controller: 클라이언트(웹 브라우저 또는 REST 클라이언트)의 요
 
 Controller: 클래스와 메소드를 사용하여 요청 처리 로직을 구현합니다.
 
-### 주요 사용 사례OpenFeign: 다른 마이크로서비스의 API를 호출할 
+### 주요 사용 사례OpenFeign: 다른 마이크로서비스의 API를 호출할
 
 때.
 
@@ -113,6 +114,7 @@ public class ExampleRequest {
 ```
 
 #### 예제 2: @RequestParam 사용@RequestParam을 사용하여 여러 개의 쿼리 파라미터를 전송하는 경우:
+
 ```
 @FeignClient(name = "example-service")
 public interface ExampleClient {
@@ -123,6 +125,7 @@ public interface ExampleClient {
 ```
 
 #### 예제 3: @RequestHeader 사용@RequestHeader를 사용하여 헤더 값을 전송하는 경우:
+
 ```python
 @FeignClient(name = "example-service")
 public interface ExampleClient {
@@ -152,6 +155,7 @@ public class ExampleController {
 ```
 
 #### 예제 2: JSON 본문 데이터JSON 본문 데이터를 객체로 받을 때는 @RequestBody를 사용합니다:
+
 ```java
 @RestController
 @RequestMapping("/api")
@@ -171,6 +175,7 @@ public class ExampleRequest {
 ```
 
 #### 예제 3: 폼 데이터폼 데이터를 객체로 받을 때는 별도의 주석 없이 받을 수 있습니다:
+
 ```
 @RestController
 @RequestMapping("/api")
