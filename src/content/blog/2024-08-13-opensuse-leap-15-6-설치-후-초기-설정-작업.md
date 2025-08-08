@@ -1,0 +1,56 @@
+---
+title: "openSUSE Leap 15.6 설치 후 초기 설정 작업"
+description: "시작하며  openSUSE Leap 15.6을 설치하고 나서, 바로 시스템 설정을 진행했다. 생각보다 할 게 많았지만, 하나씩 차근차근 해결해 나갔다. 이번 작업을 기록해두면 나중에 비슷한 상황에서 다시 참고할 수 있을 것 같다.  https://get.opensuse.org/leap/..."
+pubDate: '2024-08-13'
+updatedDate: '2024-08-13'
+heroImage: 'content/images/2024/08/openSuseHeaderImage.webp'
+---
+
+## 시작하며openSUSE Leap 15.6을 설치하고 나서, 바로 시스템 설정을 진행했다. 생각보다 할 게 많았지만, 하나씩 차근차근 해결해 나갔다. 이번 작업을 기록해두면 나중에 비슷한 상황에서 다시 참고할 수 있을 것 같다.
+[https://get.opensuse.org/leap/15.6/](https://get.opensuse.org/leap/15.6/)
+openSUSE Leap 15.6을 받아서 설치를 했다고 가정하고 아래 순서대로 작업을 수행했다.
+---## 작업순서### 1. 네트워크 설정서버에 접속하자마자 `ifconfig` 명령어를 쳤는데, 명령어가 없다고 나왔다. `zypper`로 `net-tools-deprecated` 패키지를 설치했다. 이걸 설치하고 나니까 `ifconfig`가 정상적으로 작동했다.
+```
+zypper install net-tools-deprecated
+ifconfig
+
+```### 2. SSH 보안 설정서버 보안은 중요하니까 SSH 설정부터 손봤다. `sshd_config` 파일을 열어서 필요한 설정을 수정한 뒤, 바로 SSH 서비스를 재시작했다. 괜히 미뤘다가 나중에 삽질할 바에야 지금 해버리는 게 낫다.
+```
+vim /etc/ssh/sshd_config
+systemctl restart sshd
+
+```### 3. SNMP 설정기존 SNMP 설정 파일을 안전하게 백업해두고, 새로운 설정 파일을 다운로드해서 덮어썼다. 그리고 SNMP 서비스를 재시작하고, 부팅 시 자동으로 실행되도록 설정까지 끝냈다. 회사에서 사용할 서버이고 모니터링이 필요하기 떄문에 필수로 수행해야한다. 별도로 모니터링을 하지 않는다면 수행하지 않는다.
+```
+mv /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf_bak
+wget --user=admin --password=비밀번호 컨피그파일주소 -P /etc/snmp
+vim /etc/snmp/snmpd.conf
+systemctl restart snmpd
+systemctl start snmpd
+systemctl enable snmpd
+
+```### 4. 방화벽 설정서버에 내부 네트워크에서만 접근할 거라서 방화벽을 껐다. 어짜피 별도 하드웨어로 방화벽이 존재하기 때문에 소프트웨어로 수행되는 방화벽은 disabled처리 했다.
+```
+systemctl stop firewalld
+systemctl disable firewalld
+
+```### 5. 시간 동기화시간을 맞추는 것도 중요하다. `ntpdate`로 시간을 동기화한 다음, NTP 패키지를 설치했다. 이렇게 하면 서버의 시간이 항상 정확하게 유지된다. 이부분은 특히 중요한게 여러대를 쿠버네티스 클러스터로 묶을 때 시간이 맞지 않으면 에러가 발생하는 부분들이 있다. 따라서 중요한 부분이라고 할 수 있다.
+```
+zypper install ntp
+ntpdate -b -s time.bora.net
+
+```### 6. 네트워크 서비스 재시작네트워크 설정이 꼬일 때마다 서비스 재시작하고, `ping`으로 확인했다. 이 작업은 단순하지만, 네트워크가 제대로 돌아가고 있는지 확인하는 중요한 단계다.
+```
+systemctl restart network.service
+ping 8.8.8.8
+
+```### 7. 시스템 정보 확인디스크 사용량과 메모리 상태를 확인했다. 서버 자원 관리에는 기본 중의 기본이지만, 까먹지 않도록 주기적으로 체크해야 한다.
+```
+df -Th
+free -m
+
+```### 8. 호스트명 설정마지막으로 호스트명을 `새로정한호스트명`으로 설정하고 서버를 재부팅했다. 이것을 하지 않으면 호스트명은 일반적으로 localhost로 되어있다. 용도나 목적에 맞는 호스트명으로 해주는게 서버 구분하기에 용이하다.
+```
+hostnamectl set-hostname 새로정한호스트명
+reboot
+
+```---## 마치며이렇게 설정을 마무리했다. 서버가 정상적으로 돌아가고 있으니, 이제부터는 추가적인 작업이나 서비스 설치를 진행하면 된다. 설치하고 나서 바로 할 수 있는 필수 작업들을 이렇게 하나하나 체크리스트로 남겨두면, 나중에 비슷한 상황이 오더라도 당황하지 않고 대처할 수 있을 것이다.
