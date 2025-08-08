@@ -1,0 +1,51 @@
+---
+export interface Props {
+  withGrid?: boolean;
+  class?: string;
+}
+
+const { withGrid = false, class: className = '' } = Astro.props;
+---
+
+<div class={`dither-field ${withGrid ? 'with-grid' : ''} ${className}`}>
+  <slot />
+</div>
+
+<style>
+  .dither-field {
+    position: relative;
+    background-color: var(--fq4-bg-main);
+    background-image: 
+      repeating-conic-gradient(
+        var(--fq4-bg-main) 0% 25%,
+        var(--fq4-bg-dark) 0% 50%
+      );
+    background-size: 2px 2px;
+    border: var(--pixel-border-width) solid var(--fq4-panel-border);
+    padding: 8px;
+    min-height: 200px;
+  }
+
+  .dither-field.with-grid {
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 27px,
+        var(--fq4-grid-line) 27px,
+        var(--fq4-grid-line) 28px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 27px,
+        var(--fq4-grid-line) 27px,
+        var(--fq4-grid-line) 28px
+      ),
+      repeating-conic-gradient(
+        var(--fq4-bg-main) 0% 25%,
+        var(--fq4-bg-dark) 0% 50%
+      );
+    background-size: 28px 28px, 28px 28px, 2px 2px;
+  }
+</style>

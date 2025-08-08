@@ -1,0 +1,148 @@
+---
+export interface Props {
+  items: Array<{
+    title: string;
+    date: string;
+    tags?: string[];
+    reads?: number;
+    href?: string;
+  }>;
+  class?: string;
+}
+
+const { items = [], class: className = '' } = Astro.props;
+---
+
+<div class={`roster-grid ${className}`} tabindex="0">
+  {items.map((item, index) => (
+    <div 
+      class="roster-row" 
+      data-href={item.href}
+      data-index={index}
+      tabindex="-1"
+    >
+      <div class="roster-cell title">{item.title}</div>
+      <div class="roster-cell date">{item.date}</div>
+      <div class="roster-cell tags">{item.tags?.join(', ') || '-'}</div>
+      <div class="roster-cell reads">{item.reads?.toLocaleString() || '0'}</div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .roster-grid {
+    background-color: var(--fq4-panel-bg);
+    border: var(--pixel-border-width) solid var(--fq4-panel-border);
+    overflow-y: auto;
+    max-height: 400px;
+    font-family: var(--pixel-font);
+  }
+
+  .roster-grid:focus {
+    outline: 2px solid var(--fq4-accent);
+    outline-offset: -2px;
+  }
+
+  .roster-row {
+    height: var(--roster-row-height);
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    border-bottom: var(--pixel-border-width) solid var(--fq4-grid-line);
+    cursor: pointer;
+    transition: none;
+  }
+
+  .roster-row:hover {
+    background-color: var(--fq4-selection);
+  }
+
+  .roster-row.selected {
+    background-color: var(--fq4-highlight);
+    color: var(--fq4-text-primary);
+    font-weight: bold;
+  }
+
+  .roster-row:last-child {
+    border-bottom: none;
+  }
+
+  .roster-cell {
+    padding: 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: var(--fq4-text-primary);
+  }
+
+  .roster-cell.title {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .roster-cell.date {
+    flex: 0 0 100px;
+    text-align: center;
+  }
+
+  .roster-cell.tags {
+    flex: 0 0 120px;
+  }
+
+  .roster-cell.reads {
+    flex: 0 0 80px;
+    text-align: right;
+  }
+</style>
+
+<script>
+  const grids = document.querySelectorAll('.roster-grid');
+  
+  grids.forEach(grid => {
+    let selectedIndex = -1;
+    const rows = grid.querySelectorAll('.roster-row');
+    
+    // Click handler
+    rows.forEach((row, index) => {
+      row.addEventListener('click', (e) => {
+        const href = (e.currentTarget as HTMLElement).dataset.href;
+        if (href) {
+          window.location.href = href;
+        }
+      });
+    });
+    
+    // Keyboard navigation
+    grid.addEventListener('keydown', (e) => {
+      const key = e.key;
+      
+      if (key === 'ArrowDown' || key === 'ArrowUp') {
+        e.preventDefault();
+        
+        // Clear previous selection
+        if (selectedIndex >= 0) {
+          rows[selectedIndex].classList.remove('selected');
+        }
+        
+        // Update selection
+        if (key === 'ArrowDown') {
+          selectedIndex = Math.min(selectedIndex + 1, rows.length - 1);
+        } else {
+          selectedIndex = Math.max(selectedIndex - 1, 0);
+        }
+        
+        // Apply new selection
+        if (selectedIndex >= 0) {
+          rows[selectedIndex].classList.add('selected');
+          rows[selectedIndex].scrollIntoView({ block: 'nearest' });
+        }
+      } else if (key === 'Enter' && selectedIndex >= 0) {
+        const href = (rows[selectedIndex] as HTMLElement).dataset.href;
+        if (href) {
+          window.location.href = href;
+        }
+      }
+    });
+  });
+</script>
