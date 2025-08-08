@@ -50,3 +50,4 @@ This is an Astro-based blog starter template configured as a GitHub Pages site a
 - Global constants in `src/consts.ts` (SITE_TITLE, SITE_DESCRIPTION)
 - Markdown syntax highlighting: GitHub Dark theme with line wrapping
 - Integrations: MDX, Sitemap, RSS Feed
+- 기존 포스트 백업 경로 :  /Users/kaflix/Downloads/birdspring.ghost.2025-08-08-00-03-58.json
