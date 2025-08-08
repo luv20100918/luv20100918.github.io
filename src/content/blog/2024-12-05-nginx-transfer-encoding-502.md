@@ -4,9 +4,10 @@ description: "문제발생  아… 개발서버를 다른 서버로 바꿨는데
 pubDate: 2024-12-05
 ---
 
-## 문제발생아… 개발서버를 다른 서버로 바꿨는데 위와 같은 오류가 발생했다. 정상적인 API와 위처럼 오류나는 API가 같이 발생되는 상황이라 왜지? 의문이 들었
+## 문제발생아… 개발서버를 다른
 
-다.
+서버로 바꿨는데 위와 같은 오류가 발생했다. 정상적인 API와 위처럼 오류나는 API가 같이 발생되는 상황이라 왜지? 의문이 들었
+## 문제발생아… 개발서버를 다른 서버로 바꿨는데 위와 같은 오류가 발생했다. 정상적인 API와 위처럼 오류나는 API가 같이 발생되는 상황이라 왜지? 의문이 들었 다.
 
 여러 API를 비교해보니 비정상적인 API는 내부적으로 다른 마이크로서비스를 호출하는 API들이었다. 그래서 거처가는 모든 백앤드의 로그를 살펴봤는데 로그들이 정상적으로 출력되는 것이 아닌가? 어라? 결국은 마지막에 리턴하는 웹서버의 문제인가? 라는 합리적인 의심이 들었다.
 ![(nginx를 거처서 가면 502, A를 호출하면 B까지 갔다가 정상적으로 200)](/content/images/2024/12/DraggedImage-1.png)(nginx를 거처서 가면 502, A를 호출하면 B까지 갔다가 정상적으로 200)Nginx ingress 컨트롤러 로그를 살펴보니 아래와 같았다.
@@ -15,11 +16,13 @@ pubDate: 2024-12-05
 
 ```
 
+## 여러가지 시도먼저 위
+
+현상을 보고 짐작했던 부분은 nginx가 뭔가 다르게 동작한다는 것이었다. 왜냐하면 기존서버에서는 해더에 transfer-encoding가 똑같이 두개씩 내려오고 있었는데 정상적으로 동작하고 있었기 때문이다. 그래서 요즘 문제가 생기는 나를 도와주고 있는 쳇쥐피티에게 물어봤지만 다 소용없었다.
 ## 여러가지 시도먼저 위 현상을 보고 짐작했던 부분은 nginx가 뭔가 다르게 동작한다는 것이었다. 왜냐하면 기존서버에서는 해더에 transfer-encoding가 똑같이 두개씩 내려오고 있었는데 정상적으로 동작하고 있었기 때문이다. 그래서 요즘 문제가 생기는 나를 도와주고 있는 쳇쥐피티에게 물어봤지만 다 소용없었다.
-적용해서 실패한 내용은 대충 설명하면,
+
 http2로 백엔드를 변경 -> 실패
-Feignclient 에 리퀘스트해더 부분에 content-length 를 설정 -> 실패(이건 요청해더를 왜 수정하는지 모르겠다.)
-서블릿필터를 적용해서 관련 해더 제거 -> 실패
+Feignclient 에 리퀘스트해더 부분에 content-length 를 설정 -> 실패(이건 요청해더를 왜 수정하는지 모르겠다.) 서블릿필터를 적용해서 관련 해더 제거 -> 실패
 점점 열이 올라왔다.
 참고로 내가 문제를 겪고 있는 환경은 스프링 2.5.5 버전에 다른 서버랑 통신하는 모듈은 openfeign을 사용하고 있다. 쿠버네티스기반의 마이크로서비스 구성이다.
 그리고 기존의 구 쿠버네티스 환경에서 이번에 신 쿠버네티스 환경으로 어플리케이션들을 이관하고 있는 중이다.
@@ -30,11 +33,9 @@ Feignclient 에 리퀘스트해더 부분에 content-length 를 설정 -> 실패
 결국 문제는 내가 호출하는 컨트롤러등에서 또 다른 서버를 feign client로 호출하면 Transfer-Encoding 응답헤더가 두개가 생긴다. 컨트롤러 내부에서 다른 서버 호출하는 로직이 없으면 Transfer-Encoding 응답헤더가 하나만 존재함 을 확인했다.
 ```
 connection: keep-alive
-date: Wed, 04 Dec 2024 13:54:33 GMT
-keep-alive: timeout=60
+date: Wed, 04 Dec 2024 13:54:33 GMT keep-alive: timeout=60
 transfer-encoding: chunked <<-- 여기부분이 있고 없고 차이
-Content-Type: application/json
-Transfer-Encoding: chunked
+Content-Type: application/json Transfer-Encoding: chunked
 
 ```
 
@@ -45,8 +46,7 @@ Transfer-Encoding: chunked
 public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
-    public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return true;
+public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) { return true;
     }
 
     @Override
@@ -54,20 +54,15 @@ public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
                                   org.springframework.http.MediaType selectedContentType,
                                   Class<? extends HttpMessageConverter<?>> selectedConverterType,
                                   org.springframework.http.server.ServerHttpRequest request,
-                                  org.springframework.http.server.ServerHttpResponse response) {
-        // Transfer-Encoding 헤더 제거
-        response.getHeaders().remove("Transfer-Encoding");
-        return body;
-    }
-}
+org.springframework.http.server.ServerHttpResponse response) { // Transfer-Encoding 헤더 제거
+response.getHeaders().remove("Transfer-Encoding"); return body;
+} }
 
 ```
 
 위와 같이 컨트롤러어드바이스를 만들어서 적용했더니 두개씩 출력되던 transfer-encoding가 하나만 응답으로 내려왔다. 살짝 감동하고 개발서버에 업로드 했는데 여전히 두개가 튀어나오면서 502 에러가 발생하는 거다.
 
-
 ## 해결결론 부터 말하면,
-
 
 ```
 response.getHeaders().remove("transfer-encoding");

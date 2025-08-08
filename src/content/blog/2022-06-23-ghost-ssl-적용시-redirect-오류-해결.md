@@ -18,15 +18,12 @@ Bitnami 고스트가 설치되기 때문에, bncert-tool를 사용해서 SSL 설
 면,
 
 아래처럼 IP로 redirect 된다.
-내기준으로 /opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf
-SSL 처리한 Conf 파일을 연다.
+내기준으로 /opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf SSL 처리한 Conf 파일을 연다.
 ```
-<VirtualHost _default_:443>
-...
+<VirtualHost _default_:443> ...
 //여기 사이에 아래코드를 삽입한다. 
 RequestHeader set X-Forwarded-Proto "https"
-RequestHeader set X-Forwarded-Port "443"
-...
+RequestHeader set X-Forwarded-Port "443" ...
 </VirtualHost>
 
 ```
@@ -36,10 +33,8 @@ Nginx로 설치 했다고 해도 비슷한 처리가 필요하다. 아래 처리
 location / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header Host $host;
-        proxy_pass http://127.0.0.1:2368;
-    }
+proxy_set_header X-Real-IP $remote_addr; proxy_set_header Host $host;
+proxy_pass http://127.0.0.1:2368; }
 
 ```
 

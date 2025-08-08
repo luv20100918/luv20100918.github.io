@@ -40,17 +40,14 @@ brew install mysql
 
 MySql을 실행한다.
 
-mysql.server start
-MySQL 설정으로 넘어간다.
+mysql.server start MySQL 설정으로 넘어간다.
 
 mysql_secure_installation
 Would you like to setup VALIDATE PASSWORD component?(비밀번호 가이드 설정에 대한 질문)yes: 복잡한 비밀번호no: 쉬운 비밀번호Remove anonymous users? (Press y|Y for Yes. any other key for No)(사용자 설정에 관한 질문)yes: 접속시 -u 옵션필요no: 접속시 -u 옵션 불필요Disallow root login remotely? (Press y|Y for Yes, any other key for No)(다른 IP에서 root 아이디로 원격접속을 설정)yes: 원격접속 불가능no: 원격접속 가능Remove test database and access to it? (Press y|Y for Yes, any other key for No)(테스트 데이터베이스 설정)yes: 테스트 데이터베이스 제거no: 테스트 데이터베이스 유지Reload privilege tables now? (Press y|Y for Yes, any other key for No)(변경된 권한을 테이블에 적용)yes: 적용no: 미적용아래 명렁어를 입력한 후, 비밀번호 입력 후 접속
 
-mysql -uroot -p
-로그아웃
+mysql -uroot -p 로그아웃
 
-quit or exit
-MySQL 서버 종료
+quit or exit MySQL 서버 종료
 
 mysql.server stop
 ### MySQL 삭

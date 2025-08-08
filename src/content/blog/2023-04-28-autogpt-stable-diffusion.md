@@ -27,8 +27,7 @@ vi webui-macos-env.sh
 
 ```
 
-위 명령어를 치면, 아래처럼 내용이 나오는데,
-```
+위 명령어를 치면, 아래처럼 내용이 나오는데, ```
 
 # !/bin/bash
 ####################################################################
@@ -39,10 +38,8 @@ vi webui-macos-env.sh
 
 ####################################################################
 
-if [[ -x "$(command -v python3.10)" ]]
-then
-    python_cmd="python3.10"
-fi
+if [[ -x "$(command -v python3.10)" ]] then
+python_cmd="python3.10" fi
 
 export install_dir="$HOME"
 export COMMANDLINE_ARGS="--skip-torch-cuda-test --upcast-sampling --no-half-vae --use-cpu interrogate"

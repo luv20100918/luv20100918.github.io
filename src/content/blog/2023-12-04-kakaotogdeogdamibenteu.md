@@ -1,6 +1,6 @@
 ---
 title: "카카오톡덕담이벤트"
-description: "#이모티콘12주년"
+description: "이모티콘12주년"
 pubDate: 2023-12-04
 updatedDate: 2023-12-15
 ---

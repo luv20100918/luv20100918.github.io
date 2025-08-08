@@ -40,8 +40,7 @@ n)
 
 ALLOW GROUP Administrators to manage all-resources IN TENANCY
 ALLOW GROUP Administrators to use cloud-shell IN TENANCY
-ALLOW GROUP Administrators to use cloud-shell-public-network IN TENANCY
-참고로 정책은 아래 메뉴에 있다.
+ALLOW GROUP Administrators to use cloud-shell-public-network IN TENANCY 참고로 정책은 아래 메뉴에 있다.
 
 ![](/content/images/2024/08/DraggedImage-14.png)
 
@@ -265,15 +264,11 @@ ssh -i id_rsa opc@10.0.1.88
 
 (이런식으로 서버에 접속된 걸 확인할 수 있다.)아래 명령어를 순차적으로 실행하면 되는데 webserver2에서 사용할때는 아래 명령어중에 index.html 을 만드는 명령어에서 Web-Server1부분을 Web-server2라고 되어있는 부분을 변경해서 하자. 그래야지 로드밸런서 테스트를 할때 제대로 동작하는지 구분이 쉽다.
 
-sudo yum install httpd -y
-sudo apachectl start
-sudo systemctl enable httpd
-sudo apachectl configtest
-sudo firewall-cmd --permanent --zone=public --add-service=http 
-sudo firewall-cmd --reload
+sudo yum install httpd -y sudo apachectl start
+sudo systemctl enable httpd sudo apachectl configtest
+sudo firewall-cmd --permanent --zone=public --add-service=http sudo firewall-cmd --reload
 sudo bash -c 'echo This is my Web-Server1 running on Oracle Cloud Infrastructure &gt;&gt; /var/www/html/index.html'
-curl http://127.0.0.1/index.html
-그러면 마지막에
+curl http://127.0.0.1/index.html 그러면 마지막에
 
 This is my Web-Server1 running on Oracle Cloud Infrastructure
 
@@ -407,10 +402,8 @@ webserver1에 접속이 되어있지 않다면 접속을 다시 한다. webserve
 
 ssh -i id_rsa opc@10.0.1.88
 ls -l /dev/oracleoci/oraclevd*
-sudo mkfs -t ext4 /dev/oracleoci/oraclevdb
-sudo mkdir /mnt/disk1
-sudo mount /dev/oracleoci/oraclevdb /mnt/disk1
-df -h
+sudo mkfs -t ext4 /dev/oracleoci/oraclevdb sudo mkdir /mnt/disk1
+sudo mount /dev/oracleoci/oraclevdb /mnt/disk1 df -h
 위 명령어를 다 실행하면 아래 이미지 처럼 제일 하단에 disk1이 마운트된것을 확인할 수 있다.
 
 ![](/content/images/2024/08/DraggedImage-71.png)
@@ -437,8 +430,7 @@ df -h
 
 좌측하단에 복원을 클릭해서 다시 클라우드 쉘을 연다. 혹시 웹서버에 접속되어있는 상태라면 exit를 한다. ssh를 이용해서 DB에 접속한다.
 
-ssh -i id_rsa opc@wsdb.sub08270811351.revcn.oraclevcn.com
-디비서버에 접속이 된 상태가 되면 정상이다.
+ssh -i id_rsa opc@wsdb.sub08270811351.revcn.oraclevcn.com 디비서버에 접속이 된 상태가 되면 정상이다.
 
 ![](/content/images/2024/08/DraggedImage-75.png)
 
@@ -494,18 +486,15 @@ ssh -i id_rsa opc@wsdb.sub08270811351.revcn.oraclevcn.com
 
 sudo mkdir  /mnt/dmp
 sudo wget -P /mnt/dmp &lt; Pre-Authenticated  Request url &gt;
-sudo chown -R oracle:oinstall /mnt/dmp
-sudo ls -al /mnt/dmp
+sudo chown -R oracle:oinstall /mnt/dmp sudo ls -al /mnt/dmp
 위 명령어를 다 실행하면 해당폴더가 권한이 변경된 것 까지 확인이 된다.
 
 ![](/content/images/2024/08/DraggedImage-87.png)
 
 (wget을 할때 sudo로 안해서 몇번 에러가 났다.)덤프파일이 업로드 된것까지 확인이 되었으면, 오라클 계정으로 접속을 한다.
 
-sudo su -
-su - oracle
-id
-위 명령어를 실행하면 아래 처럼 출력이 된다.
+sudo su - su - oracle
+id 위 명령어를 실행하면 아래 처럼 출력이 된다.
 
 ![](/content/images/2024/08/DraggedImage-88.png)
 
@@ -536,14 +525,10 @@ PDB연결을 해야 한다. 아까 만든 데이터 베이스로 이동하면 �
 vi $ORACLE_HOME/network/admin/tnsnames.ora
 이미 내용이 있지만 그냥 두고 아래 설정을 기존 것의 아래로 추가한다.
 
-WS_PDB1=
-  (DESCRIPTION =
-    (ADDRESS = (PROTOCOL = TCP)(HOST = wsdb.sub08270811351.revcn.oraclevcn.com
-)(PORT = 1521))
-    (CONNECT_DATA =
-      (SERVER = DEDICATED)
-      (SERVICE_NAME = WS_PDB1.sub08270811351.revcn.oraclevcn.com )
-    )
+WS_PDB1= (DESCRIPTION =
+(ADDRESS = (PROTOCOL = TCP)(HOST = wsdb.sub08270811351.revcn.oraclevcn.com )(PORT = 1521))
+(CONNECT_DATA = (SERVER = DEDICATED)
+(SERVICE_NAME = WS_PDB1.sub08270811351.revcn.oraclevcn.com ) )
   )
 SERVICE_NAME 을 아까 복사해 놓은 쉬운접속경로에서 도메인과 포트를 제외한 뒷부분을 복사해서 대체한다.
 
@@ -563,8 +548,7 @@ impdp 'sys/@WS_PDB1 as sysdba' DIRECTORY=pump DUMPFILE=emp_dept.dmp LOGFILE=emp_
 
 위 명령어를 쳐야 하는데 PW부분을 첨에 설정한 비밀번호로 대체해야한다. DBCS생성할때 입력한 비밀번호를 기억해서 입력하면된다.
 
-impdp \'sys/WElcome##2024@WS_PDB1 as sysdba\' DIRECTORY=pump DUMPFILE=emp_dept.dmp LOGFILE=emp_dept.log 
-아 또 안됀다!!!
+impdp \'sys/WElcome##2024@WS_PDB1 as sysdba\' DIRECTORY=pump DUMPFILE=emp_dept.dmp LOGFILE=emp_dept.log 아 또 안됀다!!!
 
 ![](/content/images/2024/08/DraggedImage-96.png)
 

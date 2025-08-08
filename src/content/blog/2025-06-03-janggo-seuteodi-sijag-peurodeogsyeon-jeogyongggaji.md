@@ -41,8 +41,7 @@ python manage.py startapp myapp
 모델을 정의하고 데이터베이스에 적용한다.
 ```python
 class Post(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
+title = models.CharField(max_length=100) content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
 ```

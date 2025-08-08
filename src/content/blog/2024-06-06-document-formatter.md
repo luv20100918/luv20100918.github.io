@@ -26,40 +26,30 @@ Cormen</author><publisher>MIT Press</publisher><year>2009</year></book><book id=
 
 이렇게 예쁘게 고쳐준다.
 ```
-<library>
-  <book id="1">
+<library> <book id="1">
     <title>Introduction to Algorithms</title>
     <author>Thomas H. Cormen</author>
-    <publisher>MIT Press</publisher>
-    <year>2009</year>
-  </book>
-  <book id="2">
+<publisher>MIT Press</publisher> <year>2009</year>
+</book> <book id="2">
     <title>Clean Code</title>
     <author>Robert C. Martin</author>
-    <publisher>Prentice Hall</publisher>
-    <year>2008</year>
-  </book>
-  <book id="3">
-    <title>The Pragmatic Programmer</title>
-    <author>Andrew Hunt</author>
+<publisher>Prentice Hall</publisher> <year>2008</year>
+</book> <book id="3">
+<title>The Pragmatic Programmer</title> <author>Andrew Hunt</author>
     <author>David Thomas</author>
-    <publisher>Addison-Wesley</publisher>
-    <year>1999</year>
-  </book>
-  <book id="4">
-    <title>Design Patterns</title>
-    <author>Erich Gamma</author>
+<publisher>Addison-Wesley</publisher> <year>1999</year>
+</book> <book id="4">
+<title>Design Patterns</title> <author>Erich Gamma</author>
     <author>Richard Helm</author>
     <author>Ralph Johnson</author>
     <author>John Vlissides</author>
-    <publisher>Addison-Wesley</publisher>
-    <year>1994</year>
-  </book>
-</library>
+<publisher>Addison-Wesley</publisher> <year>1994</year>
+</book> </library>
 
 ```
 
 ## JSON을 예쁘게```
+
 {"timestamp":"2024-06-05T15:51:54.946","result":200,"msg":"OK","data":{"orderNo":"1","vendorOrderNo":"2","apiOrderNo":"3"}}
 
 ```
@@ -68,14 +58,10 @@ Cormen</author><publisher>MIT Press</publisher><year>2009</year></book><book id=
 우측상단의 COPY버튼을 클릭해서 복사해서 붙여보면 아래와 같이 아름다운 문자열을 볼 수 있다.
 ```
 {
-  "timestamp": "2024-06-05T15:51:54.946",
-  "result": 200,
-  "msg": "OK",
-  "data": {
-    "orderNo": "1",
-    "vendorOrderNo": "2",
-    "apiOrderNo": "3"
-  }
+"timestamp": "2024-06-05T15:51:54.946", "result": 200,
+"msg": "OK", "data": {
+"orderNo": "1", "vendorOrderNo": "2",
+"apiOrderNo": "3" }
 }
 
 ```

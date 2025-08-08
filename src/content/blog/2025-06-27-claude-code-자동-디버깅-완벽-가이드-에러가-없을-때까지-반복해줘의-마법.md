@@ -15,19 +15,14 @@ Claude Code는 Anthropic에서 출시한 AI 기반 코딩 도구로, 터미널�
 
 ### 기존 방식 (수동 디버깅)
 
-1. "이 코드를 작성해줘"
-2. 코드를 받아서 실행
-3. 에러 발생
-4. "이런 에러가 났어, 수정해줘"
-5. 수정된 코드 받기
-6. 다시 실행
-7. 또 다른 에러 발생
-8. 반복...
+1. "이 코드를 작성해줘" 2. 코드를 받아서 실행
+3. 에러 발생 4. "이런 에러가 났어, 수정해줘"
+5. 수정된 코드 받기 6. 다시 실행
+7. 또 다른 에러 발생 8. 반복...
 
 ### Claude Code 방식 (자동 디버깅)
 
-1. "이 프로그램을 작성하고, 실행해서 에러가 없을 때까지 
-   자동으로 수정하고 실행을 반복해줘"
+1. "이 프로그램을 작성하고, 실행해서 에러가 없을 때까지 자동으로 수정하고 실행을 반복해줘"
 2. 완성된 코드 받기!
 
 차이가 느껴지시나요? Claude Code는 우리가 하던 반복 작업을 모두 자동으로 처리합니다.
@@ -36,11 +31,9 @@ Claude Code는 Anthropic에서 출시한 AI 기반 코딩 도구로, 터미널�
 
 ### 기본 템플릿
 
-다음 요구사항에 맞는 프로그램을 작성해주세요:
-[요구사항 설명]
+다음 요구사항에 맞는 프로그램을 작성해주세요: [요구사항 설명]
 
-작성 후 다음 단계를 따라주세요:
-1. 프로그램을 실행하여 정상 동작하는지 확인
+작성 후 다음 단계를 따라주세요: 1. 프로그램을 실행하여 정상 동작하는지 확인
 2. 에러가 발생하면 에러 메시지를 분석하여 수정
 3. 모든 기능이 정상적으로 동작할 때까지 1-2단계를 반복
 4. 최종적으로 에러 없이 실행되는 완성된 코드를 제공
@@ -54,12 +47,9 @@ Claude Code는 Anthropic에서 출시한 AI 기반 코딩 도구로, 터미널�
 - 테스트 2: [입력] → [예상 출력]
 - 테스트 3: [엣지 케이스]
 
-구현 과정:
-1. 초기 코드 작성
-2. 각 테스트 케이스 실행
-3. 실패한 테스트가 있다면 원인 분석 후 수정
-4. 모든 테스트가 통과할 때까지 반복
-5. 추가로 발견한 엣지 케이스도 처리
+구현 과정: 1. 초기 코드 작성
+2. 각 테스트 케이스 실행 3. 실패한 테스트가 있다면 원인 분석 후 수정
+4. 모든 테스트가 통과할 때까지 반복 5. 추가로 발견한 엣지 케이스도 처리
 
 각 수정 시 어떤 문제를 해결했는지 간단히 설명해주세요.
 
@@ -73,22 +63,17 @@ Python으로 Hacker News의 상위 10개 게시물을 스크래핑하는 프로�
 각 게시물의 제목, URL, 포인트, 댓글 수를 추출해서 JSON 파일로 저장해야 해.
 
 프로그램을 실행해보고:
-1. 네트워크 에러, 파싱 에러 등이 발생하면 자동으로 수정
-2. 데이터가 비어있거나 잘못된 형식이면 수정
+1. 네트워크 에러, 파싱 에러 등이 발생하면 자동으로 수정 2. 데이터가 비어있거나 잘못된 형식이면 수정
 3. 최종적으로 valid한 JSON 파일이 생성될 때까지 반복
 
 추가로 rate limiting이나 timeout 처리도 포함해줘.
 
 **Claude Code의 작업 과정:**
 
-1. 초기 코드 작성 (requests, BeautifulSoup 사용)
-2. 실행 → ImportError 발생
-3. 필요한 패키지 설치 코드 추가
-4. 재실행 → 파싱 에러 발생
-5. HTML 구조 분석 후 셀렉터 수정
-6. 재실행 → 일부 필드 누락 발견
-7. 예외 처리 및 기본값 설정 추가
-8. 최종 테스트 → 성공!
+1. 초기 코드 작성 (requests, BeautifulSoup 사용) 2. 실행 → ImportError 발생
+3. 필요한 패키지 설치 코드 추가 4. 재실행 → 파싱 에러 발생
+5. HTML 구조 분석 후 셀렉터 수정 6. 재실행 → 일부 필드 누락 발견
+7. 예외 처리 및 기본값 설정 추가 8. 최종 테스트 → 성공!
 
 ### 예시 2: REST API 서버
 
@@ -100,13 +85,10 @@ Node.js와 Express로 간단한 TODO API를 만들어줘.
 - PUT /todos/:id - 할일 수정
 - DELETE /todos/:id - 할일 삭제
 
-구현 요구사항:
-1. 메모리에 데이터 저장 (DB 없이)
-2. 입력 검증 포함
-3. 적절한 HTTP 상태 코드 반환
+구현 요구사항: 1. 메모리에 데이터 저장 (DB 없이)
+2. 입력 검증 포함 3. 적절한 HTTP 상태 코드 반환
 
-서버를 실행하고 curl이나 별도 테스트로 각 엔드포인트를 확인해서
-모든 API가 정상 동작할 때까지 디버깅을 계속해줘.
+서버를 실행하고 curl이나 별도 테스트로 각 엔드포인트를 확인해서 모든 API가 정상 동작할 때까지 디버깅을 계속해줘.
 각 엔드포인트별로 정상 케이스와 에러 케이스를 모두 테스트해줘.
 
 ### 예시 3: 데이터 처리 파이프라인 (상세 로그 포함)
@@ -115,10 +97,8 @@ Node.js와 Express로 간단한 TODO API를 만들어줘.
 
 CSV 파일을 읽어서 데이터를 정제하고 분석하는 Python 스크립트를 작성해줘.
 
-요구사항:
-1. sales_data.csv 파일 읽기
-2. 누락된 데이터 처리
-3. 월별 매출 집계
+요구사항: 1. sales_data.csv 파일 읽기
+2. 누락된 데이터 처리 3. 월별 매출 집계
 4. 상위 10개 제품 추출
 5. 결과를 차트로 시각화하고 report.pdf로 저장
 
@@ -137,46 +117,38 @@ CSV 파일을 읽어서 데이터를 정제하고 분석하는 Python 스크립�
 ```bash
 $ python data_analysis.py
 Traceback (most recent call last):
-  File "data_analysis.py", line 2, in <module>
-    import pandas as pd
-ModuleNotFoundError: No module named 'pandas'
-```
+File "data_analysis.py", line 2, in <module> import pandas as pd
+ModuleNotFoundError: No module named 'pandas' ```
 
 **Claude Code: pandas 설치 추가**
 ```bash
-$ pip install pandas matplotlib seaborn
-```
+$ pip install pandas matplotlib seaborn ```
 
 **2차 시도**
 ```bash
 $ python data_analysis.py
-FileNotFoundError: [Errno 2] No such file or directory: 'sales_data.csv'
-```
+FileNotFoundError: [Errno 2] No such file or directory: 'sales_data.csv' ```
 
 **Claude Code: 파일 존재 여부 확인 코드 추가**
 ```python
 if not os.path.exists('sales_data.csv'):
-    print("Creating sample data...")
-    create_sample_data()
+print("Creating sample data...") create_sample_data()
 ```
 
 **3차 시도**
 ```bash
 $ python data_analysis.py
-ValueError: could not convert string to float: 'N/A'
-```
+ValueError: could not convert string to float: 'N/A' ```
 
 **Claude Code: 데이터 정제 로직 추가**
 ```python
 df['sales'] = pd.to_numeric(df['sales'], errors='coerce')
-df['sales'].fillna(df['sales'].mean(), inplace=True)
-```
+df['sales'].fillna(df['sales'].mean(), inplace=True) ```
 
 **4차 시도**
 ```bash
 $ python data_analysis.py
-Success! Report generated: report.pdf
-```
+Success! Report generated: report.pdf ```
 
 ## 실제 프로젝트에서의 Claude Code 활용
 
@@ -187,12 +159,9 @@ Success! Report generated: report.pdf
 - 모델: BERT 기반 분류기
 - 목표 정확도: 85% 이상
 
-구현하면서:
-1. 데이터 로딩 에러 처리
-2. GPU/CPU 자동 감지
-3. 메모리 부족 시 배치 크기 자동 조정
-4. 학습 중 발생하는 모든 에러 자동 해결
-5. 목표 정확도 달성할 때까지 하이퍼파라미터 조정
+구현하면서: 1. 데이터 로딩 에러 처리
+2. GPU/CPU 자동 감지 3. 메모리 부족 시 배치 크기 자동 조정
+4. 학습 중 발생하는 모든 에러 자동 해결 5. 목표 정확도 달성할 때까지 하이퍼파라미터 조정
 
 각 에러 해결 과정을 로그로 남겨줘.
 
@@ -207,10 +176,8 @@ React + TypeScript + Next.js로 실시간 채팅 애플리케이션을 만들어
 - 파일 업로드
 - 이모지 반응
 
-자동 디버깅 요구사항:
-1. TypeScript 타입 에러 모두 해결
-2. WebSocket 연결 실패 시 재연결 로직
-3. CORS 에러 자동 해결
+자동 디버깅 요구사항: 1. TypeScript 타입 에러 모두 해결
+2. WebSocket 연결 실패 시 재연결 로직 3. CORS 에러 자동 해결
 4. 프로덕션 빌드 에러 수정
 5. 모든 브라우저에서 테스트 (Chrome, Firefox, Safari)
 
@@ -220,18 +187,15 @@ React + TypeScript + Next.js로 실시간 채팅 애플리케이션을 만들어
 
 ### 1. 명확한 성공 기준 제시
 
-❌ "제대로 동작할 때까지 수정해줘"
-✅ "다음 조건을 모두 만족할 때까지 수정해줘:
+❌ "제대로 동작할 때까지 수정해줘" ✅ "다음 조건을 모두 만족할 때까지 수정해줘:
     - 서버가 3000번 포트에서 실행됨
     - 모든 API 엔드포인트가 200 응답 반환
     - 잘못된 입력에 대해 400 에러와 설명 메시지 반환"
 
 ### 2. 단계별 검증 요청
 
-"각 기능을 구현할 때마다:
-1. 해당 기능만 독립적으로 테스트
-2. 이전 기능들과의 통합 테스트
-3. 전체 시스템 테스트
+"각 기능을 구현할 때마다: 1. 해당 기능만 독립적으로 테스트
+2. 이전 기능들과의 통합 테스트 3. 전체 시스템 테스트
 순서로 검증해줘"
 
 ### 3. 에러 패턴 학습 요청
@@ -244,8 +208,7 @@ React + TypeScript + Next.js로 실시간 채팅 애플리케이션을 만들어
 
 ### 4. 반복 횟수 제한
 
-"최대 10번까지 시도하고, 그래도 해결되지 않으면
-현재까지의 진행 상황과 남은 문제점을 정리해줘"
+"최대 10번까지 시도하고, 그래도 해결되지 않으면 현재까지의 진행 상황과 남은 문제점을 정리해줘"
 
 ### 5. 환경별 테스트 자동화
 
@@ -259,28 +222,21 @@ React + TypeScript + Next.js로 실시간 채팅 애플리케이션을 만들어
 
 ### 성능 최적화까지 자동화
 
-"프로그램이 정상 동작하게 된 후:
-1. 실행 시간 측정
-2. 메모리 사용량 확인
-3. 병목 구간 찾아서 최적화
+"프로그램이 정상 동작하게 된 후: 1. 실행 시간 측정
+2. 메모리 사용량 확인 3. 병목 구간 찾아서 최적화
 4. 실행 시간이 50% 이상 단축될 때까지 반복"
 
 ### 코드 품질 개선 자동화
 
-"에러가 모두 해결된 후:
-1. ESLint/Pylint 실행
-2. 발견된 코드 스타일 이슈 수정
-3. 복잡도가 높은 함수 리팩토링
+"에러가 모두 해결된 후: 1. ESLint/Pylint 실행
+2. 발견된 코드 스타일 이슈 수정 3. 복잡도가 높은 함수 리팩토링
 4. 테스트 커버리지 80% 이상 달성"
 
 ### 보안 취약점 자동 수정
 
-"코드 완성 후:
-1. npm audit 실행하여 취약점 확인
-2. SQL Injection 취약점 검사
-3. XSS 공격 가능성 확인
-4. 발견된 모든 보안 이슈 자동 수정
-5. OWASP Top 10 기준으로 재검사"
+"코드 완성 후: 1. npm audit 실행하여 취약점 확인
+2. SQL Injection 취약점 검사 3. XSS 공격 가능성 확인
+4. 발견된 모든 보안 이슈 자동 수정 5. OWASP Top 10 기준으로 재검사"
 
 ## Claude Code와 다른 도구의 비교
 
@@ -305,28 +261,23 @@ React + TypeScript + Next.js로 실시간 채팅 애플리케이션을 만들어
 
 # 1. requirements.txt 자동 생성
 # 2. pip install -r requirements.txt 실행
-# 3. 가상환경 설정 추가
-```
+# 3. 가상환경 설정 추가 ```
 
 ### 2. 타입 에러
+
 ```javascript
 
-// 에러: Type 'string' is not assignable to type 'number'
-// Claude Code의 해결:
-// 1. 타입 정의 수정
-// 2. 타입 가드 추가
-// 3. 제네릭 사용으로 유연성 확보
-```
+// 에러: Type 'string' is not assignable to type 'number' // Claude Code의 해결:
+// 1. 타입 정의 수정 // 2. 타입 가드 추가
+// 3. 제네릭 사용으로 유연성 확보 ```
 
 ### 3. 비동기 처리 에러
+
 ```javascript
 
-// 에러: UnhandledPromiseRejectionWarning
-// Claude Code의 해결:
-// 1. try-catch 블록 추가
-// 2. .catch() 체인 추가
-// 3. async/await 패턴으로 리팩토링
-```
+// 에러: UnhandledPromiseRejectionWarning // Claude Code의 해결:
+// 1. try-catch 블록 추가 // 2. .catch() 체인 추가
+// 3. async/await 패턴으로 리팩토링 ```
 
 ## 주의사항 및 한계
 
@@ -361,10 +312,8 @@ React와 Node.js로 간단한 블로그 시스템을 만들어줘.
 - 댓글 작성
 
 구현 과정:
-1. 백엔드 API 먼저 구현하고 Postman으로 테스트
-2. 모든 API가 정상 동작하면 프론트엔드 구현
-3. 프론트-백엔드 연동 테스트
-4. CORS, 인증 등의 이슈 자동 해결
+1. 백엔드 API 먼저 구현하고 Postman으로 테스트 2. 모든 API가 정상 동작하면 프론트엔드 구현
+3. 프론트-백엔드 연동 테스트 4. CORS, 인증 등의 이슈 자동 해결
 5. 최종적으로 전체 시스템이 동작할 때까지 반복
 
 각 단계별로 어떤 문제가 있었고 어떻게 해결했는지 기록해줘.

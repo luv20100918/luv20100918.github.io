@@ -8,10 +8,8 @@ updatedDate: 2023-03-31
 제목 그대로 오류가 발생했다. aaa는 임의로 설정한 키값이다.
 일반적으로 스프링 @Controller에서 리다이렉트가 필요할 때, 아래와 같이 많이 쓴다.
 ```javascript
-public String myRedirect(Model model, HttpServletRequest req) {
-   ...
-	return "redirect:/api/path?" + req.getQueryString();
-}
+public String myRedirect(Model model, HttpServletRequest req) { ...
+return "redirect:/api/path?" + req.getQueryString(); }
 
 ```
 
@@ -33,20 +31,15 @@ RedirectView 내부를 살펴보면 아래와 같은 코드가 있다.
 			throws UnsupportedEncodingException {
 
 		StringBuilder result = new StringBuilder();
-		Matcher matcher = URI_TEMPLATE_VARIABLE_PATTERN.matcher(targetUrl);
-		int endLastMatch = 0;
+Matcher matcher = URI_TEMPLATE_VARIABLE_PATTERN.matcher(targetUrl); int endLastMatch = 0;
 		while (matcher.find()) {
 			String name = matcher.group(1);
-			Object value = (model.containsKey(name) ? model.remove(name) : currentUriVariables.get(name));
-			if (value == null) {
-				throw new IllegalArgumentException("Model has no value for key '" + name + "'");
-			}
+Object value = (model.containsKey(name) ? model.remove(name) : currentUriVariables.get(name)); if (value == null) {
+throw new IllegalArgumentException("Model has no value for key '" + name + "'"); }
 			result.append(targetUrl, endLastMatch, matcher.start());
-			result.append(UriUtils.encodePathSegment(value.toString(), encodingScheme));
-			endLastMatch = matcher.end();
+result.append(UriUtils.encodePathSegment(value.toString(), encodingScheme)); endLastMatch = matcher.end();
 		}
-		result.append(targetUrl.substring(endLastMatch));
-		return result;
+result.append(targetUrl.substring(endLastMatch)); return result;
 	}
 
 ```
@@ -59,19 +52,18 @@ private static final Pattern URI_TEMPLATE_VARIABLE_PATTERN = Pattern.compile("\\
 ```
 
 정규식 패턴인데 {([^/]+?)} 가 뭐하는 녀석일까?
-[https://regex101.com](https://regex101.com)
-정규식 테스트 사이트로 이동해서 입력해본다.
+[https://regex101.com](https://regex101.com) 정규식 테스트 사이트로 이동해서 입력해본다.
 ![java8로 설정하고 패턴부분을 붙여서 넣었다.](/content/images/2022/07/-----------2022-07-30------12.12.09.png)
 
 java8로 설정하고 패턴부분을 붙여서 넣었다.대충 살펴보면 중괄호가 있고 안에 그룹으로 / 가 아닌것들로 1개이상문자열과 매칭되는것 같다.
 매칭되는 것들을 키로 인식하고 키에대한 벨류가 설정이 되어야 오류가 없을 것으로 보인다.
 
-## 해결키로 사용되는게 의도한 것이었다면, RedirectAttributes 를 인자로 받아서 addAttribute(“aaa”, 값); 을 설정해주면 오류가 해결되지만, 여기서는 단지 query 라는 키에 {aaa}라는 값을 가진 파라미터를 가진 URL로 리다이렉트를 하고 싶은거였
+## 해결키로 사용되는게
 
-다.
+의도한 것이었다면, RedirectAttributes 를 인자로 받아서 addAttribute(“aaa”, 값); 을 설정해주면 오류가 해결되지만, 여기서는 단지 query 라는 키에 {aaa}라는 값을 가진 파라미터를 가진 URL로 리다이렉트를 하고 싶은거였
+## 해결키로 사용되는게 의도한 것이었다면, RedirectAttributes 를 인자로 받아서 addAttribute(“aaa”, 값); 을 설정해주면 오류가 해결되지만, 여기서는 단지 query 라는 키에 {aaa}라는 값을 가진 파라미터를 가진 URL로 리다이렉트를 하고 싶은거였 다.
 
-조금 더 상황설명을 상세하게 하면 리다이렉트를 하는 부분이 AOP로 처리된 부분이었는데 어떤 특정 조건에서 전달받은 모든 파라미터를 유지한 채 다른 URL로 리다이렉트를 하는 로직이다. 문제는 여기서 설정한 포인트컷에 해당되는 메소드 모두에 RedirectAttributes 를 추가 설정하는 것은 무리였다. 그래서 선택한 해결책은 아래와 같다.(Alan solved it.)
-```javascript
+조금 더 상황설명을 상세하게 하면 리다이렉트를 하는 부분이 AOP로 처리된 부분이었는데 어떤 특정 조건에서 전달받은 모든 파라미터를 유지한 채 다른 URL로 리다이렉트를 하는 로직이다. 문제는 여기서 설정한 포인트컷에 해당되는 메소드 모두에 RedirectAttributes 를 추가 설정하는 것은 무리였다. 그래서 선택한 해결책은 아래와 같다.(Alan solved it.) ```javascript
 HttpServletResponse response= ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getResponse();
 
 response.sendRedirect("/api/path?" + req.getQueryString(););

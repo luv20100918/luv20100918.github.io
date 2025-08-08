@@ -19,29 +19,24 @@ updatedDate: 2023-03-31
 
 brew로 진행한다.
 brew가 없다면 다음사이트를 참조해서 설치를 진행하면 된다.
-[https://brew.sh/index_ko](https://brew.sh/index_ko)
-```
+[https://brew.sh/index_ko](https://brew.sh/index_ko) ```
 brew install openfortivpn
 
 ```
 
-만약 설치가 진행안되고 멈춰있다면,
-```
+만약 설치가 진행안되고 멈춰있다면, ```
 Brew update 
 
 ```
 
 를 실행하고 다시 설치한다.
 설치가 완료되면,
-(아래 아이피나 인증키등의 정보는 실제와 다른 정보입니다.)
-```
-> sudo openfortivpn 000.000.000.000:00000 --username=jjang
-Password:
+(아래 아이피나 인증키등의 정보는 실제와 다른 정보입니다.) ```
+> sudo openfortivpn 000.000.000.000:00000 --username=jjang Password:
 VPN account password: 
 ERROR:  Gateway certificate validation failed, and the certificate digest is not in the local whitelist. If you trust it, rerun with:
 ERROR:      --trusted-cert 5f1bd52e2fb4d857001d034e51c2a40fe805cf65349821859e0f0e2bbfbca15a
-ERROR:  or add this line to your configuration file:
-...
+ERROR:  or add this line to your configuration file: ...
 INFO:   Could not log out.
 
 ```
@@ -52,20 +47,16 @@ sudo openfortivpn 000.000.000.000:00000 --username=jjang --trusted-cert 5f1bd52e
 
 ```
 
-인증서를 신뢰한다는 옵션을 추가로 지정하고 실행하면,
-```
-> sudo openfortivpn 000.000.000.000:00000 --username=jjang --trusted-cert 5f1bd52e2fb4d857001d034e51c2a40fe805cf65349821859e0f0e2bbfbca15a
-Password:
-VPN account password: 
-INFO:   Connected to gateway.
+인증서를 신뢰한다는 옵션을 추가로 지정하고 실행하면, ```
+> sudo openfortivpn 000.000.000.000:00000 --username=jjang --trusted-cert 5f1bd52e2fb4d857001d034e51c2a40fe805cf65349821859e0f0e2bbfbca15a Password:
+VPN account password: INFO:   Connected to gateway.
 INFO:   Authenticated.
 INFO:   Remote gateway has allocated a VPN.
 WARN:   No gateway address, using interface for routing
 Thu Jun 16 09:00:34 2022 : publish_entry SCDSet() failed: Success!
 Thu Jun 16 09:00:34 2022 : publish_entry SCDSet() failed: Success!
 Thu Jun 16 09:00:34 2022 : Using interface ppp0
-Thu Jun 16 09:00:34 2022 : Connect: ppp0 <--> /dev/ttys001
-...
+Thu Jun 16 09:00:34 2022 : Connect: ppp0 <--> /dev/ttys001 ...
 INFO:   Adding VPN nameservers...
 INFO:   Tunnel is up and running.
 
