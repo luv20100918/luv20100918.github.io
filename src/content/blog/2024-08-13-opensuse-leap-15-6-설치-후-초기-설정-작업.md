@@ -3,7 +3,6 @@ title: "openSUSE Leap 15.6 설치 후 초기 설정 작업"
 description: "시작하며  openSUSE Leap 15.6을 설치하고 나서, 바로 시스템 설정을 진행했다. 생각보다 할 게 많았지만, 하나씩 차근차근 해결해 나갔다. 이번 작업을 기록해두면 나중에 비슷한 상황에서 다시 참고할 수 있을 것 같다.  https://get.opensuse.org/leap/..."
 pubDate: '2024-08-13'
 updatedDate: '2024-08-13'
-heroImage: 'content/images/2024/08/openSuseHeaderImage.webp'
 ---
 
 ## 시작하며openSUSE Leap 15.6을 설치하고 나서, 바로 시스템 설정을 진행했다. 생각보다 할 게 많았지만, 하나씩 차근차근 해결해 나갔다. 이번 작업을 기록해두면 나중에 비슷한 상황에서 다시 참고할 수 있을 것 같다.

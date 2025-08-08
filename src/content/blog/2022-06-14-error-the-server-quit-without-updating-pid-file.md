@@ -3,7 +3,6 @@ title: "ERROR! The server quit without updating PID file"
 description: "문제해결문서로 mysql의 설치 삭제 반복으로 인한 제대로 삭제되지 않은 폴더로 인해 발생하는 오류를 해결한다."
 pubDate: '2022-06-14'
 updatedDate: '2023-03-31'
-heroImage: 'content/images/2023/03/00011-4248190633.jpg'
 ---
 
 ## 증상맥에서 mySql( 5.7 ) 설치 에러

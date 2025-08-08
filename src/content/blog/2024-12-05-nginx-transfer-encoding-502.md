@@ -2,12 +2,11 @@
 title: "Nginx 에서 transfer-encoding 관련 헤더 중복 오류 502"
 description: "문제발생  아… 개발서버를 다른 서버로 바꿨는데 위와 같은 오류가 발생했다. 정상적인 API와 위처럼 오류나는 API가 같이 발생되는 상황이라 왜지? 의문이 들었다.  여러 API를 비교해보니 비정상적인 API는 내부적으로 다른 마이크로서비스를 호출하는 API들이었다. 그래서 거처가는..."
 pubDate: '2024-12-05'
-heroImage: 'content/images/2024/12/DraggedImage-3.png'
 ---
 
 ## 문제발생아… 개발서버를 다른 서버로 바꿨는데 위와 같은 오류가 발생했다. 정상적인 API와 위처럼 오류나는 API가 같이 발생되는 상황이라 왜지? 의문이 들었다.
 여러 API를 비교해보니 비정상적인 API는 내부적으로 다른 마이크로서비스를 호출하는 API들이었다. 그래서 거처가는 모든 백앤드의 로그를 살펴봤는데 로그들이 정상적으로 출력되는 것이 아닌가? 어라? 결국은 마지막에 리턴하는 웹서버의 문제인가? 라는 합리적인 의심이 들었다.
-![(nginx를 거처서 가면 502, A를 호출하면 B까지 갔다가 정상적으로 200)](content/images/2024/12/DraggedImage-1.png)(nginx를 거처서 가면 502, A를 호출하면 B까지 갔다가 정상적으로 200)Nginx ingress 컨트롤러 로그를 살펴보니 아래와 같았다.
+![(nginx를 거처서 가면 502, A를 호출하면 B까지 갔다가 정상적으로 200)](/content/images/2024/12/DraggedImage-1.png)(nginx를 거처서 가면 502, A를 호출하면 B까지 갔다가 정상적으로 200)Nginx ingress 컨트롤러 로그를 살펴보니 아래와 같았다.
 ```
 2024/12/05 07:05:22 [error] 50#50: *2205044 upstream sent duplicate header line: "Transfer-Encoding: chunked", previous value: "transfer-encoding: chunked" while reading response header from upstream, client: x.x.x.x, server: example.com, request: "GET / HTTP/2.0"
 

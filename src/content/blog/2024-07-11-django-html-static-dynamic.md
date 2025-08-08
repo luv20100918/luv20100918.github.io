@@ -44,12 +44,12 @@ python -m venv myenv
 source myenv/bin/activate  # Windows에서는 `myenv\Scripts\activate`
 
 ```저는 python 이 2.x 버전이라서 python3 으로 실행하였습니다. 
-![](content/images/2024/07/image-1.png)이후, 가상환경 내에서 HTTP 서버를 실행합니다.
+![](/content/images/2024/07/image-1.png)이후, 가상환경 내에서 HTTP 서버를 실행합니다.
 ```
 python3 -m http.server 8000
 
 ```이 명령어를 실행하면, `http://localhost:8000`에서 HTML 파일을 확인할 수 있습니다.
-![](content/images/2024/07/image-2.png)(나오긴 하는데 한글이 깨지네요)#### 4. 장고 서비스장고 프로젝트를 시작하기 위해서는 먼저 가상환경에서 장고를 설치해야 합니다.
+![](/content/images/2024/07/image-2.png)(나오긴 하는데 한글이 깨지네요)#### 4. 장고 서비스장고 프로젝트를 시작하기 위해서는 먼저 가상환경에서 장고를 설치해야 합니다.
 ```
 pip install django
 
@@ -59,7 +59,7 @@ django-admin startproject mysite
 cd mysite
 python manage.py runserver
 
-```![](content/images/2024/07/-----------2024-07-10------5.33.51---------.webp)#### 5. 외부 데이터를 로딩하여 HTML 응답하기외부 데이터를 로딩하여 HTML로 응답하는 방법을 알아봅시다. 예를 들어, JSONPlaceholder API를 이용해 봅시다.
+```![](/content/images/2024/07/-----------2024-07-10------5.33.51---------.webp)#### 5. 외부 데이터를 로딩하여 HTML 응답하기외부 데이터를 로딩하여 HTML로 응답하는 방법을 알아봅시다. 예를 들어, JSONPlaceholder API를 이용해 봅시다.
 ```
 # views.py
 from django.shortcuts import render
@@ -137,5 +137,5 @@ TEMPLATES = [
 ]
 ```서버를 구동하고 아래 URL접근해봅니다.
 [http://127.0.0.1:8000/external-data/](http://127.0.0.1:8000/external-data/)
-![](content/images/2024/07/image-3.png)페이지 결과현재 폴더 구조 참고하세요.
-![](content/images/2024/07/image-4.png)#### 이렇게 웹 개발의 기초부터 시작해 장고를 이용한 동적 웹사이트 개발까지의 과정을 빠르게 살펴보았습니다. 다음 섹션에서는 각 주제를 더욱 깊이 있게 다뤄보겠습니다. 감사합니다!
+![](/content/images/2024/07/image-3.png)페이지 결과현재 폴더 구조 참고하세요.
+![](/content/images/2024/07/image-4.png)#### 이렇게 웹 개발의 기초부터 시작해 장고를 이용한 동적 웹사이트 개발까지의 과정을 빠르게 살펴보았습니다. 다음 섹션에서는 각 주제를 더욱 깊이 있게 다뤄보겠습니다. 감사합니다!

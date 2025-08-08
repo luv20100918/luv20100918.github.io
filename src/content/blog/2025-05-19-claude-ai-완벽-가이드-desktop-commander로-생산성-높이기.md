@@ -3,7 +3,6 @@ title: "Claude AI 완벽 가이드: Desktop Commander MCP로 생산성 높이기
 description: "Claude AI는 일상 업무와 프로그래밍을 더 효율적으로 만들어주는 강력한 도구입니다. 이 가이드에서는 Claude를 최대한 활용하는 방법과 특히 Desktop Commander MCP를 통해 어떻게 생산성을 높일 수 있는지 상세히 알아보겠습니다.   Claude란 무엇인가?  Cla..."
 pubDate: '2025-05-19'
 updatedDate: '2025-05-19'
-heroImage: 'https://images.unsplash.com/photo-1738107450304-32178e2e9b68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGNsYXVkZXxlbnwwfHx8fDE3NDc2MzEwNDV8MA&ixlib=rb-4.1.0&q=80&w=2000'
 ---
 
 Claude AI는 일상 업무와 프로그래밍을 더 효율적으로 만들어주는 강력한 도구입니다. 이 가이드에서는 Claude를 최대한 활용하는 방법과 특히 Desktop Commander MCP를 통해 어떻게 생산성을 높일 수 있는지 상세히 알아보겠습니다.

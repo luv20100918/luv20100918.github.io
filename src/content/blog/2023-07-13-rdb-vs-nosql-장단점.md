@@ -3,7 +3,6 @@ title: "RDB vs NoSQL 장단점"
 description: "RDB와 NoSQL은 데이터 저장 및 관리 방식에서 매우 다르다. 각각의 장단점을 비교해 본다.   장단점   RDB 장점   * 정형화된 데이터 처리에 최적화되어 있음  * 데이터의 무결성 유지 및 일관성 보장 용이  * JOIN을 사용하여 여러 테이블에서 데이터 쉽게 가져올 수 있음..."
 pubDate: '2023-07-13'
 updatedDate: '2023-08-27'
-heroImage: 'https://images.unsplash.com/photo-1483736762161-1d107f3c78e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGRhdGFiYXNlfGVufDB8fHx8MTY5MzExNzYxN3ww&ixlib=rb-4.0.3&q=80&w=2000'
 ---
 
 RDB와 NoSQL은 데이터 저장 및 관리 방식에서 매우 다르다. 각각의 장단점을 비교해 본다.

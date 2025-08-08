@@ -3,7 +3,6 @@ title: "MySql on OSX"
 description: "맥에 mysql을 설치할 수 있도록 가이드 합니다. 홈브류설치부터 DBMS설치 끝까지 문서를 보고 따라하면됩니다."
 pubDate: '2022-06-23'
 updatedDate: '2023-03-31'
-heroImage: 'content/images/2023/03/1-35-49-.pm-2023-04-01----7.39.24.jpg'
 ---
 
 ### Homebrew 설치하기macOS에는 macOS 용 패키지 관리자 Homebrew가 있다. Homebrew를 이용하면 설정 과정이 단순하고, 환경변수 설정이 필요없고, 관리하기 편하다.

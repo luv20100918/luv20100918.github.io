@@ -3,7 +3,6 @@ title: "Vue3에서 CSS파일 임포트"
 description: "vue 에서 css 파일을 임포트하기 위한 방법은 3가지가 있다.  첫번째는 script 영역에서 임포트하는 방법이 있는데,   import '@//test.css' ...    위와 같은 방법으로 임포트를 하게 되면, 모든 화면에서 test.c..."
 pubDate: '2023-06-14'
 updatedDate: '2023-08-27'
-heroImage: 'https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fGNzc3xlbnwwfHx8fDE2OTMxMTc3NzN8MA&ixlib=rb-4.0.3&q=80&w=2000'
 ---
 
 vue 에서 css 파일을 임포트하기 위한 방법은 3가지가 있다.

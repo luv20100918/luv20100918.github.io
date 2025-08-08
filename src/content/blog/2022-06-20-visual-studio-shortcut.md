@@ -3,7 +3,6 @@ title: "Visual Studio 단축키 모음"
 description: "항상 잊어버리는 비쥬얼 스튜디오 단축키 모음."
 pubDate: '2022-06-19'
 updatedDate: '2023-03-31'
-heroImage: 'content/images/2023/03/00020-1268591729.jpg'
 ---
 
 F9 현재 라인에 Breakpoint를 지정/해제

@@ -3,7 +3,6 @@ title: "Typescript 오버로드 문제해결"
 description: "타입스크립트로 코드를 만들다가 문제가 발생했다.  const serviceCodes = computed(() => {   if(!props.rentcar) return [];   if(!props.rentcar.srvcCodes) return [];   const result = pro..."
 pubDate: '2023-07-21'
 updatedDate: '2023-08-25'
-heroImage: 'content/images/2023/08/348126_vuejs--front-web-developer--start-project-_xl-1024-v1-0---------.jpg'
 ---
 
 타입스크립트로 코드를 만들다가 문제가 발생했다.

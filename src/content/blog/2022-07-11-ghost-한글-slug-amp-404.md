@@ -3,7 +3,6 @@ title: "GHOST 한글 SLUG 사용할때 AMP 404 오류 해결"
 description: "고스트로 여러가지를 테스트 하는중이다. 구글 서치 콘솔에서 문제가 식별되어서 고쳐본다."
 pubDate: '2022-07-10'
 updatedDate: '2023-08-25'
-heroImage: 'content/images/2023/08/348126_vuejs--front-web-developer--start-project-_xl-1024-v1-0---------.jpg'
 ---
 
 ## 현상관리자에서 AMP설정일 켜놨으면, url 뒤에 /amp 를 붙임으로써 amp 페이지를 확인할 수 있지만,

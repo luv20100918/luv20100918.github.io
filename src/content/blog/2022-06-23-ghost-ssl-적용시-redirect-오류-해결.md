@@ -3,7 +3,6 @@ title: "Ghost 블로그 설치 with Lightsail, SSL 적용시 Redirect 127.0.0.1:
 description: "AWS 라이트세일을 이용해서 고스트 블로그를 설치하고 SSL 적용시 발생하는 문제를 해결합니다."
 pubDate: '2022-06-23'
 updatedDate: '2023-03-31'
-heroImage: 'content/images/2023/03/1-35-49-.pm-2023-04-01----7.32.19.jpg'
 ---
 
 ### 현상발생AWS Lightsail 을 이용해서 Ghost를 설치한다.

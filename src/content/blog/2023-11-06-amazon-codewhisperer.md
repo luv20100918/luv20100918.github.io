@@ -3,7 +3,6 @@ title: "Amazon CodeWhisperer"
 description: "회사 사정으로 깃랩의 코파일럿 구독이 중지 되었다. 그러다가 아마존에서 진행하는 행사를 온라인으로 시청하던 중에 CodeWhisperer라는 프로그램을 알게 되었다.  개인으로 사용하면 무료!  집에서 코딩할 때 사용하면 딱이라는 생각이 들었다.  사용법은 간단하다.  Vs code 나..."
 pubDate: '2023-11-06'
 updatedDate: '2023-11-23'
-heroImage: 'content/images/2023/11/-----------2023-10-08------2.46.04.png'
 ---
 
 회사 사정으로 깃랩의 코파일럿 구독이 중지 되었다. 그러다가 아마존에서 진행하는 행사를 온라인으로 시청하던 중에 [CodeWhisperer](https://aws.amazon.com/ko/codewhisperer/)라는 프로그램을 알게 되었다.

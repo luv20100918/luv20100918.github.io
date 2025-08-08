@@ -3,7 +3,6 @@ title: "gunicorn.service error"
 description: "gunicorn이 제대로 동작하지 않는 문제에 대한 해결 문서입니다."
 pubDate: '2022-06-14'
 updatedDate: '2023-04-01'
-heroImage: 'content/images/2023/04/00001-2551636458.jpg'
 ---
 
 서버를 재부팅했더니 이것저것 서비스들이 자동으로 안올라와서 하나씩 올리는 도중에 gunicorn이 제대로 올라오지 않고 오류가 발생했다.

@@ -2,7 +2,6 @@
 title: "OpenFeign과 Spring Controller의 차이"
 description: "OpenFeign과 Controller는 Spring Framework에서 서로 다른 목적과 역할을 가진 두 가지 컴포넌트입니다. 이 둘의 차이를 이해하려면, 각각의 기능과 사용 사례를 살펴보는 것이 중요합니다.   OpenFeign  OpenFeign은 선언적 웹 서비스 클라이언트로,..."
 pubDate: '2024-06-05'
-heroImage: 'content/images/2024/06/00020-1424509063.png'
 ---
 
 OpenFeign과 Controller는 Spring Framework에서 서로 다른 목적과 역할을 가진 두 가지 컴포넌트입니다. 이 둘의 차이를 이해하려면, 각각의 기능과 사용 사례를 살펴보는 것이 중요합니다.

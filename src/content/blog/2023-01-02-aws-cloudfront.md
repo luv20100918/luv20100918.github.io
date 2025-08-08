@@ -3,7 +3,6 @@ title: "AWS-CloudFront"
 description: "CDN(Contents Delivery Network)  CDN이란 콘텐츠 제공자와 사용자간 지리적으로 떨어져 있느 ㄴ환경에서 콘텐츠를 빠르게 제공하기위한 기술이다.  캐싱방식에는 정적캐싱과 동적캐싱이 있다.  동적캐싱은 실제 콘텐츠를 캐싱하지 않기 때문에 TTL은 0으로 설정된다...."
 pubDate: '2023-01-02'
 updatedDate: '2023-08-25'
-heroImage: 'https://images.unsplash.com/photo-1636690498207-d7b393423b9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fGNkbnxlbnwwfHx8fDE2OTI5Nzc4NjN8MA&ixlib=rb-4.0.3&q=80&w=2000'
 ---
 
 ## CDN(Contents Delivery Network)CDN이란 콘텐츠 제공자와 사용자간 지리적으로 떨어져 있느 ㄴ환경에서 콘텐츠를 빠르게 제공하기위한 기술이다.

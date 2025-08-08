@@ -3,7 +3,6 @@ title: "AutoGPT 에서 Stable Diffusion 을 연동해서 사용하려면?"
 description: "AUtoGPT 는 기본적으로 openai 의 dalle 를 사용하도록 구성이 되어있다.  .env 파일의 내용중에 아래 부분을 수정한다.  IMAGE_PROVIDER=sdwebui   위 처럼 수정한후 가동하면 로컬의 스테이블 디퓨전을 바라보게 되는데 기본 설정인  http://127...."
 pubDate: '2023-04-28'
 updatedDate: '2023-08-27'
-heroImage: 'https://images.unsplash.com/photo-1684369175833-4b445ad6bfb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE0fHxjaGF0Z3B0fGVufDB8fHx8MTY5MzExODIzN3ww&ixlib=rb-4.0.3&q=80&w=2000'
 ---
 
 AUtoGPT 는 기본적으로 openai 의 dalle 를 사용하도록 구성이 되어있다.

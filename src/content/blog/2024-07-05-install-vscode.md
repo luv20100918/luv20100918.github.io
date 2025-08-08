@@ -2,7 +2,6 @@
 title: "VSCode 설치"
 description: "안녕하세요! 오늘은 macOS에 Visual Studio Code(VSCode)를 설치하는 방법을 알아보겠습니다. VSCode는 Microsoft에서 제공하는 무료 소스 코드 편집기로, 다양한 프로그래밍 언어와 툴을 지원합니다.  ---   VSCode 설치 과정   1. VSCode..."
 pubDate: '2024-07-05'
-heroImage: 'content/images/2024/07/BDBEF6A8-2334-4C3F-9F59-CAB2766C62B1.webp'
 ---
 
 안녕하세요! 오늘은 macOS에 Visual Studio Code(VSCode)를 설치하는 방법을 알아보겠습니다. VSCode는 Microsoft에서 제공하는 무료 소스 코드 편집기로, 다양한 프로그래밍 언어와 툴을 지원합니다.

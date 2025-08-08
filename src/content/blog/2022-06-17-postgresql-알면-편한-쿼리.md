@@ -3,7 +3,6 @@ title: "PostgreSQL 알면 편한 쿼리"
 description: "포스트그레스큐엘에서 알면 편한 쿼리, 테이블 코멘트 조회, 컬럼 코멘트 조회, 모든 테이블 삭제, 특정 유저에게 모든 테이블 권한 부여."
 pubDate: '2022-06-17'
 updatedDate: '2023-03-31'
-heroImage: 'content/images/2023/03/00016-1278747814.jpg'
 ---
 
 ### 테이블 코멘트(Comment) 조회```

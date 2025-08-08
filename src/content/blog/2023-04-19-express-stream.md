@@ -3,7 +3,6 @@ title: "express 에서 stream 으로 결과를 주는 예제"
 description: "익스프레스에서 스트림을 사용하여 결과를 반환하는 예제입니다."
 pubDate: '2023-04-19'
 updatedDate: '2023-08-27'
-heroImage: 'https://images.unsplash.com/photo-1592578162368-9d72c18f1774?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDd8fG5vZGUlMjBleHB8ZW58MHx8fHwxNjkzMTE5NjkwfDA&ixlib=rb-4.0.3&q=80&w=2000'
 ---
 
 익스프레스에서 스트림을 사용하여 결과를 반환하는 예제
