@@ -5,9 +5,9 @@ pubDate: 2022-06-14
 updatedDate: 2023-03-31
 ---
 
-## 증상맥에서 mySql( 5.7 ) 설치 에
+## 증상
 
-러
+맥에서 mySql( 5.7 ) 설치 에러
 
 ```
 brew install mysql@5.7
@@ -24,9 +24,9 @@ Starting MySQL
 
 위처럼 오류 발생함.
 
-## 원인mysql 를 여러번 설치/삭제하면서 잔재 폴더가 존재해서 설치시 에러가 발생하던 부분을 간
+## 원인
 
-과
+mysql 를 여러번 설치/삭제하면서 잔재 폴더가 존재해서 설치시 에러가 발생하던 부분을 간과
 
 해당에러
 ```
@@ -35,16 +35,16 @@ Starting MySQL
 
 ```
 
-## 해결/usr/local/Cellar/mysql@5.7/5.7.29/bin/mysqld
+## 해결
 
-- -initialize-insecure
-- -user=zhuyeel
-- -basedir=/usr/local/Cellar/mysql@5.7/5.7.29
-- -datadir=/usr/local/var/mysql
-- -tmpdir=/tmp
-
+```bash
+/usr/local/Cellar/mysql@5.7/5.7.29/bin/mysqld \
+  --initialize-insecure \
+  --user=zhuyeel \
+  --basedir=/usr/local/Cellar/mysql@5.7/5.7.29 \
+  --datadir=/usr/local/var/mysql \
+  --tmpdir=/tmp
 ```
 
 에러 내용 중 --datadir=/usr/local/var/mysql 부분에 해당하는 폴더 삭제 ( rm -rf )
 mysql 재설치 후 정상 구동 확인
-```
