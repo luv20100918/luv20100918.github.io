@@ -65,7 +65,9 @@ public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
 위와 같이 컨트롤러어드바이스를 만들어서 적용했더니 두개씩 출력되던 transfer-encoding가 하나만 응답으로 내려왔다. 살짝 감동하고 개발서버에 업로드 했는데 여전히 두개가 튀어나오면서 502 에러가 발생하는 거다.
 
-# 해결결론 부터 말하면,
+
+## 해결결론 부터 말하면,
+
 
 ```
 response.getHeaders().remove("transfer-encoding");

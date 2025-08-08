@@ -122,7 +122,9 @@ CSV 파일을 읽어서 데이터를 정제하고 분석하는 Python 스크립�
 실행하면서 발생하는 모든 에러를 자동으로 해결하고,
 최종적으로 완벽한 리포트가 생성될 때까지 수정을 반복해줘.**Claude Code의 실제 디버깅 로그:**
 
-# 1차 시도
+
+**1차 시도**
+
 
 $ python data_analysis.py
 Traceback (most recent call last):
@@ -130,32 +132,50 @@ Traceback (most recent call last):
     import pandas as pd
 ModuleNotFoundError: No module named 'pandas'
 
-# Claude Code: pandas 설치 추가
+```bash
+
+**Claude Code: pandas 설치 추가**
+
+```
 
 $ pip install pandas matplotlib seaborn
 
-# 2차 시도
+
+**2차 시도**
+
 
 $ python data_analysis.py
 FileNotFoundError: [Errno 2] No such file or directory: 'sales_data.csv'
 
-# Claude Code: 파일 존재 여부 확인 코드 추가
+```bash
+
+**Claude Code: 파일 존재 여부 확인 코드 추가**
+
+```
 
 if not os.path.exists('sales_data.csv'):
     print("Creating sample data...")
     create_sample_data()
 
-# 3차 시도
+
+**3차 시도**
+
 
 $ python data_analysis.py
 ValueError: could not convert string to float: 'N/A'
 
-# Claude Code: 데이터 정제 로직 추가
+```bash
+
+**Claude Code: 데이터 정제 로직 추가**
+
+```
 
 df['sales'] = pd.to_numeric(df['sales'], errors='coerce')
 df['sales'].fillna(df['sales'].mean(), inplace=True)
 
-# 4차 시도
+
+**4차 시도**
+
 
 $ python data_analysis.py
 Success! Report generated: report.pdf## 실제 프로젝트에서의 Claude Code 활용
@@ -262,11 +282,15 @@ t
 
 러
 
+```bash
 # 에러: ModuleNotFoundError
-# Claude Code의 해결:
+
+**Claude Code의 해결:**
+
 # 1. requirements.txt 자동 생성
 # 2. pip install -r requirements.txt 실행
 # 3. 가상환경 설정 추가### 2. 타입 에러
+```
 
 // 에러: Type 'string' is not assignable to type 'number'
 // Claude Code의 해결:

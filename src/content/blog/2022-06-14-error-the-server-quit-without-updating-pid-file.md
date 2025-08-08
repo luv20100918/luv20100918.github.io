@@ -47,3 +47,4 @@ Starting MySQL
 
 에러 내용 중 --datadir=/usr/local/var/mysql 부분에 해당하는 폴더 삭제 ( rm -rf )
 mysql 재설치 후 정상 구동 확인
+```

@@ -30,6 +30,8 @@ BUILD FAILED in 816ms이 오류는 **Spring Boot 2.5.5**와 **Gradle 8.x** 버�
 
 오류 메시지는 `org.gradle.api.internal.artifacts.dsl.LazyPublishArtifact.&lt;init&gt;(Lorg/gradle/api/provider/Provider;)V`와 같은 형태로 나타났습니다. 이는 `Provider` 객체를 매개변수로 받는 `LazyPublishArtifact` 클래스의 생성자를 찾을 수 없다는 의미입니다.
 
+```
+
 ### 2. 스택트레이스 확
 
 인
@@ -62,6 +64,8 @@ tasks.withType(PublishToMavenLocal).configureEach {
     enabled = false
 }하지만 이 방법으로는 문제가 해결되지 않았습니다.
 
+```
+
 ### 2. 네트워크 타임아웃 설정 추
 
 가
@@ -77,19 +81,30 @@ org.gradle.internal.http.socketTimeout=180000이 방법도 핵심 문제를 해�
 
 plugins {} 블록 대신 buildscript {} 블록을 사용하여 플러그인을 적용하는 방식도 시도했으나 또 다른 문제가 발생했습니다.
 
+```
+
 ### 4. 성공적인 해결책: Gradle 버전 다운그레이
 
 드
 
 결국 Gradle 7.x 버전을 사용하는 것이 가장 효과적인 해결책이었습니다. Homebrew를 통해 Gradle 7.6.4를 설치하고 이를 사용하여 빌드를 실행했습니다:
 
+```bash
+
+```bash
 # Gradle 7.x 설치
+```
 
 brew install gradle@7
 
+```bash
+
+```bash
 # Gradle 7.x로 빌드 실행
+```
 
 /usr/local/opt/gradle@7/bin/gradle build이 방법을 통해 빌드가 성공적으로 진행되었습니다!
+```
 
 ## 결론 및 장기적 해결
 

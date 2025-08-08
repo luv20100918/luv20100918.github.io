@@ -102,14 +102,12 @@ keyword = "비트코인"
 
 openai.api_key = '<OPENAI에서 발급받은 API KEY>'
 
-```python
 def generate_blog_content(keyword):
     prompt = f"""
     {keyword}에 대해 블로그 포스트를 작성해주세요.
     최신 정보를 포함하도록 작성해주시고, 사실이 맞는지 체크를 해주세요.
     단락마다 달리3에서 단락의 내용에 맞는 이미지를 삽입해주세요.
     아래 형식으로 태그 목록도 포함해주세요:
-```
 ## 태그
 
     TAG1,TAG2,TAG3,TAG4
@@ -218,11 +216,9 @@ import io
 
 # 쳇쥐피티에서 마크다운으로 생성된 컨텐츠를 ghost용인 lexical로 변경하는 함수
 
-```python
 def markdown_to_lexical(markdown_content):
     md = MarkdownIt()
     tokens = md.parse(markdown_content)
-```
 
     lexical_content = {
         "root": {
@@ -265,9 +261,7 @@ def markdown_to_lexical(markdown_content):
 
 # 고스트의 태그 부분을 체워주기위해서 마크다운컨텐츠에서 태그 부분만 추출하는 함수
 
-```python
 def extract_tags(markdown_content):
-```
 # '## 태그' 이후의 내용을 추출하여 태그 배열로 변환
 
     tag_section = re.search(r'## 태그\n(.+)', markdown_content)
@@ -279,9 +273,7 @@ def extract_tags(markdown_content):
 
 # 고스트의 제목 부분을 설정하기위해서 마크다운 컨텐츠에서 제목 부분만 추출하는 함수
 
-```python
 def extract_title(markdown_content):
-```
 # 첫 번째 제목(# )을 추출
 
     match = re.search(r'^# (.+)', markdown_content, re.MULTILINE)
@@ -323,14 +315,12 @@ openai.api_key = '<OpenAI 에서 발급받은 API KEY>'
 
 # 앞에서 만든 쳇쥐피티한테 블로그를 써달라고 요청하는 함수
 
-```python
 def generate_blog_content(keyword):
     prompt = f"""
     {keyword}에 대해 블로그 포스트를 작성해주세요.
     최신 정보를 포함하도록 작성해주시고, 사실이 맞는지 체크를 해주세요.
     단락마다 달리3에서 단락의 내용에 맞는 이미지를 삽입해주세요.
     아래 형식으로 태그 목록도 포함해주세요:
-```
 ## 태그
 
     TAG1,TAG2,TAG3,TAG4
@@ -397,7 +387,6 @@ token = pyjwt.encode(payload, secret, algorithm='HS256', headers=header)
 
 # 아래 설정들도 좀 배워야 이쁜이미지를 만들 수 있음.
 
-```python
 def generate_image(prompt):
     url = "http://127.0.0.1:7860/sdapi/v1/txt2img"
     payload = {
@@ -443,7 +432,6 @@ def generate_image(prompt):
     else:
         print(f"이미지 생성 실패: {response.status_code}")
         return None
-```
 
 stable_d_prompt = ""
 if tags:
@@ -472,11 +460,9 @@ header_image.save(header_image_path, "WEBP")
 
 # 이미지를 고스트로 업로드하는 함수
 
-```python
 def upload_image(image_path):
     headers = {
         'Authorization': f'Ghost {token}',
-```
 # 'Content-Type': 'multipart/form-data'
 
     }
@@ -612,7 +598,6 @@ import openai
 
 openai.api_key = 'your_openai_api_key'
 
-```python
 def generate_blog_post(search_term):
     prompt = f"Write a blog post about {search_term} in Korean."
     response = openai.Completion.create(
@@ -621,7 +606,6 @@ def generate_blog_post(search_term):
         max_tokens=500
     )
     return response.choices[0].text.strip()
-```
 
 for term in search_terms:
     post = generate_blog_post(term)
@@ -639,7 +623,6 @@ for term in search_terms:
 `python
 import requests
 
-```python
 def post_to_ghost(title, content):
     url = "https://your_ghost_blog_url/ghost/api/v3/admin/posts/"
     headers = {
@@ -657,7 +640,6 @@ def post_to_ghost(title, content):
     }
     response = requests.post(url, headers=headers, json=data)
     return response.json()
-```
 
 for term in search_terms:
     post = generate_blog_post(term)
