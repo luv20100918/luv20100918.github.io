@@ -1,0 +1,395 @@
+/* PC-98 Retro Theme CSS */
+
+/* Font import for pixelated style */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+:root {
+  /* PC-98 Color Palette */
+  --pc98-bg: #9DBDAB;
+  --pc98-window-bg: #C4DED4;
+  --pc98-highlight: #7FBF7F;
+  --pc98-shadow: #5F7F6F;
+  --pc98-text: #000000;
+  --pc98-white: #FFFFFF;
+  --pc98-blue: #5959FF;
+  --pc98-cyan: #59FFFF;
+  --pc98-green: #59FF59;
+  --pc98-yellow: #FFFF59;
+  --pc98-red: #FF5959;
+  --pc98-magenta: #FF59FF;
+  --pc98-border-light: #FFFFFF;
+  --pc98-border-dark: #000000;
+  --pc98-btn-face: #C4DED4;
+  --pc98-desktop: #008080;
+}
+
+* {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+body {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  background: var(--pc98-bg);
+  color: var(--pc98-text);
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-rendering: optimizeSpeed;
+}
+
+/* PC-98 Window Style */
+.pc98-window {
+  background: var(--pc98-window-bg);
+  border: 2px solid var(--pc98-border-dark);
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-border-dark),
+    inset 1px 1px 0 var(--pc98-border-light),
+    1px 1px 0 var(--pc98-border-dark);
+  margin: 8px;
+}
+
+/* Title Bar */
+.pc98-titlebar {
+  background: linear-gradient(90deg, var(--pc98-blue) 0%, var(--pc98-cyan) 100%);
+  color: var(--pc98-white);
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 2px solid var(--pc98-border-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pc98-titlebar-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.pc98-btn {
+  width: 16px;
+  height: 14px;
+  background: var(--pc98-btn-face);
+  border: 1px solid var(--pc98-border-dark);
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-shadow),
+    inset 1px 1px 0 var(--pc98-border-light);
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pc98-btn:active {
+  box-shadow: 
+    inset 1px 1px 0 var(--pc98-shadow),
+    inset -1px -1px 0 var(--pc98-border-light);
+}
+
+/* Main Container */
+main {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+  margin: 16px 0 8px 0;
+  color: var(--pc98-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 20px;
+  padding: 8px;
+  background: var(--pc98-highlight);
+  border: 2px solid var(--pc98-border-dark);
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-shadow),
+    inset 1px 1px 0 var(--pc98-border-light);
+}
+
+h2 {
+  font-size: 16px;
+  border-bottom: 2px solid var(--pc98-border-dark);
+  padding-bottom: 4px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+/* Links */
+a {
+  color: var(--pc98-blue);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--pc98-blue);
+}
+
+a:hover {
+  background: var(--pc98-yellow);
+  color: var(--pc98-text);
+  border-bottom: 1px solid var(--pc98-text);
+}
+
+/* Buttons */
+button, .button, input[type="submit"], input[type="button"] {
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--pc98-btn-face);
+  color: var(--pc98-text);
+  border: 2px solid var(--pc98-border-dark);
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-shadow),
+    inset 1px 1px 0 var(--pc98-border-light),
+    1px 1px 0 var(--pc98-border-dark);
+  text-transform: uppercase;
+}
+
+button:hover, .button:hover {
+  background: var(--pc98-highlight);
+}
+
+button:active, .button:active {
+  box-shadow: 
+    inset 1px 1px 0 var(--pc98-shadow),
+    inset -1px -1px 0 var(--pc98-border-light);
+}
+
+/* Forms */
+input[type="text"], input[type="email"], input[type="search"], textarea, select {
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--pc98-white);
+  border: 2px solid var(--pc98-border-dark);
+  box-shadow: 
+    inset 1px 1px 0 var(--pc98-shadow),
+    inset -1px -1px 0 var(--pc98-border-light);
+  padding: 4px;
+  font-size: 12px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid var(--pc98-border-dark);
+  background: var(--pc98-window-bg);
+  margin: 16px 0;
+}
+
+th {
+  background: var(--pc98-highlight);
+  color: var(--pc98-text);
+  font-weight: bold;
+  padding: 4px 8px;
+  border: 1px solid var(--pc98-border-dark);
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+td {
+  padding: 4px 8px;
+  border: 1px solid var(--pc98-shadow);
+  font-size: 12px;
+}
+
+tr:hover td {
+  background: var(--pc98-cyan);
+  color: var(--pc98-text);
+}
+
+/* Code Blocks */
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--pc98-text);
+  color: var(--pc98-green);
+  padding: 1px 4px;
+  font-size: 12px;
+}
+
+pre {
+  background: var(--pc98-text);
+  color: var(--pc98-green);
+  border: 2px solid var(--pc98-border-dark);
+  padding: 8px;
+  overflow-x: auto;
+  font-size: 12px;
+  box-shadow: 
+    inset 1px 1px 0 var(--pc98-shadow),
+    inset -1px -1px 0 var(--pc98-border-light);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--pc98-green);
+}
+
+/* Lists */
+ul, ol {
+  margin: 8px 0;
+  padding-left: 24px;
+}
+
+li {
+  margin: 4px 0;
+  font-size: 12px;
+}
+
+/* Blockquotes */
+blockquote {
+  background: var(--pc98-window-bg);
+  border-left: 4px solid var(--pc98-blue);
+  border: 2px solid var(--pc98-border-dark);
+  margin: 16px 0;
+  padding: 8px;
+  font-style: normal;
+  box-shadow: 
+    inset 1px 1px 0 var(--pc98-shadow),
+    inset -1px -1px 0 var(--pc98-border-light);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid var(--pc98-border-dark);
+  box-shadow: 2px 2px 0 var(--pc98-shadow);
+  image-rendering: auto;
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pc98-btn-face);
+  border: 1px solid var(--pc98-border-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pc98-highlight);
+  border: 2px solid var(--pc98-border-dark);
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-shadow),
+    inset 1px 1px 0 var(--pc98-border-light);
+}
+
+::-webkit-scrollbar-button {
+  background: var(--pc98-btn-face);
+  border: 2px solid var(--pc98-border-dark);
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-shadow),
+    inset 1px 1px 0 var(--pc98-border-light);
+}
+
+/* Navigation Menu PC-98 Style */
+nav {
+  background: var(--pc98-window-bg);
+  border: 2px solid var(--pc98-border-dark);
+  margin: 8px;
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-shadow),
+    inset 1px 1px 0 var(--pc98-border-light);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  padding: 4px 12px;
+  color: var(--pc98-text);
+  text-transform: uppercase;
+  font-size: 12px;
+  border-right: 2px solid var(--pc98-border-dark);
+  border-bottom: none;
+}
+
+nav a:hover {
+  background: var(--pc98-highlight);
+  color: var(--pc98-text);
+}
+
+/* Card/Panel Style */
+.card, .panel, article {
+  background: var(--pc98-window-bg);
+  border: 2px solid var(--pc98-border-dark);
+  padding: 8px;
+  margin: 8px 0;
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-shadow),
+    inset 1px 1px 0 var(--pc98-border-light),
+    2px 2px 0 var(--pc98-shadow);
+}
+
+/* Status Bar Style */
+.status-bar {
+  background: var(--pc98-btn-face);
+  border-top: 2px solid var(--pc98-border-light);
+  padding: 2px 8px;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 
+    inset -1px -1px 0 var(--pc98-shadow),
+    inset 1px 1px 0 var(--pc98-border-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+  
+  h1 {
+    font-size: 16px;
+  }
+  
+  h2 {
+    font-size: 14px;
+  }
+  
+  main {
+    padding: 8px;
+  }
+}
+
+/* Utility classes */
+.pc98-green { color: var(--pc98-green); }
+.pc98-cyan { color: var(--pc98-cyan); }
+.pc98-blue { color: var(--pc98-blue); }
+.pc98-yellow { color: var(--pc98-yellow); }
+.pc98-red { color: var(--pc98-red); }
+.pc98-magenta { color: var(--pc98-magenta); }
+
+.pc98-bg-green { background: var(--pc98-green); }
+.pc98-bg-cyan { background: var(--pc98-cyan); }
+.pc98-bg-blue { background: var(--pc98-blue); }
+.pc98-bg-yellow { background: var(--pc98-yellow); }
+.pc98-bg-red { background: var(--pc98-red); }
+.pc98-bg-magenta { background: var(--pc98-magenta); }

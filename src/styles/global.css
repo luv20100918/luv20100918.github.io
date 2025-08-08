@@ -5,17 +5,31 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	/* FQ4-inspired color palette */
+	--fq4-green-bg: #9DBDAB;
+	--fq4-window: #C4DED4;
+	--fq4-highlight: #7FBF7F;
+	--fq4-text: #2C3E2C;
+	--fq4-border: #5F7F6F;
+	--fq4-accent: #5959FF;
+	--fq4-cyan: #59FFFF;
+	
+	/* Original colors mapped to FQ4 */
+	--accent: var(--fq4-accent);
+	--accent-dark: #4040CC;
+	--black: 44, 62, 44;
+	--gray: 95, 127, 111;
+	--gray-light: 196, 222, 212;
+	--gray-dark: 44, 62, 44;
+	--gray-gradient: linear-gradient(180deg, var(--fq4-green-bg) 0%, var(--fq4-window) 100%);
 	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
+		2px 2px 0 rgba(0, 0, 0, 0.3),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.2),
+		inset 1px 1px 0 rgba(255, 255, 255, 0.3);
 }
+/* Import pixel-style fonts */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
 @font-face {
 	font-family: "Atkinson";
 	src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -31,25 +45,38 @@
 	font-display: swap;
 }
 body {
-	font-family: "-apple-system", "BlinkMacSystemFont", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "Inter", "Spoqa Han Sans", "Segoe UI", "Atkinson", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-family: "IBM Plex Mono", "DotGothic16", "-apple-system", "Malgun Gothic", "맑은 고딕", monospace;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background: var(--fq4-green-bg);
+	background-image: 
+		linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent),
+		linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
+	background-size: 4px 4px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	word-break: keep-all;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.8;
-	letter-spacing: -0.02em;
+	color: var(--fq4-text);
+	font-size: 16px;
+	line-height: 1.6;
+	letter-spacing: 0.5px;
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
 }
 main {
-	width: 720px;
+	width: 920px;
 	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
+	margin: 20px auto;
+	padding: 24px;
+	background: var(--fq4-window);
+	border: 3px solid var(--fq4-border);
+	box-shadow: 
+		4px 4px 0 rgba(0, 0, 0, 0.3),
+		inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+		inset 2px 2px 0 rgba(255, 255, 255, 0.3);
+	position: relative;
 }
 h1,
 h2,
@@ -57,25 +84,41 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 0.8rem 0;
-	color: rgb(var(--black));
+	margin: 0 0 1rem 0;
+	color: var(--fq4-text);
 	line-height: 1.3;
-	font-family: "-apple-system", "BlinkMacSystemFont", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "Inter", "Spoqa Han Sans", "Segoe UI", "Atkinson", sans-serif;
-	font-weight: 600;
-	letter-spacing: -0.02em;
+	font-family: "DotGothic16", "IBM Plex Mono", monospace;
+	font-weight: 700;
+	letter-spacing: 1px;
 	word-break: keep-all;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
 }
 h1 {
-	font-size: 2.5em;
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+	font-size: 28px;
+	margin: 1.5rem 0;
+	padding: 12px 16px;
+	background: var(--fq4-highlight);
+	border: 2px solid var(--fq4-border);
+	box-shadow: 
+		inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+		inset 2px 2px 0 rgba(255, 255, 255, 0.4);
+	position: relative;
+}
+
+h1::before {
+	content: "▶";
+	margin-right: 8px;
+	color: var(--fq4-accent);
 }
 h2 {
-	font-size: 1.8em;
-	margin-top: 3rem;
-	margin-bottom: 1.2rem;
-	padding-bottom: 0.5rem;
-	border-bottom: 1px solid rgb(var(--gray-light));
+	font-size: 20px;
+	margin-top: 2.5rem;
+	margin-bottom: 1rem;
+	padding: 8px 12px;
+	background: linear-gradient(90deg, var(--fq4-accent) 0%, transparent 50%);
+	border-left: 4px solid var(--fq4-accent);
+	color: var(--fq4-text);
 }
 h3 {
 	font-size: 1.4em;
@@ -98,12 +141,19 @@ b {
 	color: rgb(var(--black));
 }
 a {
-	color: var(--accent);
+	color: var(--fq4-accent);
 	text-decoration: none;
+	font-weight: 500;
+	transition: all 0.2s ease;
+	position: relative;
 }
+
 a:hover {
-	color: var(--accent-dark);
-	text-decoration: underline;
+	color: var(--fq4-text);
+	background: var(--fq4-cyan);
+	padding: 0 4px;
+	margin: 0 -4px;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 p {
 	margin-bottom: 1.8em;
@@ -172,42 +222,69 @@ ul ul, ol ol, ul ol, ol ul {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
-	margin: 2em auto;
+	margin: 1.5em auto;
 	display: block;
+	border: 3px solid var(--fq4-border);
+	box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+	image-rendering: auto;
 }
 /* Code blocks */
 code {
-	padding: 0.3em 0.5em;
-	background-color: rgba(var(--gray-light), 0.7);
-	border-radius: 4px;
-	font-size: 0.85em;
-	font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
-	color: rgb(var(--gray-dark));
+	padding: 2px 6px;
+	background: #000000;
+	color: #00FF00;
+	font-size: 14px;
+	font-family: 'IBM Plex Mono', 'Courier New', monospace;
+	border: 1px solid var(--fq4-border);
+	box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 pre {
-	padding: 1.5em;
-	border-radius: 8px;
+	padding: 16px;
 	overflow-x: auto;
-	background-color: #1e1e1e !important;
-	margin: 2.5em 0;
-	border: 1px solid rgba(var(--gray-light), 0.3);
+	background: #000000;
+	margin: 1.5em 0;
+	border: 2px solid var(--fq4-border);
+	box-shadow: 
+		3px 3px 0 rgba(0, 0, 0, 0.3),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.4),
+		inset 1px 1px 0 rgba(255, 255, 255, 0.1);
+	position: relative;
 }
 pre > code {
 	all: unset;
-	font-size: 0.85em;
-	line-height: 1.6;
-	color: #f8f8f2;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #00FF00;
+	text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+	border: none;
+	box-shadow: none;
+	background: transparent;
+	padding: 0;
 }
 
 /* Blockquotes */
 blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0.5em 0 0.5em 1.5em;
-	margin: 2em 0;
-	font-style: italic;
-	background-color: rgba(var(--gray-light), 0.2);
-	border-radius: 0 8px 8px 0;
+	border: 2px solid var(--fq4-accent);
+	padding: 12px 16px;
+	margin: 1.5em 0;
+	font-style: normal;
+	background: var(--fq4-window);
+	box-shadow: 
+		2px 2px 0 rgba(0, 0, 0, 0.2),
+		inset -1px -1px 0 rgba(0, 0, 0, 0.1),
+		inset 1px 1px 0 rgba(255, 255, 255, 0.3);
+	position: relative;
+}
+
+blockquote::before {
+	content: "❝";
+	position: absolute;
+	top: -8px;
+	left: 12px;
+	background: var(--fq4-window);
+	padding: 0 8px;
+	color: var(--fq4-accent);
+	font-size: 24px;
 }
 blockquote p {
 	margin: 0.5em 0;

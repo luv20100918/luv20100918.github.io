@@ -4,12 +4,19 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <header>
+	<div class="fq4-titlebar">
+		<h2 class="site-title"><a href="/">▶ {SITE_TITLE}</a></h2>
+		<div class="window-controls">
+			<button class="window-btn" aria-label="Minimize">_</button>
+			<button class="window-btn" aria-label="Maximize">□</button>
+			<button class="window-btn" aria-label="Close">×</button>
+		</div>
+	</div>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog-list">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="/">HOME</HeaderLink>
+			<HeaderLink href="/blog-list">BLOG</HeaderLink>
+			<HeaderLink href="/about">ABOUT</HeaderLink>
 		</div>
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -44,41 +51,165 @@ import HeaderLink from './HeaderLink.astro';
 </header>
 <style>
 	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		margin: 8px;
+		background: var(--fq4-window);
+		border: 3px solid var(--fq4-border);
+		box-shadow: 
+			4px 4px 0 rgba(0, 0, 0, 0.3),
+			inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+			inset 2px 2px 0 rgba(255, 255, 255, 0.3);
 	}
-	h2 {
+	
+	.fq4-titlebar {
+		background: linear-gradient(90deg, var(--fq4-accent) 0%, var(--fq4-cyan) 100%);
+		padding: 4px 8px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 2px solid var(--fq4-border);
+	}
+	
+	.site-title {
 		margin: 0;
-		font-size: 1em;
+		font-size: 14px;
+		font-family: 'DotGothic16', 'IBM Plex Mono', monospace;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+	
+	.site-title a {
+		color: white;
+		text-decoration: none;
+		text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+	}
+	
+	.site-title a:hover {
+		background: transparent;
+		color: var(--fq4-cyan);
+		padding: 0;
+		margin: 0;
+	}
+	
+	.window-controls {
+		display: flex;
+		gap: 4px;
+	}
+	
+	.window-btn {
+		width: 20px;
+		height: 18px;
+		background: var(--fq4-window);
+		border: 2px solid var(--fq4-border);
+		cursor: pointer;
+		box-shadow: 
+			inset -1px -1px 0 rgba(0, 0, 0, 0.2),
+			inset 1px 1px 0 rgba(255, 255, 255, 0.3);
+		font-size: 12px;
+		line-height: 1;
+		font-family: 'IBM Plex Mono', monospace;
+		color: var(--fq4-text);
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.window-btn:hover {
+		background: var(--fq4-highlight);
+	}
+	
+	.window-btn:active {
+		box-shadow: 
+			inset 1px 1px 0 rgba(0, 0, 0, 0.2),
+			inset -1px -1px 0 rgba(255, 255, 255, 0.3);
 	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		padding: 8px 12px;
+		background: var(--fq4-window);
 	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
+	
+	.internal-links {
+		display: flex;
+		gap: 4px;
+	}
+	
+	nav :global(a) {
+		padding: 6px 12px;
+		color: var(--fq4-text);
 		text-decoration: none;
+		font-family: 'IBM Plex Mono', monospace;
+		font-size: 13px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		border: 2px solid transparent;
+		transition: all 0.2s ease;
 	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
+	
+	nav :global(a:hover) {
+		background: var(--fq4-highlight);
+		border: 2px solid var(--fq4-border);
+		box-shadow: 
+			inset -1px -1px 0 rgba(0, 0, 0, 0.2),
+			inset 1px 1px 0 rgba(255, 255, 255, 0.3);
+		color: var(--fq4-text);
+		padding: 6px 12px;
+		margin: 0;
 	}
-	.social-links,
+	
+	nav :global(a.active) {
+		background: var(--fq4-accent);
+		color: white;
+		border: 2px solid var(--fq4-border);
+		box-shadow: 
+			inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+			inset 2px 2px 0 rgba(255, 255, 255, 0.4);
+	}
+	
+	.social-links {
+		display: flex;
+		gap: 8px;
+	}
+	
 	.social-links a {
 		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		padding: 4px;
+		background: var(--fq4-window);
+		border: 2px solid var(--fq4-border);
+		box-shadow: 
+			inset -1px -1px 0 rgba(0, 0, 0, 0.2),
+			inset 1px 1px 0 rgba(255, 255, 255, 0.3);
+		transition: all 0.2s ease;
 	}
+	
+	.social-links a:hover {
+		background: var(--fq4-highlight);
+		transform: translate(-1px, -1px);
+		box-shadow: 
+			3px 3px 0 rgba(0, 0, 0, 0.3),
+			inset -1px -1px 0 rgba(0, 0, 0, 0.2),
+			inset 1px 1px 0 rgba(255, 255, 255, 0.3);
+	}
+	
+	.social-links svg {
+		width: 20px;
+		height: 20px;
+		color: var(--fq4-text);
+	}
+	
 	@media (max-width: 720px) {
 		.social-links {
+			display: none;
+		}
+		.window-controls {
 			display: none;
 		}
 	}

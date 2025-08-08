@@ -22,35 +22,73 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.hero-image {
 				width: 100%;
+				margin-bottom: 20px;
 			}
 			.hero-image img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+				border: 3px solid var(--fq4-border);
+				box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
 			}
 			.prose {
-				width: 720px;
+				width: 920px;
 				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+				margin: 20px auto;
+				padding: 24px;
+				color: var(--fq4-text);
+				background: var(--fq4-window);
+				border: 3px solid var(--fq4-border);
+				box-shadow: 
+					4px 4px 0 rgba(0, 0, 0, 0.3),
+					inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+					inset 2px 2px 0 rgba(255, 255, 255, 0.3);
 			}
 			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
+				margin-bottom: 1.5em;
+				padding: 16px;
 				text-align: center;
-				line-height: 1;
+				line-height: 1.2;
+				background: var(--fq4-highlight);
+				border: 2px solid var(--fq4-border);
+				box-shadow: 
+					inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+					inset 2px 2px 0 rgba(255, 255, 255, 0.4);
 			}
 			.title h1 {
-				margin: 0 0 0.5em 0;
+				margin: 0 0 0.3em 0;
+				background: transparent;
+				border: none;
+				box-shadow: none;
+				padding: 0;
+				font-size: 24px;
+			}
+			.title h1::before {
+				content: none;
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+				color: var(--fq4-text);
+				font-family: 'IBM Plex Mono', monospace;
+				font-size: 12px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
 			}
 			.last-updated-on {
-				font-style: italic;
+				font-style: normal;
+				font-size: 11px;
+				opacity: 0.8;
+			}
+			.title hr {
+				border: none;
+				height: 2px;
+				background: linear-gradient(
+					to right,
+					transparent,
+					var(--fq4-border) 20%,
+					var(--fq4-border) 80%,
+					transparent
+				);
+				margin: 12px 0 0 0;
 			}
 		</style>
 	</head>
