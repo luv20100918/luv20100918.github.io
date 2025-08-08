@@ -1,0 +1,27 @@
+{
+  "priority1": [
+    {
+      "filename": "2024-07-08-no-module-named-pil-오류-해결-방법.md",
+      "issues": [
+        "Missing required frontmatter field: description"
+      ],
+      "score": 88
+    },
+    {
+      "filename": "2025-01-27-40daeyi-helseu-dojeongi.md",
+      "issues": [
+        "Missing required frontmatter field: description"
+      ],
+      "score": 88
+    },
+    {
+      "filename": "2025-07-02-msa-환경에서의-최적의-언어와-아키텍처-선택-가이드.md",
+      "issues": [
+        "Missing required frontmatter field: description"
+      ],
+      "score": 86
+    }
+  ],
+  "priority2": [],
+  "priority3": []
+}

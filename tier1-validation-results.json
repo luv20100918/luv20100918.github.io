@@ -1,0 +1,255 @@
+[
+  {
+    "filename": "2024-07-31-뱃살은-왜-안빠지는걸까.md",
+    "score": 65,
+    "issues": [
+      "HIGH: Description too long (163 chars, max 160)",
+      "HIGH: No H2 headings found - poor structure",
+      "MEDIUM: 1 very long paragraphs found - reduce for readability",
+      "HIGH: No headings for content organization"
+    ],
+    "status": "NEEDS_IMPROVEMENT",
+    "wordCount": 318,
+    "frontmatter": {
+      "title": "뱃살은 왜 안빠지는걸까?",
+      "description": "헬스 2년차, 아직도 뱃살은 그대로다. 어쩌면 그대로가 아닐수도 있는데, 그냥 내가 볼때는 그대로 인 것 같다. 요즘은 유산소도 나름 많이 하는데, 정말 식단을 제대로 해야지 뺄수 있는 건가? 아니면 운동 방법에 뭐가 잘못된 것인가? 고민을 하게 된다.  먼저, 우리 가족들은 막 전체적...",
+      "pubDate": "2024-07-31"
+    }
+  },
+  {
+    "filename": "2023-04-15-아들-눈탱이에-프로펠러를-맞다.md",
+    "score": 65,
+    "issues": [
+      "HIGH: Description too long (162 chars, max 160)",
+      "HIGH: No H2 headings found - poor structure",
+      "MEDIUM: 1 very long paragraphs found - reduce for readability",
+      "HIGH: No headings for content organization"
+    ],
+    "status": "NEEDS_IMPROVEMENT",
+    "wordCount": 318,
+    "frontmatter": {
+      "title": "아들 눈탱이에 프로펠러를 맞다",
+      "description": "23년 4월 15일 헬스장에서 운동중에 둘째아들에게 전화가 왔다. 케이블을 당기는 중에 멈추고 전화를 받았다. 형아가 프로펠러에 눈을 맞고 울고 있다고 했다. 그래서 눈은 잘 보이냐고 물어봤더니 끊고 물어본다고 하고 끊었다. 별일 아닌듯 싶어서 다시 운동을 재개했는데 또 전화가 왔다....",
+      "pubDate": "2023-04-15",
+      "updatedDate": "2023-08-27"
+    }
+  },
+  {
+    "filename": "2025-01-28-자전거길의-교차점에서.md",
+    "score": 65,
+    "issues": [
+      "HIGH: Description too long (162 chars, max 160)",
+      "HIGH: No H2 headings found - poor structure",
+      "MEDIUM: 1 very long paragraphs found - reduce for readability",
+      "HIGH: No headings for content organization"
+    ],
+    "status": "NEEDS_IMPROVEMENT",
+    "wordCount": 250,
+    "frontmatter": {
+      "title": "자전거길의 교차점에서",
+      "description": "자전거길의 교차점에서  서울 월드컵경기장 옆으로 뻗은 자전거길은 탁 트인 풍경과 잘 정비된 도로 덕분에 많은 자전거 이용자들에게 사랑받는 코스다. 나는 주말 오후, 그 길을 따라 페달을 밟으며 응암역을 향하고 있었다. 귓가에 바람이 스치고, 주변의 고요한 자연과 어우러진 자전거 소리가...",
+      "pubDate": "2025-01-28"
+    }
+  },
+  {
+    "filename": "2024-07-05-install-vscode.md",
+    "score": 70,
+    "issues": [
+      "HIGH: Title length suboptimal (9 chars)",
+      "HIGH: Description too long (162 chars, max 160)",
+      "CRITICAL: Description contains corrupted frontmatter",
+      "MEDIUM: 1 very long paragraphs found - reduce for readability"
+    ],
+    "status": "GOOD",
+    "wordCount": 227,
+    "frontmatter": {
+      "title": "VSCode 설치",
+      "description": "안녕하세요! 오늘은 macOS에 Visual Studio Code(VSCode)를 설치하는 방법을 알아보겠습니다. VSCode는 Microsoft에서 제공하는 무료 소스 코드 편집기로, 다양한 프로그래밍 언어와 툴을 지원합니다.  ---   VSCode 설치 과정   1. VSCode...",
+      "pubDate": "2024-07-05"
+    }
+  },
+  {
+    "filename": "2022-06-14-eorininalseonmul-nintendo-seuwici-eonbagsing.md",
+    "score": 75,
+    "issues": [
+      "HIGH: No H2 headings found - poor structure",
+      "MEDIUM: 1 very long paragraphs found - reduce for readability",
+      "HIGH: No headings for content organization"
+    ],
+    "status": "GOOD",
+    "wordCount": 389,
+    "frontmatter": {
+      "title": "어린이날선물 닌텐도 스위치 언박싱",
+      "description": "어린이날 선물은 게임기가 제격. 왜? 나도 할수 있으니까~ 닌텐도 동숲에디션을 언박싱해본다.",
+      "pubDate": "2022-06-14",
+      "updatedDate": "2023-03-31"
+    }
+  },
+  {
+    "filename": "2024-08-07-하향평준화-되는-중인-초등학교.md",
+    "score": 75,
+    "issues": [
+      "MEDIUM: 3 very long paragraphs found - reduce for readability",
+      "CRITICAL: 1 broken /content/images/ references"
+    ],
+    "status": "GOOD",
+    "wordCount": 482,
+    "frontmatter": {
+      "title": "하향평준화 되는 중인 초등학교",
+      "description": "초등학교에서 상을 안준다는 이야기를 들었다. 이미 초등학교를 졸업한지는 30년이 지났기 때문에 관심도 없었고 모를 수 밖에 없는 이야기 였다. 그런데 상을 안주는 이유가 상을 못받은 아이들 때문이라는 얘기를 듣고 고민해본다.",
+      "pubDate": "2024-08-07"
+    }
+  },
+  {
+    "filename": "2025-03-11-gaegeom-geomcal-i-hanggo-pogihae.md",
+    "score": 80,
+    "issues": [
+      "CRITICAL: Description too short (48 chars, need 50-160)",
+      "MEDIUM: 2 very long paragraphs found - reduce for readability"
+    ],
+    "status": "EXCELLENT",
+    "wordCount": 251,
+    "frontmatter": {
+      "title": "개검(검찰)이 항고 포기해…",
+      "description": "현재 정치 상황에 대한 개인적인 소감과 공정성에 대한 고민을 솔직하게 정리한 글입니다.",
+      "pubDate": "2025-03-11",
+      "updatedDate": "2025-03-11"
+    }
+  },
+  {
+    "filename": "2023-01-14-노티드-도넛-스트로베리-맛-후기.md",
+    "score": 90,
+    "issues": [
+      "HIGH: Content too short (167 words, need 200+)"
+    ],
+    "status": "EXCELLENT",
+    "wordCount": 167,
+    "frontmatter": {
+      "title": "노티드 도넛 스트로베리 맛 후기",
+      "description": "홍대 연남동 노티드 도넛의 스트로베리 도넛을 처음 먹어본 솔직한 후기입니다. 예쁜 포장과 진짜 딸기 크림의 맛을 상세히 기록했습니다.",
+      "pubDate": "2023-01-14",
+      "updatedDate": "2023-03-31"
+    }
+  },
+  {
+    "filename": "2024-04-22-오랫만에.md",
+    "score": 90,
+    "issues": [
+      "HIGH: Content too short (181 words, need 200+)"
+    ],
+    "status": "EXCELLENT",
+    "wordCount": 181,
+    "frontmatter": {
+      "title": "오랫만에 글쓰기 재시작 - Ulysses 구독 후기",
+      "description": "오랜만에 블로그 포스팅을 재개하게 된 계기와 글쓰기 앱 Ulysses의 할인 혜택을 받은 경험을 공유합니다.",
+      "pubDate": "2024-04-22",
+      "updatedDate": "2024-07-05"
+    }
+  },
+  {
+    "filename": "2024-02-24-hanmunsiheom-5geub-hanseongdaehaggyoro-gada.md",
+    "score": 90,
+    "issues": [
+      "HIGH: Content too short (162 words, need 200+)"
+    ],
+    "status": "EXCELLENT",
+    "wordCount": 162,
+    "frontmatter": {
+      "title": "한문시험 5급, 한성대학교로 가다",
+      "description": "한문시험 5급 응시를 위해 한성대학교를 방문한 경험을 공유합니다. 시험 장소와 준비 과정, 당일 경험을 상세히 기록합니다.",
+      "pubDate": "2024-02-24",
+      "updatedDate": "2024-07-06"
+    }
+  },
+  {
+    "filename": "2023-12-04-kakaotogdeogdamibenteu.md",
+    "score": 90,
+    "issues": [
+      "HIGH: Content too short (140 words, need 200+)"
+    ],
+    "status": "EXCELLENT",
+    "wordCount": 140,
+    "frontmatter": {
+      "title": "카카오톡 덕담 이벤트 - 이모티콘 12주년",
+      "description": "카카오톡 이모티콘 12주년을 기념한 덕담 이벤트에 참여하며 받은 특별한 메시지와 2024년을 향한 다짐을 공유합니다.",
+      "pubDate": "2023-12-04",
+      "updatedDate": "2023-12-15"
+    }
+  },
+  {
+    "filename": "2024-08-04-자전거-타기.md",
+    "score": 100,
+    "issues": [],
+    "status": "EXCELLENT",
+    "wordCount": 409,
+    "frontmatter": {
+      "title": "자전거타기 2회차 - 아이들의 놀라운 성장",
+      "description": "상암월드컵경기장에서 가족들과 자전거를 타고 온 두 번째 경험기입니다. 아이들이 자전거를 마스터해가는 과정과 가족 시간의 소중함을 담았습니다.",
+      "pubDate": "2024-08-04",
+      "updatedDate": "2024-08-04"
+    }
+  },
+  {
+    "filename": "2023-12-15-계란말이빵이라는-것을-처음-먹어-봤다.md",
+    "score": 100,
+    "issues": [],
+    "status": "EXCELLENT",
+    "wordCount": 221,
+    "frontmatter": {
+      "title": "계란말이빵이라는 것을 처음 먹어 봤다",
+      "description": "모멘트커피에서 발견한 신기한 계란말이빵을 처음 먹어본 솔직한 후기입니다. 귀여운 포장과 독특한 맛의 조합을 상세히 기록했습니다.",
+      "pubDate": "2023-12-15"
+    }
+  },
+  {
+    "filename": "2022-06-14-toipeurojegteu-roddowineo.md",
+    "score": 100,
+    "issues": [],
+    "status": "EXCELLENT",
+    "wordCount": 387,
+    "frontmatter": {
+      "title": "토이프로젝트 로또위너",
+      "description": "토이프로젝트로 가장 많은 사용자를 기록한 앱이다. 2000명이 넘는 사용자가 사용했었고, 실제로 3등 번호까지 예측했다. 알고리즘은...",
+      "pubDate": "2022-06-14",
+      "updatedDate": "2023-03-31"
+    }
+  },
+  {
+    "filename": "2022-07-10-편의점-사장님에게서-포켓몬-빵을-입수하였습니다.md",
+    "score": 100,
+    "issues": [],
+    "status": "EXCELLENT",
+    "wordCount": 364,
+    "frontmatter": {
+      "title": "포켓몬빵을 직접 획득한 아이들",
+      "description": "어릴 적에 태초마을을 떠나는 지우를 보면서 포켓몬 애니메이션을 시청했었다. 아직도 포켓몬은 아이들에게 인기있는 캐릭터다. 이런 잘만들어진 컨텐츠가 세상에 어떤 영향을 끼치는지 우리는 빵을 보면서 알수 있다.",
+      "pubDate": "2022-07-10",
+      "updatedDate": "2023-04-01"
+    }
+  },
+  {
+    "filename": "2022-06-14-borakai2019.md",
+    "score": 100,
+    "issues": [],
+    "status": "EXCELLENT",
+    "wordCount": 332,
+    "frontmatter": {
+      "title": "보라카이 2019 워크샵 - 찬란했던 그때의 추억",
+      "description": "그 때 우리는 아무런 걱정이 없었다. 개발 어벤져스가 모였다. 찬란했던 그 때를 회상해본다. 인싸들이 모인 회사! 인데발자들의 워크샵!",
+      "pubDate": "2022-06-14",
+      "updatedDate": "2023-03-31"
+    }
+  },
+  {
+    "filename": "2024-05-13-헬스-1일차.md",
+    "score": 100,
+    "issues": [],
+    "status": "EXCELLENT",
+    "wordCount": 299,
+    "frontmatter": {
+      "title": "헬스장 첫 출근 - 1일차 경험담",
+      "description": "처음으로 헬스장에 등록하고 첫 운동을 한 경험을 솔직하게 기록합니다. 초보자가 알아야 할 준비물과 주의사항을 공유합니다.",
+      "pubDate": "2024-05-13"
+    }
+  }
+]
