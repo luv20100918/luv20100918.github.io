@@ -1,8 +1,8 @@
 ---
 title: "express 에서 stream 으로 결과를 주는 예제"
 description: "익스프레스에서 스트림을 사용하여 결과를 반환하는 예제입니다."
-pubDate: '2023-04-19'
-updatedDate: '2023-08-27'
+pubDate: 2023-04-19
+updatedDate: 2023-08-27
 ---
 
 익스프레스에서 스트림을 사용하여 결과를 반환하는 예제

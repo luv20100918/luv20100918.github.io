@@ -1,8 +1,8 @@
 ---
 title: "웹플럭스 데모 with Intellij"
 description: "3년전쯤 작성한 문서로 아직도 난 실무에서 웹플럭스를 적용한 곳이 없다."
-pubDate: '2022-07-05'
-updatedDate: '2023-04-01'
+pubDate: 2022-07-05
+updatedDate: 2023-04-01
 ---
 
 요즘 리액티브라는 말을 많이 듣는다. 주변에 온통 개발자들 뿐이니 이야기 주제들도 모두 그렇기 떄문일거다. 그래서 인터넷에 검색해보면 머리가 나빠서 이해가 힘들다. 그래서 왜 쓰는건지, 어디에 적용할 수 있는건지 도통 알 수가 없다. 리액티브랑 웹플럭스는 또 무슨관계인지..
@@ -20,7 +20,7 @@ Reactive Web 을 선택하면 스프링 웹플럭스가 자동으로 설정이 �
 ## 샘플구현이제는 이 웹플럭스 환경 위에서 코딩을 할 차례다.
 
 먼저 주기적으로 데이터를 변경할수 있는 데모 쓰래드를 만든다.
-```
+```javascript
 import java.util.concurrent.TimeUnit;
 
 public class DemoThread extends Thread{

@@ -1,8 +1,8 @@
 ---
 title: "Claude AI 완벽 가이드: Desktop Commander MCP로 생산성 높이기"
 description: "Claude AI는 일상 업무와 프로그래밍을 더 효율적으로 만들어주는 강력한 도구입니다. 이 가이드에서는 Claude를 최대한 활용하는 방법과 특히 Desktop Commander MCP를 통해 어떻게 생산성을 높일 수 있는지 상세히 알아보겠습니다.   Claude란 무엇인가?  Cla..."
-pubDate: '2025-05-19'
-updatedDate: '2025-05-19'
+pubDate: 2025-05-19
+updatedDate: 2025-05-19
 ---
 
 Claude AI는 일상 업무와 프로그래밍을 더 효율적으로 만들어주는 강력한 도구입니다. 이 가이드에서는 Claude를 최대한 활용하는 방법과 특히 Desktop Commander MCP를 통해 어떻게 생산성을 높일 수 있는지 상세히 알아보겠습니다.
@@ -31,7 +31,7 @@ Desktop Commander MCP의 주요 특징:
 - macOS: ***~/Library/Application Support/Claude/claude_desktop_config.json***
 - Windows: ***%APPDATA%\Claude\claude_desktop_config.json***
 - Linux: ***~/.config/Claude/claude_desktop_config.json***
-```
+```python
 {
   "mcpServers": {
     "desktop-commander": {
@@ -76,7 +76,7 @@ Desktop Commander MCP의 주요 특징:
 
 빌드 및 테스트: "프로젝트를 빌드하고 테스트를 실행해줘"
 ```## 실제 사용 사례### 사례 1: 코드 디버깅상황: React 애플리케이션에서 무한 루프 문제가 발생했을 때
-```
+```javascript
 사용자: "내 React 컴포넌트에서 무한 루프가 발생하는 것 같아. src/components/UserList.js 파일을 확인해줄래?"
 
 Claude: [파일을 읽고 분석한 후] "UserList 컴포넌트의 useEffect 훅에서 의존성 배열이 없어서 무한 루프가 발생하고 있습니다. 다음과 같이 수정하는 것이 좋겠습니다."

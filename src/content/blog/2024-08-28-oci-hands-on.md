@@ -1,7 +1,7 @@
 ---
 title: "오라클 클라우드 인프라스트럭처(OCI) 핸즈온(Hands-on) 후기 및 교육내용 복습"
 description: "가는길  회사에서 “코엑스에서 OCI 실습교육을 한다고 들을 생각이 있냐”고 의향을 물어서 “옛설!”하고 당장 듣겠다고 했다. 당일날 어김없이 폭염, 교육이 오후 한시부터 시작이라 부랴부랴 준비해서 나갔다. 땀이 머리에서 뚝뚝하고 떨어지는데 너무 더웠지만 지하철을 타자마자 에어컨이 빵빵..."
-pubDate: '2024-08-28'
+pubDate: 2024-08-28
 ---
 
 ## 가는길회사에서 “코엑스에서 OCI 실습교육을 한다고 들을 생각이 있냐”고 의향을 물어서 “옛설!”하고 당장 듣겠다고 했다. 당일날 어김없이 폭염, 교육이 오후 한시부터 시작이라 부랴부랴 준비해서 나갔다. 땀이 머리에서 뚝뚝하고 떨어지는데 너무 더웠지만 지하철을 타자마자 에어컨이 빵빵해서 너무 좋았다. 그렇게 열탕과 냉탕을 오가면서 코엑스에 한시간 조금 넘게 이동해서 도착했다.
@@ -18,7 +18,7 @@ pubDate: '2024-08-28'
 전체적인 실습은 그림으로 단계별로 어떻게 진행되었는지 보여주면서 진행해서 머리속으로 그리기가 쉬웠다. 그래서 이해에 많은 도움이 되었던 것 같다.
 다만 클라우드쉘로 진행할때 직접 계정을 만들어서 오신 분들이 잘 안되는 부분이 있었다. 이건 오라클에서 업데이트한후에 신경을 못쓴 부분인것 같다고 설명은 들었다. 아무튼 아래 명령어를 정책에 추가해서 해결했다.
 클라우드 쉘 권한 안될때 아래 정책 추가
-```
+```python
 ALLOW GROUP Administrators to manage all-resources IN TENANCY
 ALLOW GROUP Administrators to use cloud-shell IN TENANCY
 ALLOW GROUP Administrators to use cloud-shell-public-network IN TENANCY
@@ -52,7 +52,7 @@ ALLOW GROUP Administrators to use cloud-shell-public-network IN TENANCY
 3. $1
 4. $1
 `DB 시스템 생성`버튼을 클릭한다.
----에러가 나지 않았으면 아래 내용은 무시하고 웹어플리케이션 만들기로 가면 된다.
+- --에러가 나지 않았으면 아래 내용은 무시하고 웹어플리케이션 만들기로 가면 된다.
 나는 에러가 났는데 아마 처음 하는 사람은 에러가 안날꺼 같다. 기존에 했던걸 지우고 다시 시도하니 뭔가 에러가 발생한것 같다.
 다시 revcn이라는 이름으로 가상 클라우드 네트워크 생성.
 다시 만들고 하니 잘 만들어졌다.
@@ -106,7 +106,7 @@ ssh -i id_rsa opc@10.0.1.88
 
 ```위 아이피는 본인이 생성한 webserver1의 프라이빗 아이피를 대입해야 한다.
 ![(이런식으로 서버에 접속된 걸 확인할 수 있다.)](/content/images/2024/08/DraggedImage-44.png)(이런식으로 서버에 접속된 걸 확인할 수 있다.)아래 명령어를 순차적으로 실행하면 되는데 webserver2에서 사용할때는 아래 명령어중에 index.html 을 만드는 명령어에서 Web-Server1부분을 Web-server2라고 되어있는 부분을 변경해서 하자. 그래야지 로드밸런서 테스트를 할때 제대로 동작하는지 구분이 쉽다.
-```
+```sql
 sudo yum install httpd -y
 sudo apachectl start
 sudo systemctl enable httpd
@@ -173,7 +173,7 @@ df -h
 먼저 처음에 만들었던 DBCS에 접속을 해본다.
 내가 만든 DB가 보인다. 클릭해서 상세보기로 들어가면 아래처럼 나온다.
 좌측 하단에 리소스메뉴에서 노드(1)을 클릭하면,
-*노드에 프라이빗 IP주소가 보인다. 복사*를 눌러서 복사한다.
+* 노드에 프라이빗 IP주소가 보인다. 복사*를 눌러서 복사한다.
 좌측하단에 복원을 클릭해서 다시 클라우드 쉘을 연다. 혹시 웹서버에 접속되어있는 상태라면 exit를 한다. ssh를 이용해서 DB에 접속한다.
 ```
 ssh -i id_rsa opc@wsdb.sub08270811351.revcn.oraclevcn.com
@@ -212,7 +212,7 @@ PDB연결을 해야 한다. 아까 만든 데이터 베이스로 이동하면 �
 좌측 하단에 플러거블 데이터베이스라는 메뉴가 보인다. 클릭한다.
 위 처럼 WS_PDB1이 있는데 클릭해서 들어가면
 상단에 `PDB 접속`이라는 버튼이 있다. 클릭한다.
-*위 와 같은 팝업창이 출력되는데, 쉬운접속의 접속 문자열을 복사해서 메모장에 붙여둔다. 복사*버튼을 클릭하면 복사가 쉽다.
+* 위 와 같은 팝업창이 출력되는데, 쉬운접속의 접속 문자열을 복사해서 메모장에 붙여둔다. 복사*버튼을 클릭하면 복사가 쉽다.
 다시 복원해서 클라우드 쉘을 연다.
 ```
 vi $ORACLE_HOME/network/admin/tnsnames.ora
@@ -234,7 +234,7 @@ WS_PDB1=
 sqlplus "/as sysdba"
 
 ```위 명령어를 입력하면 오라클의 SQL*Plus로 접속을 할 수 있다.
-```
+```sql
 alter session set container=WS_PDB1;
 create or replace directory pump as '/mnt/dmp/';
 grant read ,write on directory pump to public;

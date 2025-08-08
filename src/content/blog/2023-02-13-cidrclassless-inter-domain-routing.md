@@ -1,8 +1,8 @@
 ---
 title: "CIDR(Classless Inter-Domain Routing)"
 description: "CIDR에 대해서 알아봅시다."
-pubDate: '2023-02-13'
-updatedDate: '2023-03-31'
+pubDate: 2023-02-13
+updatedDate: 2023-03-31
 ---
 
 CIDR (Classless Inter-Domain Routing)은 IP 주소 부여 방식입니다. 기존의 IP 주소 부여 방식인 Classful IP 주소 부여 방식과는 달리, CIDR은 IP 주소의 비트를 더 세분화하여 더 효율적으로 사용할 수 있도록 합니다.

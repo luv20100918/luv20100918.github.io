@@ -1,8 +1,8 @@
 ---
 title: "ERROR! The server quit without updating PID file"
 description: "문제해결문서로 mysql의 설치 삭제 반복으로 인한 제대로 삭제되지 않은 폴더로 인해 발생하는 오류를 해결한다."
-pubDate: '2022-06-14'
-updatedDate: '2023-03-31'
+pubDate: 2022-06-14
+updatedDate: 2023-03-31
 ---
 
 ## 증상맥에서 mySql( 5.7 ) 설치 에러
@@ -27,11 +27,11 @@ Starting MySQL
 
 ```## 해결```
 /usr/local/Cellar/mysql@5.7/5.7.29/bin/mysqld
---initialize-insecure
---user=zhuyeel
---basedir=/usr/local/Cellar/mysql@5.7/5.7.29
---datadir=/usr/local/var/mysql
---tmpdir=/tmp
+- -initialize-insecure
+- -user=zhuyeel
+- -basedir=/usr/local/Cellar/mysql@5.7/5.7.29
+- -datadir=/usr/local/var/mysql
+- -tmpdir=/tmp
 
 ```에러 내용 중 --datadir=/usr/local/var/mysql 부분에 해당하는 폴더 삭제 ( rm -rf )
 mysql 재설치 후 정상 구동 확인

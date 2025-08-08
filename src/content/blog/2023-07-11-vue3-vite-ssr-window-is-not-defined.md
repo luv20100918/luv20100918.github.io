@@ -1,8 +1,8 @@
 ---
 title: "vue3 vite ssr window is not defined"
 description: "그냥 경험담, 푸념, 누가 풀어주면 좋을텐데"
-pubDate: '2023-07-10'
-updatedDate: '2023-08-27'
+pubDate: 2023-07-10
+updatedDate: 2023-08-27
 ---
 
 전에도 이야기 했지만 vite + vue3으로 프로젝트를 구축했다. 정말 마음에 안드는 부분이 ssr(server side rendering)을 하려고 express를 이용한 백단로직이 구현되어있는데 그것때문에 window is not defined 혹은 document를 못찾아서 서버가 종료되는 오류가 발생하게 된다.

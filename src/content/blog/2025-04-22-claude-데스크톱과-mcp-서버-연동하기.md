@@ -1,8 +1,8 @@
 ---
 title: "Claude 데스크톱과 MCP 서버 연동하기"
 description: "Claude 데스크톱과 MCP 서버 연동하기  Claude는 Anthropic에서 개발한 강력한 AI 어시스턴트로, 데스크톱 애플리케이션 버전을 MCP(Model Context Protocol) 서버와 연동하면 더욱 확장된 기능을 사용할 수 있습니다. 이 글에서는 Claude 데스크톱에..."
-pubDate: '2025-04-22'
-updatedDate: '2025-04-22'
+pubDate: 2025-04-22
+updatedDate: 2025-04-22
 ---
 
 ## Claude 데스크톱과 MCP 서버 연동하기Claude는 Anthropic에서 개발한 강력한 AI 어시스턴트로, 데스크톱 애플리케이션 버전을 MCP(Model Context Protocol) 서버와 연동하면 더욱 확장된 기능을 사용할 수 있습니다. 이 글에서는 Claude 데스크톱에 MCP 서버를 연동하는 방법과 주요 MCP 서버 설정에 대해 알아보겠습니다.

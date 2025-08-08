@@ -1,7 +1,7 @@
 ---
 title: "OpenFeign과 Spring Controller의 차이"
 description: "OpenFeign과 Controller는 Spring Framework에서 서로 다른 목적과 역할을 가진 두 가지 컴포넌트입니다. 이 둘의 차이를 이해하려면, 각각의 기능과 사용 사례를 살펴보는 것이 중요합니다.   OpenFeign  OpenFeign은 선언적 웹 서비스 클라이언트로,..."
-pubDate: '2024-06-05'
+pubDate: 2024-06-05
 ---
 
 OpenFeign과 Controller는 Spring Framework에서 서로 다른 목적과 역할을 가진 두 가지 컴포넌트입니다. 이 둘의 차이를 이해하려면, 각각의 기능과 사용 사례를 살펴보는 것이 중요합니다.
@@ -67,7 +67,7 @@ OpenFeign과 Spring Controller는 HTTP 요청을 처리하는 방식에서 차�
 
 #### 예제 1 @RequestBody 사용@RequestBody를 사용하여 단일 객체를 전송하는 경우:
 
-```
+```java
 @FeignClient(name = "example-service")
 public interface ExampleClient {
 @PostMapping("/example")
@@ -89,7 +89,7 @@ public interface ExampleClient {
 }
 
 ```#### 예제 3: @RequestHeader 사용@RequestHeader를 사용하여 헤더 값을 전송하는 경우:
-```
+```python
 @FeignClient(name = "example-service")
 public interface ExampleClient {
 	@GetMapping("/example")
@@ -112,7 +112,7 @@ public class ExampleController {
 }
 
 ```#### 예제 2: JSON 본문 데이터JSON 본문 데이터를 객체로 받을 때는 @RequestBody를 사용합니다:
-```
+```java
 @RestController
 @RequestMapping("/api")
 public class ExampleController {

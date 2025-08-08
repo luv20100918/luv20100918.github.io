@@ -1,8 +1,8 @@
 ---
 title: "Forticlient 에서 가상IP를 못 받을 때"
 description: "문제해결 문서입니다. 포트클라이언트에서 가상 아이피를 못받을 때, 오픈소스인 openfortivpn 의 설치와 사용방법."
-pubDate: '2022-06-16'
-updatedDate: '2023-03-31'
+pubDate: 2022-06-16
+updatedDate: 2023-03-31
 ---
 
 실리콘 맥은 그냥 아이패드용 Forticlientvpn 앱을 다운로드 받아서 하면 문제없이 동작한다. 하지만 인텔맥(내것만 그럴수도 있는데)은 Fortclient 7.0.5 버전으로 설치를 했는데 가상아이피를 못가져오는 경우가 생겼다. SSL인증(혹은 인증서)에서 문제가 생긴걸로 보인다.

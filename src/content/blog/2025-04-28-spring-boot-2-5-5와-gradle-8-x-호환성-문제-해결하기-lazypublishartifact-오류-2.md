@@ -1,12 +1,12 @@
 ---
 title: "Spring Boot 2.5.5와 Gradle 8.x 호환성 문제 해결하기: LazyPublishArtifact 오류"
 description: "문제 상황  최근 프로젝트를 빌드하는 중 다음과 같은 이해하기 어려운 오류 메시지를 만났습니다:  org.gradle.api.internal.artifacts.dsl.LazyPublishArtifact.(Lorg/gradle/api/provider/Provider;)V * T..."
-pubDate: '2025-04-28'
+pubDate: 2025-04-28
 ---
 
 ## 문제 상황최근 프로젝트를 빌드하는 중 다음과 같은 이해하기 어려운 오류 메시지를 만났습니다:
 
-```
+```python
 org.gradle.api.internal.artifacts.dsl.LazyPublishArtifact.<init>(Lorg/gradle/api/provider/Provider;)V
 * Try:
 > Run with --stacktrace option to get the stack trace.
@@ -56,7 +56,7 @@ tasks.withType(PublishToMavenLocal).configureEach {
 
 트워크 타임아웃 설정 추가gradle.properties 파일에 네트워크 타임아웃 설정을 추가했습니다:
 
-```
+```python
 org.gradle.internal.http.connectionTimeout=180000
 org.gradle.internal.http.socketTimeout=180000
 ```이 방법도 핵심 문제를 해결하지 못했습니다.

@@ -1,7 +1,7 @@
 ---
 title: "VSCode 설치"
 description: "안녕하세요! 오늘은 macOS에 Visual Studio Code(VSCode)를 설치하는 방법을 알아보겠습니다. VSCode는 Microsoft에서 제공하는 무료 소스 코드 편집기로, 다양한 프로그래밍 언어와 툴을 지원합니다.  ---   VSCode 설치 과정   1. VSCode..."
-pubDate: '2024-07-05'
+pubDate: 2024-07-05
 ---
 
 안녕하세요! 오늘은 macOS에 Visual Studio Code(VSCode)를 설치하는 방법을 알아보겠습니다. VSCode는 Microsoft에서 제공하는 무료 소스 코드 편집기로, 다양한 프로그래밍 언어와 툴을 지원합니다.
@@ -31,7 +31,7 @@ pubDate: '2024-07-05'
 
 ## 설치 확인터미널을 열고 다음 명령어를 입력하여 VSCode가 정상적으로 설치되었는지 확인합니다.
 
-```
+```python
 code --version
 
 ```이 명령어를 실행하면 VSCode 버전이 출력됩니다. 이제 터미널에서 `code` 명령어를 사용하여 VSCode를 열 수 있습니다.

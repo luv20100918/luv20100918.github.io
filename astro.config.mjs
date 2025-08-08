@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://luv20100918.github.io',
+    site: 'https://birdspring.com',
     integrations: [mdx(), sitemap()],
     markdown: {
         shikiConfig: {

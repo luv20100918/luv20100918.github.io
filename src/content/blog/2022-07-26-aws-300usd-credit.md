@@ -1,8 +1,8 @@
 ---
 title: "AWS에서 300USD 크레딧을 획득하다"
 description: "AWS 크레딧을 신청해서 획득한 썰"
-pubDate: '2022-07-26'
-updatedDate: '2022-07-26'
+pubDate: 2022-07-26
+updatedDate: 2022-07-26
 ---
 
 ## 한통의 메일일전에 EC2로 서버를 구축한적이 있다.

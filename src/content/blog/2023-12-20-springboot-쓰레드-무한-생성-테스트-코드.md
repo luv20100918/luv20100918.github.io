@@ -1,7 +1,7 @@
 ---
 title: "SpringBoot 쓰레드 무한 생성 테스트 코드"
 description: "스프링 부트에서 쓰레드를 무한 생성하는 테스트 코드를 작성해 보았다.  아래의 예시는 JUnit과 SpringBootTest를 이용해서 테스트 코드를 작성하는 법이다.  import org.junit.jupiter.api.Test; import org.springframework.boo..."
-pubDate: '2023-12-20'
+pubDate: 2023-12-20
 ---
 
 스프링 부트에서 쓰레드를 무한 생성하는 테스트 코드를 작성해 보았다.

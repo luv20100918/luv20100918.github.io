@@ -1,8 +1,8 @@
 ---
 title: "Model has no value for key ‘aaa’ 라고 출력됐다"
 description: "Model has no value for key 라는 오류 메시지를 처음 보고 관련된 부분들을 찾아보았습니다."
-pubDate: '2022-07-30'
-updatedDate: '2023-03-31'
+pubDate: 2022-07-30
+updatedDate: 2023-03-31
 ---
 
 제목 그대로 오류가 발생했다. aaa는 임의로 설정한 키값이다.
@@ -23,7 +23,7 @@ public String myRedirect(Model model, HttpServletRequest req) {
 알고보니, 중괄호로 감싼 aaa를 모델에 키가 없다고 에러메시지를 주는거였다.
 그렇다면 aaa를 키로 인식하는 이유가 있을 것이다.
 RedirectView 내부를 살펴보면 아래와 같은 코드가 있다.
-```
+```css
 	protected StringBuilder replaceUriTemplateVariables(
 			String targetUrl, Map<String, Object> model, Map<String, String> currentUriVariables, String encodingScheme)
 			throws UnsupportedEncodingException {

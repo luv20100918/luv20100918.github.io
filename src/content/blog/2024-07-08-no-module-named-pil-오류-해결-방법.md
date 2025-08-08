@@ -1,7 +1,7 @@
 ---
 title: "No module named 'PIL' 오류 해결 방법"
 description: "오늘은 파이썬 프로그래밍을 하면서 흔히 만날 수 있는 오류에 대해 이야기해볼까 한다. 예를 들어, \"No module named 'PIL'\"라는 오류를 만났다면, 아마 이미지 처리 라이브러리인 Pillow를 설치하지 않아서 그런 걸 수도 있다.   Pillow는 Python Imagin..."
-pubDate: '2024-07-08'
+pubDate: 2024-07-08
 ---
 
 오늘은 파이썬 프로그래밍을 하면서 흔히 만날 수 있는 오류에 대해 이야기해볼까 한다. 예를 들어, "No module named 'PIL'"라는 오류를 만났다면, 아마 이미지 처리 라이브러리인 Pillow를 설치하지 않아서 그런 걸 수도 있다.
@@ -16,7 +16,7 @@ pip install pillow
 ```
 설치가 완료되면, 이제 Pillow를 임포트해서 사용할 수 있다. 예를 들어 이미지를 열고, 그 이미지를 다른 형식으로 저장하고 싶다면 다음과 같은 코드로 할 수 있다.
 
-```
+```javascript
 from PIL import Image
 
 # 이미지 열기

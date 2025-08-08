@@ -1,8 +1,8 @@
 ---
 title: "장고로 정적 웹문서 부터 동적 웹문서 서빙"
 description: "웹문서를 장고로 서빙하는 부분을 단계별로 따라하면서 실습을 해보려고 합니다. 그대로 따라하면서 장고를 배우려 합니다.   1. 워드 문서로부터 생성된 HTML 문서  먼저, HTML 문서를 만들어 봅시다. 워드 문서로 작성한 내용을 HTML로 변환하는 것은 간단합니다. 예를 들어, 워드..."
-pubDate: '2024-07-11'
-updatedDate: '2025-06-03'
+pubDate: 2024-07-11
+updatedDate: 2025-06-03
 ---
 
 웹문서를 장고로 서빙하는 부분을 단계별로 따라하면서 실습을 해보려고 합니다. 그대로 따라하면서 장고를 배우려 합니다.
@@ -11,7 +11,7 @@ updatedDate: '2025-06-03'
 
 드 문서로부터 생성된 HTML 문서먼저, HTML 문서를 만들어 봅시다. 워드 문서로 작성한 내용을 HTML로 변환하는 것은 간단합니다. 예를 들어, 워드 문서에서 저장할 때 '웹 페이지' 형식으로 저장하면 HTML 파일이 생성됩니다.
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,8 +64,7 @@ cd mysite
 python manage.py runserver
 
 ```![](/content/images/2024/07/-----------2024-07-10------5.33.51---------.webp)#### 5. 외부 데이터를 로딩하여 HTML 응답하기외부 데이터를 로딩하여 HTML로 응답하는 방법을 알아봅시다. 예를 들어, JSONPlaceholder API를 이용해 봅시다.
-```
-
+```javascript
 # views.py
 
 from django.shortcuts import render
@@ -94,7 +93,7 @@ def external_data(request):
 </html>
 
 ```urls.py 에 경로를 추가 합니다.
-```
+```javascript
 """
 URL configuration for mysite project.
 

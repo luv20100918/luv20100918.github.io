@@ -1,15 +1,15 @@
 ---
 title: "openSUSE Leap 15.6 설치 후 초기 설정 작업"
 description: "시작하며  openSUSE Leap 15.6을 설치하고 나서, 바로 시스템 설정을 진행했다. 생각보다 할 게 많았지만, 하나씩 차근차근 해결해 나갔다. 이번 작업을 기록해두면 나중에 비슷한 상황에서 다시 참고할 수 있을 것 같다.  https://get.opensuse.org/leap/..."
-pubDate: '2024-08-13'
-updatedDate: '2024-08-13'
+pubDate: 2024-08-13
+updatedDate: 2024-08-13
 ---
 
 ## 시작하며openSUSE Leap 15.6을 설치하고 나서, 바로 시스템 설정을 진행했다. 생각보다 할 게 많았지만, 하나씩 차근차근 해결해 나갔다. 이번 작업을 기록해두면 나중에 비슷한 상황에서 다시 참고할 수 있을 것 같다.
 
 [https://get.opensuse.org/leap/15.6/](https://get.opensuse.org/leap/15.6/)
 openSUSE Leap 15.6을 받아서 설치를 했다고 가정하고 아래 순서대로 작업을 수행했다.
----## 작업순서### 1. 네트워크 설정서버에 접속하자마자 `ifconfig` 명령어를 쳤는데, 명령어가 없다고 나왔다. `zypper`로 `net-tools-deprecated` 패키지를 설치했다. 이걸 설치하고 나니까 `ifconfig`가 정상적으로 작동했다.
+- --## 작업순서### 1. 네트워크 설정서버에 접속하자마자 `ifconfig` 명령어를 쳤는데, 명령어가 없다고 나왔다. `zypper`로 `net-tools-deprecated` 패키지를 설치했다. 이걸 설치하고 나니까 `ifconfig`가 정상적으로 작동했다.
 ```
 zypper install net-tools-deprecated
 ifconfig
