@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
-Sitemap: https://luv20100918.github.io/sitemap-index.xml
+Disallow: /backup-2025-08-08/
+
+Sitemap: https://birdspring.com/sitemap-index.xml
 
 # Crawl-delay: 1
+# Host: birdspring.com
