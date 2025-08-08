@@ -6,21 +6,43 @@ updatedDate: 2023-04-01
 ---
 
 요즘 리액티브라는 말을 많이 듣는다. 주변에 온통 개발자들 뿐이니 이야기 주제들도 모두 그렇기 떄문일거다. 그래서 인터넷에 검색해보면 머리가 나빠서 이해가 힘들다. 그래서 왜 쓰는건지, 어디에 적용할 수 있는건지 도통 알 수가 없다. 리액티브랑 웹플럭스는 또 무슨관계인지..
+
 그냥 따라 해 보자.
 
-## 설정먼저 인텔리제이를 실행한다.
+## 설정
+
+먼저 인텔리제이를 실행한다.
+
+![](/content/images/2022/07/-----------2021-03-10------3.31.54.png)
 
 New Project를 선택한다.
+
+![](/content/images/2022/07/-----------2021-03-10------3.35.40.png)
+
 Spring Initializer 를 선택하고 진행을 한다. JDK는 1.8로 진행하겠다.
+
+![](/content/images/2022/07/-----------2021-03-10------3.36.55.png)
+
 흔히 설정하는 데로 알아서 넣는다.
+
+![](/content/images/2022/07/-----------2021-03-10------3.38.08.png)
+
 Reactive Web 을 선택하면 스프링 웹플럭스가 자동으로 설정이 된다.
+
+![](/content/images/2022/07/-----------2021-03-10------3.39.43.png)
+
 프로젝트 이름을 대충정한다. webFluxDemo 라고 지었다.
+
+![](/content/images/2022/07/-----------2021-03-10------3.55.18.png)
+
 위 이미지와 같은 모양으로 되면 일단 설정이 된것 같은데?
 
-## 샘플구현이제는 이 웹플럭스 환경 위에서 코딩을 할 차례다.
+## 샘플구현
+
+이제는 이 웹플럭스 환경 위에서 코딩을 할 차례다.
 
 먼저 주기적으로 데이터를 변경할수 있는 데모 쓰래드를 만든다.
-```javascript
+
 import java.util.concurrent.TimeUnit;
 
 public class DemoThread extends Thread{
@@ -43,8 +65,8 @@ public class DemoThread extends Thread{
     }
 }
 
-```데모 핸들러를 만든다. 생성자에서 데모 쓰래드를 호출한다.
-```
+데모 핸들러를 만든다. 생성자에서 데모 쓰래드를 호출한다.
+
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -59,16 +81,16 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class DemoHandler {
 
-    public final static Map<String, Object> stream = new HashMap<>();
+    public final static Map&lt;String, Object&gt; stream = new HashMap&lt;&gt;();
 
-    private Mono<Map<String, Object>> mono = Mono.just(stream);
+    private Mono&lt;Map&lt;String, Object&gt;&gt; mono = Mono.just(stream);
 
-    public Mono<ServerResponse> demo(ServerRequest request) {
+    public Mono&lt;ServerResponse&gt; demo(ServerRequest request) {
 
         String query = request.queryParam("query").orElse("empty");
 
-        mono.subscribe(x -> {
-            System.out.println("query -> " + query + ", " + x);
+        mono.subscribe(x -&gt; {
+            System.out.println("query -&gt; " + query + ", " + x);
         });
 
         return ServerResponse.ok()
@@ -82,8 +104,8 @@ public class DemoHandler {
     }
 }
 
-```URL맵핑을 위한 데모 라우터를 만든다.
-```
+URL맵핑을 위한 데모 라우터를 만든다.
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -96,18 +118,23 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 public class DemoRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> route(DemoHandler handler) {
+    public RouterFunction&lt;ServerResponse&gt; route(DemoHandler handler) {
         return RouterFunctions.route(
                 RequestPredicates.GET("/demo")
                         .and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), handler::demo);
     }
 }
 
-```http://localhost:8080/demo 를 호출하면 JSON으로 {“count”, 0} 이라고 출력된다.
+http://localhost:8080/demo 를 호출하면 JSON으로 {“count”, 0} 이라고 출력된다.
+
 새로고침하면 카운트 숫자가 계속 증가된다.
+
 샘플을 잘 만든건지 모르겠다.
+
 그냥 단순히 스프링 MVC 와 다르게 개발을 하는 것 뿐인건가?
 
-## 자료를 좀 더 찾아보자웹플럭스는 비동기 프로그램을 좀더 잘하기 위한 방법인 것 같다. 내가 생각한 것과는 다른 내용인 것 같다. 그러면 뭔가 병렬로 처리되어야 하는 것들을 잘 처리하기 위해 나온 것이라고 보면될까? 그러면 병렬처리로 성능항상이 크게 있을 만한 곳에 사용하면 되는 거겠지?
+## 자료를 좀 더 찾아보자
+
+웹플럭스는 비동기 프로그램을 좀더 잘하기 위한 방법인 것 같다. 내가 생각한 것과는 다른 내용인 것 같다. 그러면 뭔가 병렬로 처리되어야 하는 것들을 잘 처리하기 위해 나온 것이라고 보면될까? 그러면 병렬처리로 성능항상이 크게 있을 만한 곳에 사용하면 되는 거겠지?
 
 회사가서 똑똑한 개발자들에게 물어보고 포스팅에 틀린 내용이 있다면 추후 수정하도록 하자.

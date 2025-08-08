@@ -1,0 +1,607 @@
+================================================================================
+BLOG CONTENT RESTORATION REPORT
+Generated: 2025-08-08T02:16:18.564Z
+================================================================================
+
+SUMMARY:
+Total files processed: 183
+Damaged files detected: 60
+Files successfully fixed: 58
+Content restored from backup: 51
+List items fixed: 278
+Image paths fixed: 0
+Errors encountered: 0
+
+DETAILED LOG:
+----------------------------------------
+[2025-08-08T02:16:18.462Z] Starting blog content restoration process...
+[2025-08-08T02:16:18.465Z] Creating backup directory: /Users/kaflix/Projects/birdspring.com/luv20100918.github.io/backup-2025-08-08
+[2025-08-08T02:16:18.516Z] Backup completed. 183 files backed up.
+[2025-08-08T02:16:18.516Z] Loading Ghost backup JSON...
+[2025-08-08T02:16:18.534Z] Loaded 185 posts from Ghost backup
+[2025-08-08T02:16:18.534Z] Found 183 markdown files to process
+[2025-08-08T02:16:18.534Z] Processing: 2022-06-14-1touch.md
+[2025-08-08T02:16:18.535Z]   No fixes needed
+[2025-08-08T02:16:18.535Z] Processing: 2022-06-14-borakai2019.md
+[2025-08-08T02:16:18.535Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.535Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.535Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.536Z]   File successfully fixed
+[2025-08-08T02:16:18.536Z] Processing: 2022-06-14-ceongpodaekaempingjang.md
+[2025-08-08T02:16:18.536Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.536Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.536Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.536Z]   File successfully fixed
+[2025-08-08T02:16:18.536Z] Processing: 2022-06-14-eorininalseonmul-nintendo-seuwici-eonbagsing.md
+[2025-08-08T02:16:18.536Z]   No fixes needed
+[2025-08-08T02:16:18.536Z] Processing: 2022-06-14-error-the-server-quit-without-updating-pid-file.md
+[2025-08-08T02:16:18.536Z]   No fixes needed
+[2025-08-08T02:16:18.536Z] Processing: 2022-06-14-ghost-4-한글-slug.md
+[2025-08-08T02:16:18.537Z]   No fixes needed
+[2025-08-08T02:16:18.537Z] Processing: 2022-06-14-gunicornservice-error.md
+[2025-08-08T02:16:18.537Z]   No fixes needed
+[2025-08-08T02:16:18.537Z] Processing: 2022-06-14-toipeurojegteu-jigagdaejang-bbungbbangi.md
+[2025-08-08T02:16:18.537Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.537Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.537Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.537Z]   File successfully fixed
+[2025-08-08T02:16:18.537Z] Processing: 2022-06-14-toipeurojegteu-roddowineo.md
+[2025-08-08T02:16:18.537Z]   Damage detected: Contains "$1" placeholders instead of list content, Likely missing image references
+[2025-08-08T02:16:18.537Z]   Fixed list formatting
+[2025-08-08T02:16:18.537Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.537Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.537Z]   File successfully fixed
+[2025-08-08T02:16:18.538Z] Processing: 2022-06-14-내-웹메일을-갖고-싶어.md
+[2025-08-08T02:16:18.538Z]   Fixed list formatting
+[2025-08-08T02:16:18.538Z]   File successfully fixed
+[2025-08-08T02:16:18.538Z] Processing: 2022-06-15-git-저장소-이관-하는법.md
+[2025-08-08T02:16:18.538Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.538Z]   Fixed list formatting
+[2025-08-08T02:16:18.538Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.538Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.538Z]   File successfully fixed
+[2025-08-08T02:16:18.538Z] Processing: 2022-06-16-centos-78.md
+[2025-08-08T02:16:18.538Z]   No fixes needed
+[2025-08-08T02:16:18.538Z] Processing: 2022-06-16-forticlient-에서-가상ip를-못-받을-때.md
+[2025-08-08T02:16:18.538Z]   No fixes needed
+[2025-08-08T02:16:18.538Z] Processing: 2022-06-17-42인치-lg-tv-자가-수리.md
+[2025-08-08T02:16:18.538Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.539Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.539Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.539Z]   File successfully fixed
+[2025-08-08T02:16:18.539Z] Processing: 2022-06-17-postgresql-알면-편한-쿼리.md
+[2025-08-08T02:16:18.539Z]   No fixes needed
+[2025-08-08T02:16:18.539Z] Processing: 2022-06-18-mysql-유용한-팁.md
+[2025-08-08T02:16:18.539Z]   No fixes needed
+[2025-08-08T02:16:18.539Z] Processing: 2022-06-18-캠핑-아이템-알피쿨.md
+[2025-08-08T02:16:18.539Z]   Damage detected: Contains "$1" placeholders instead of list content, Likely missing image references
+[2025-08-08T02:16:18.539Z]   Fixed list formatting
+[2025-08-08T02:16:18.539Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.539Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.539Z]   File successfully fixed
+[2025-08-08T02:16:18.539Z] Processing: 2022-06-19-특수기호-특수문자-영문-표기.md
+[2025-08-08T02:16:18.539Z]   No fixes needed
+[2025-08-08T02:16:18.539Z] Processing: 2022-06-20-jquery-체크박스-스크립트-제어.md
+[2025-08-08T02:16:18.539Z]   No fixes needed
+[2025-08-08T02:16:18.539Z] Processing: 2022-06-20-visual-studio-shortcut.md
+[2025-08-08T02:16:18.539Z]   No fixes needed
+[2025-08-08T02:16:18.539Z] Processing: 2022-06-20-국내주식투자.md
+[2025-08-08T02:16:18.540Z]   No fixes needed
+[2025-08-08T02:16:18.540Z] Processing: 2022-06-20-스프링-부트-프로젝트-설정.md
+[2025-08-08T02:16:18.540Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.540Z]   Fixed list formatting
+[2025-08-08T02:16:18.540Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.540Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.540Z]   File successfully fixed
+[2025-08-08T02:16:18.540Z] Processing: 2022-06-20-애드센스가-공백이-되다.md
+[2025-08-08T02:16:18.540Z]   No fixes needed
+[2025-08-08T02:16:18.540Z] Processing: 2022-06-20-형광등을-led로-바꾸기.md
+[2025-08-08T02:16:18.540Z]   Damage detected: Contains "$1" placeholders instead of list content, Likely missing image references
+[2025-08-08T02:16:18.540Z]   Fixed list formatting
+[2025-08-08T02:16:18.540Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.540Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.540Z]   File successfully fixed
+[2025-08-08T02:16:18.540Z] Processing: 2022-06-21-제주-여행-1-5.md
+[2025-08-08T02:16:18.540Z]   Damage detected: Contains "$1" placeholders instead of list content, Likely missing image references
+[2025-08-08T02:16:18.540Z]   Fixed list formatting
+[2025-08-08T02:16:18.540Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.540Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.541Z]   File successfully fixed
+[2025-08-08T02:16:18.541Z] Processing: 2022-06-22-맥에서-mariadb-설치.md
+[2025-08-08T02:16:18.541Z]   No fixes needed
+[2025-08-08T02:16:18.541Z] Processing: 2022-06-23-ghost-ssl-적용시-redirect-오류-해결.md
+[2025-08-08T02:16:18.541Z]   No fixes needed
+[2025-08-08T02:16:18.541Z] Processing: 2022-06-23-mysql-on-osx.md
+[2025-08-08T02:16:18.541Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.541Z]   Fixed list formatting
+[2025-08-08T02:16:18.541Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.541Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.541Z]   File successfully fixed
+[2025-08-08T02:16:18.541Z] Processing: 2022-06-24-제주여행-2-제주동쪽탐험.md
+[2025-08-08T02:16:18.541Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.541Z]   Fixed list formatting
+[2025-08-08T02:16:18.541Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.541Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.541Z]   File successfully fixed
+[2025-08-08T02:16:18.541Z] Processing: 2022-06-26-제주여행-3-5.md
+[2025-08-08T02:16:18.542Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.542Z]   Fixed list formatting
+[2025-08-08T02:16:18.542Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.542Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.542Z]   File successfully fixed
+[2025-08-08T02:16:18.542Z] Processing: 2022-07-02-해외주식투자-망함.md
+[2025-08-08T02:16:18.542Z]   No fixes needed
+[2025-08-08T02:16:18.542Z] Processing: 2022-07-05-helm-으로-데이터독-multi_line-설정.md
+[2025-08-08T02:16:18.542Z]   No fixes needed
+[2025-08-08T02:16:18.542Z] Processing: 2022-07-05-웹플럭스-데모-with-intellij.md
+[2025-08-08T02:16:18.542Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.542Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.542Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.542Z]   File successfully fixed
+[2025-08-08T02:16:18.542Z] Processing: 2022-07-05-코인투자.md
+[2025-08-08T02:16:18.542Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.542Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.542Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.543Z]   File successfully fixed
+[2025-08-08T02:16:18.543Z] Processing: 2022-07-07-또올래캠핑장.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-07-09-aws-ec2-로-내-서버-구축하기.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-07-10-제주-여행-5-5.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-07-10-편의점-사장님에게서-포켓몬-빵을-입수하였습니다.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-07-11-ghost-한글-slug-amp-404.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-07-22-사파리-iframe에서는-같은-도메인의-로컬스토리지-공유가-안되요.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-07-26-aws-300usd-credit.md
+[2025-08-08T02:16:18.543Z]   Fixed list formatting
+[2025-08-08T02:16:18.543Z]   File successfully fixed
+[2025-08-08T02:16:18.543Z] Processing: 2022-07-30-model-has-no-value-for-key-aaa.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-08-18-스프링-부트의-scheduled-사용할-때-중복되는-스케쥴이-동시-실행이-안된다.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-09-02-토이프로젝트-인쇄용-나눗셈-세로식-문제지.md
+[2025-08-08T02:16:18.543Z]   No fixes needed
+[2025-08-08T02:16:18.543Z] Processing: 2022-10-05-가을캠핑-난방-고민.md
+[2025-08-08T02:16:18.543Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.543Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.543Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.543Z]   File successfully fixed
+[2025-08-08T02:16:18.543Z] Processing: 2022-10-06-가을캠핑-비-바람-고민.md
+[2025-08-08T02:16:18.544Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.544Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.544Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.544Z]   File successfully fixed
+[2025-08-08T02:16:18.544Z] Processing: 2022-10-23-달인캠핑장에서-혹한기-훈련을-하다.md
+[2025-08-08T02:16:18.544Z]   No fixes needed
+[2025-08-08T02:16:18.544Z] Processing: 2022-11-07-pam_tally2.md
+[2025-08-08T02:16:18.544Z]   No fixes needed
+[2025-08-08T02:16:18.544Z] Processing: 2022-11-21-ventura.md
+[2025-08-08T02:16:18.544Z]   No fixes needed
+[2025-08-08T02:16:18.544Z] Processing: 2022-11-29-aws-elb.md
+[2025-08-08T02:16:18.544Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.544Z]   Fixed list formatting
+[2025-08-08T02:16:18.544Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.544Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.544Z]   File successfully fixed
+[2025-08-08T02:16:18.544Z] Processing: 2022-12-06-jira-workflow-with-approval.md
+[2025-08-08T02:16:18.544Z]   No fixes needed
+[2025-08-08T02:16:18.544Z] Processing: 2023-01-02-aws-cloudfront.md
+[2025-08-08T02:16:18.544Z]   No fixes needed
+[2025-08-08T02:16:18.544Z] Processing: 2023-01-02-aws-route53.md
+[2025-08-08T02:16:18.544Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.544Z]   Fixed list formatting
+[2025-08-08T02:16:18.544Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.544Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.544Z]   File successfully fixed
+[2025-08-08T02:16:18.544Z] Processing: 2023-01-03-aws-global-accelerator.md
+[2025-08-08T02:16:18.544Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.544Z]   Fixed list formatting
+[2025-08-08T02:16:18.544Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.545Z]   File successfully fixed
+[2025-08-08T02:16:18.545Z] Processing: 2023-01-03-aws_네트워크_연결_옵션.md
+[2025-08-08T02:16:18.545Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.545Z]   Fixed list formatting
+[2025-08-08T02:16:18.545Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.545Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.545Z]   File successfully fixed
+[2025-08-08T02:16:18.545Z] Processing: 2023-01-03-go_스터디_시작.md
+[2025-08-08T02:16:18.545Z]   No fixes needed
+[2025-08-08T02:16:18.545Z] Processing: 2023-01-04-컴퓨터_원리.md
+[2025-08-08T02:16:18.545Z]   No fixes needed
+[2025-08-08T02:16:18.545Z] Processing: 2023-01-05-aws-vpc-peering.md
+[2025-08-08T02:16:18.545Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.545Z]   Fixed list formatting
+[2025-08-08T02:16:18.545Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.545Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.545Z]   File successfully fixed
+[2025-08-08T02:16:18.545Z] Processing: 2023-01-11-aws-vpn.md
+[2025-08-08T02:16:18.545Z]   No fixes needed
+[2025-08-08T02:16:18.545Z] Processing: 2023-01-11-go_변수.md
+[2025-08-08T02:16:18.545Z]   No fixes needed
+[2025-08-08T02:16:18.545Z] Processing: 2023-01-14-노티드-도넛-스트로베리-맛-후기.md
+[2025-08-08T02:16:18.545Z]   No fixes needed
+[2025-08-08T02:16:18.545Z] Processing: 2023-01-14-던파모바일에서-세라충전하다가-오류나서-고객센터-문의를-했지만-해결이-안돼다.md
+[2025-08-08T02:16:18.546Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.546Z]   Fixed list formatting
+[2025-08-08T02:16:18.546Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.546Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.546Z]   File successfully fixed
+[2025-08-08T02:16:18.546Z] Processing: 2023-02-07-헬스_2달_후기.md
+[2025-08-08T02:16:18.546Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.546Z]   Fixed list formatting
+[2025-08-08T02:16:18.546Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.546Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.546Z]   File successfully fixed
+[2025-08-08T02:16:18.546Z] Processing: 2023-02-09-4-5월-신나는-캠핑-여행-준비하세요.md
+[2025-08-08T02:16:18.546Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.546Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.546Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.547Z]   File successfully fixed
+[2025-08-08T02:16:18.547Z] Processing: 2023-02-13-cidrclassless-inter-domain-routing.md
+[2025-08-08T02:16:18.547Z]   No fixes needed
+[2025-08-08T02:16:18.547Z] Processing: 2023-02-14-chatgpt-최후의질문.md
+[2025-08-08T02:16:18.547Z]   No fixes needed
+[2025-08-08T02:16:18.547Z] Processing: 2023-02-14-java-enum.md
+[2025-08-08T02:16:18.547Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.547Z]   Fixed list formatting
+[2025-08-08T02:16:18.547Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.547Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.547Z]   File successfully fixed
+[2025-08-08T02:16:18.547Z] Processing: 2023-03-11-vue3-script-setup-appvue.md
+[2025-08-08T02:16:18.547Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.547Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.547Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.547Z]   File successfully fixed
+[2025-08-08T02:16:18.547Z] Processing: 2023-03-22-크롬에서-되는-정규식이-사파리에서는-안될-때가-있습니다.md
+[2025-08-08T02:16:18.547Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.547Z]   Fixed list formatting
+[2025-08-08T02:16:18.547Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.547Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.547Z]   File successfully fixed
+[2025-08-08T02:16:18.547Z] Processing: 2023-03-24-cdn-사용시-크로스도메인-문제-해결.md
+[2025-08-08T02:16:18.547Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.547Z]   Fixed list formatting
+[2025-08-08T02:16:18.547Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.547Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.547Z]   File successfully fixed
+[2025-08-08T02:16:18.547Z] Processing: 2023-03-29-vue3-체크박스를-원래의-기능과-다르게-작성하는-법.md
+[2025-08-08T02:16:18.547Z]   No fixes needed
+[2025-08-08T02:16:18.547Z] Processing: 2023-03-29-타입스크립트-제너릭-활용.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-12-vuejs-3.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-12-타입스크립트에서-네임스페이스의-활용.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-13-자바스크립트에서-여러-조건으로-정렬을-해보자.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-13-타입스크립트-코드-리펙토링.md
+[2025-08-08T02:16:18.548Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.548Z]   Fixed list formatting
+[2025-08-08T02:16:18.548Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.548Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.548Z]   File successfully fixed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-13-홍대버스-승강장-나만-열받냐.md
+[2025-08-08T02:16:18.548Z]   Damage detected: Content appears truncated (very few lines)
+[2025-08-08T02:16:18.548Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-15-아들-눈탱이에-프로펠러를-맞다.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-16-각막찰과상-아들-눈동자에-프로펠러를-맞다.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-19-express-stream.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-21-nohup-백그라운드-프로그램실행-가능.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-24-리눅스-서버에서-ssh로-접근할때-root로-접근을-제한하려면.md
+[2025-08-08T02:16:18.548Z]   No fixes needed
+[2025-08-08T02:16:18.548Z] Processing: 2023-04-25-centos-7에서-모든-외부접근을-막고-특정-아이피의-ssh접근을-허용.md
+[2025-08-08T02:16:18.548Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.548Z]   Fixed list formatting
+[2025-08-08T02:16:18.548Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.548Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.549Z]   File successfully fixed
+[2025-08-08T02:16:18.549Z] Processing: 2023-04-28-autogpt-stable-diffusion.md
+[2025-08-08T02:16:18.549Z]   No fixes needed
+[2025-08-08T02:16:18.549Z] Processing: 2023-06-14-vue3-css-import.md
+[2025-08-08T02:16:18.549Z]   No fixes needed
+[2025-08-08T02:16:18.549Z] Processing: 2023-07-05-vue3-프로젝트-회고.md
+[2025-08-08T02:16:18.549Z]   No fixes needed
+[2025-08-08T02:16:18.549Z] Processing: 2023-07-11-vue3-vite-ssr-window-is-not-defined.md
+[2025-08-08T02:16:18.549Z]   No fixes needed
+[2025-08-08T02:16:18.549Z] Processing: 2023-07-13-rdb-vs-nosql-장단점.md
+[2025-08-08T02:16:18.549Z]   No fixes needed
+[2025-08-08T02:16:18.549Z] Processing: 2023-07-20-tcp-패킷에서-사용되는-주요-플래그들의-의미를-설명해-드리겠습니다.md
+[2025-08-08T02:16:18.549Z]   No fixes needed
+[2025-08-08T02:16:18.549Z] Processing: 2023-07-21-typescript-오버로드-문제해결.md
+[2025-08-08T02:16:18.549Z]   No fixes needed
+[2025-08-08T02:16:18.549Z] Processing: 2023-07-23-nextjs-로-react-를-시작-해-본다.md
+[2025-08-08T02:16:18.549Z]   No fixes needed
+[2025-08-08T02:16:18.549Z] Processing: 2023-07-23-vue3-로-빠르게-프론트-웹-개발을-시작한다.md
+[2025-08-08T02:16:18.549Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.549Z]   Fixed list formatting
+[2025-08-08T02:16:18.549Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.549Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.549Z]   File successfully fixed
+[2025-08-08T02:16:18.549Z] Processing: 2023-07-23-모임관리앱을-만들어보자.md
+[2025-08-08T02:16:18.549Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.549Z]   Fixed list formatting
+[2025-08-08T02:16:18.549Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.550Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.550Z]   File successfully fixed
+[2025-08-08T02:16:18.550Z] Processing: 2023-08-22-모임관리앱을-만들어보자2.md
+[2025-08-08T02:16:18.550Z]   No fixes needed
+[2025-08-08T02:16:18.550Z] Processing: 2023-08-24-오라클-클라우드-프리티어-가입-실패.md
+[2025-08-08T02:16:18.550Z]   No fixes needed
+[2025-08-08T02:16:18.550Z] Processing: 2023-09-14-bun-1.md
+[2025-08-08T02:16:18.550Z]   No fixes needed
+[2025-08-08T02:16:18.550Z] Processing: 2023-09-22-자바스크립트에서의-형변환.md
+[2025-08-08T02:16:18.550Z]   No fixes needed
+[2025-08-08T02:16:18.550Z] Processing: 2023-10-04-리액트-네이티브.md
+[2025-08-08T02:16:18.550Z]   No fixes needed
+[2025-08-08T02:16:18.550Z] Processing: 2023-10-05-토스에서-한국투자증권까지.md
+[2025-08-08T02:16:18.550Z]   No fixes needed
+[2025-08-08T02:16:18.550Z] Processing: 2023-10-06-파이썬에서-오라클에-접속하려면.md
+[2025-08-08T02:16:18.550Z]   No fixes needed
+[2025-08-08T02:16:18.550Z] Processing: 2023-11-06-amazon-codewhisperer.md
+[2025-08-08T02:16:18.550Z]   No fixes needed
+[2025-08-08T02:16:18.550Z] Processing: 2023-11-07-소프트웨어-qa-가이드.md
+[2025-08-08T02:16:18.550Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.550Z]   Fixed list formatting
+[2025-08-08T02:16:18.550Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.550Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.551Z]   File successfully fixed
+[2025-08-08T02:16:18.551Z] Processing: 2023-11-08-쉘스크립트-작성시-예약-변수-및-환경-변수.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2023-11-09-셀스크립트-위치-매개변수.md
+[2025-08-08T02:16:18.551Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.551Z]   Fixed list formatting
+[2025-08-08T02:16:18.551Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.551Z]   File successfully fixed
+[2025-08-08T02:16:18.551Z] Processing: 2023-11-14-테스트-가이드.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2023-11-22-고스트와-율리시스를-연동해서-사용하면서.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2023-12-04-kakaotogdeogdamibenteu.md
+[2025-08-08T02:16:18.551Z]   Damage detected: Content appears truncated (very few lines)
+[2025-08-08T02:16:18.551Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.551Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.551Z]   File successfully fixed
+[2025-08-08T02:16:18.551Z] Processing: 2023-12-15-계란말이빵이라는-것을-처음-먹어-봤다.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2023-12-15-네트워크-변경이-감지되었습니다-오류-해결.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2023-12-18-망-사용료-법안-발의한-녀석들-제정신인가.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2023-12-19-ollama.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2023-12-20-springboot-쓰레드-무한-생성-테스트-코드.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2023-12-26-비질란테를-보고.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2024-01-17-넥서스-설치-후-오류-문제해결.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2024-01-21-헬스-2년차-보고서.md
+[2025-08-08T02:16:18.551Z]   No fixes needed
+[2025-08-08T02:16:18.551Z] Processing: 2024-01-24-rancher-설치.md
+[2025-08-08T02:16:18.552Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.552Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.552Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.552Z]   File successfully fixed
+[2025-08-08T02:16:18.552Z] Processing: 2024-02-24-hanmunsiheom-5geub-hanseongdaehaggyoro-gada.md
+[2025-08-08T02:16:18.552Z]   Damage detected: Content appears truncated (very few lines)
+[2025-08-08T02:16:18.552Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.552Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.553Z]   File successfully fixed
+[2025-08-08T02:16:18.553Z] Processing: 2024-04-22-오랫만에.md
+[2025-08-08T02:16:18.553Z]   Damage detected: Content appears truncated (very few lines)
+[2025-08-08T02:16:18.553Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.553Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.553Z]   File successfully fixed
+[2025-08-08T02:16:18.553Z] Processing: 2024-05-13-헬스-1일차.md
+[2025-08-08T02:16:18.553Z]   No fixes needed
+[2025-08-08T02:16:18.553Z] Processing: 2024-05-14-김포캠핑파크.md
+[2025-08-08T02:16:18.553Z]   No fixes needed
+[2025-08-08T02:16:18.553Z] Processing: 2024-06-05-openfeign-spring-controller.md
+[2025-08-08T02:16:18.553Z]   No fixes needed
+[2025-08-08T02:16:18.553Z] Processing: 2024-06-06-document-formatter.md
+[2025-08-08T02:16:18.553Z]   No fixes needed
+[2025-08-08T02:16:18.553Z] Processing: 2024-06-07-secret-message.md
+[2025-08-08T02:16:18.553Z]   Damage detected: Contains "$1" placeholders instead of list content, Likely missing image references
+[2025-08-08T02:16:18.553Z]   Fixed list formatting
+[2025-08-08T02:16:18.553Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.553Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.554Z]   File successfully fixed
+[2025-08-08T02:16:18.554Z] Processing: 2024-06-11-vscode에서-커맨드-d는-인텔리제이에서-컨트롤-g다.md
+[2025-08-08T02:16:18.554Z]   No fixes needed
+[2025-08-08T02:16:18.554Z] Processing: 2024-06-20-대량의-이미지-파일을-webp로-변환해야-한다.md
+[2025-08-08T02:16:18.554Z]   Damage detected: Contains "$1" placeholders instead of list content, Likely missing image references
+[2025-08-08T02:16:18.554Z]   Fixed list formatting
+[2025-08-08T02:16:18.554Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.554Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.554Z]   File successfully fixed
+[2025-08-08T02:16:18.554Z] Processing: 2024-06-25-경주_여행_아이들과_함께.md
+[2025-08-08T02:16:18.555Z]   No fixes needed
+[2025-08-08T02:16:18.555Z] Processing: 2024-07-02-curl-사용법.md
+[2025-08-08T02:16:18.555Z]   No fixes needed
+[2025-08-08T02:16:18.555Z] Processing: 2024-07-04-nespeulrigseu-aenimeisyeon-bulmyeolyi-geudaeege.md
+[2025-08-08T02:16:18.555Z]   No fixes needed
+[2025-08-08T02:16:18.555Z] Processing: 2024-07-05-install-vscode.md
+[2025-08-08T02:16:18.555Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.555Z]   Fixed list formatting
+[2025-08-08T02:16:18.555Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.555Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.555Z]   File successfully fixed
+[2025-08-08T02:16:18.555Z] Processing: 2024-07-05-yoilje-gonghyuil.md
+[2025-08-08T02:16:18.555Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.555Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.555Z]   No fixes needed
+[2025-08-08T02:16:18.555Z] Processing: 2024-07-06-chatgpt.md
+[2025-08-08T02:16:18.555Z]   Fixed list formatting
+[2025-08-08T02:16:18.556Z]   File successfully fixed
+[2025-08-08T02:16:18.556Z] Processing: 2024-07-08-no-module-named-pil-오류-해결-방법.md
+[2025-08-08T02:16:18.556Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.556Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.556Z]   No fixes needed
+[2025-08-08T02:16:18.556Z] Processing: 2024-07-09-2024-7-인기-프로그래밍-언어-순위.md
+[2025-08-08T02:16:18.556Z]   No fixes needed
+[2025-08-08T02:16:18.556Z] Processing: 2024-07-09-django.md
+[2025-08-08T02:16:18.556Z]   No fixes needed
+[2025-08-08T02:16:18.556Z] Processing: 2024-07-11-django-html-static-dynamic.md
+[2025-08-08T02:16:18.556Z]   No fixes needed
+[2025-08-08T02:16:18.556Z] Processing: 2024-07-11-장고로-정적-웹문서-부터-동적-웹문서-서빙.md
+[2025-08-08T02:16:18.556Z]   No fixes needed
+[2025-08-08T02:16:18.556Z] Processing: 2024-07-12-전세-사기-공포.md
+[2025-08-08T02:16:18.556Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.556Z]   Fixed list formatting
+[2025-08-08T02:16:18.556Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.556Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.557Z]   File successfully fixed
+[2025-08-08T02:16:18.557Z] Processing: 2024-07-16-db-django.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-07-16-예당저수지-좌대-민물-낚시.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-07-24-부모님들과-제주-가족-여행.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-07-29-아이들-자전거-마스터-하기.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-07-31-뱃살은-왜-안빠지는걸까.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-08-04-자전거-타기.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-08-06-블로그에-댓글을-설치하기-전에.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-08-07-baneunghyeong-peobeulrisinge-pilyohan-vwgyesanbeob.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-08-07-하향평준화-되는-중인-초등학교.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-08-08-물가도-오르고-금리도-오르지만-월급은-줄어든다-주4일근무.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-08-11-로드나인을-해보고.md
+[2025-08-08T02:16:18.557Z]   No fixes needed
+[2025-08-08T02:16:18.557Z] Processing: 2024-08-13-ai로-인한-의식의-흐름.md
+[2025-08-08T02:16:18.557Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.557Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.557Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.557Z]   File successfully fixed
+[2025-08-08T02:16:18.558Z] Processing: 2024-08-13-opensuse-leap-15-6-설치-후-초기-설정-작업.md
+[2025-08-08T02:16:18.558Z]   No fixes needed
+[2025-08-08T02:16:18.558Z] Processing: 2024-08-22-pc방-매니저로-일을-하다가-트라우마-생긴-이야기.md
+[2025-08-08T02:16:18.558Z]   No fixes needed
+[2025-08-08T02:16:18.558Z] Processing: 2024-08-28-oci-hands-on.md
+[2025-08-08T02:16:18.558Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.558Z]   Fixed list formatting
+[2025-08-08T02:16:18.558Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.558Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.559Z]   File successfully fixed
+[2025-08-08T02:16:18.559Z] Processing: 2024-09-18-wpf-study.md
+[2025-08-08T02:16:18.559Z]   No fixes needed
+[2025-08-08T02:16:18.559Z] Processing: 2024-10-06-비폭력대화.md
+[2025-08-08T02:16:18.559Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.559Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.559Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.559Z]   File successfully fixed
+[2025-08-08T02:16:18.559Z] Processing: 2024-10-17-go-to-oci.md
+[2025-08-08T02:16:18.559Z]   No fixes needed
+[2025-08-08T02:16:18.559Z] Processing: 2024-11-18-자출을-했더니-다이어트도-되고-체력도-좋아지고-마지막으로-교통비도-아낌.md
+[2025-08-08T02:16:18.559Z]   No fixes needed
+[2025-08-08T02:16:18.559Z] Processing: 2024-11-25-언리얼로-가보자-마지막은-언리얼c.md
+[2025-08-08T02:16:18.559Z]   No fixes needed
+[2025-08-08T02:16:18.559Z] Processing: 2024-12-04-윤석열-대통령-아니-개통령이-사고쳤다-feat-비상계엄령.md
+[2025-08-08T02:16:18.559Z]   No fixes needed
+[2025-08-08T02:16:18.559Z] Processing: 2024-12-05-nginx-transfer-encoding-502.md
+[2025-08-08T02:16:18.560Z]   No fixes needed
+[2025-08-08T02:16:18.560Z] Processing: 2024-12-07-당연히-탄핵소추안이-통과될-줄-알았는데.md
+[2025-08-08T02:16:18.560Z]   Damage detected: Content appears truncated (very few lines)
+[2025-08-08T02:16:18.560Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.560Z]   No fixes needed
+[2025-08-08T02:16:18.560Z] Processing: 2024-12-30-jenkins-배포-속도를-더-빠르게-할-수-있나.md
+[2025-08-08T02:16:18.560Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.560Z]   Fixed list formatting
+[2025-08-08T02:16:18.560Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.560Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.560Z]   File successfully fixed
+[2025-08-08T02:16:18.560Z] Processing: 2025-01-26-2025년-로드맵-작성-전-생각-정리.md
+[2025-08-08T02:16:18.560Z]   Fixed list formatting
+[2025-08-08T02:16:18.560Z]   File successfully fixed
+[2025-08-08T02:16:18.560Z] Processing: 2025-01-27-40daeyi-helseu-dojeongi.md
+[2025-08-08T02:16:18.560Z]   No fixes needed
+[2025-08-08T02:16:18.560Z] Processing: 2025-01-28-자전거길의-교차점에서.md
+[2025-08-08T02:16:18.560Z]   No fixes needed
+[2025-08-08T02:16:18.560Z] Processing: 2025-02-05-ilboneoreul-ceoeumbuteo-baeulryeogo-mandeulm.md
+[2025-08-08T02:16:18.560Z]   No fixes needed
+[2025-08-08T02:16:18.560Z] Processing: 2025-02-18-비트버킷-파이프라인을-젠킨스로-이관하면서-발생한-인코딩-문제해결.md
+[2025-08-08T02:16:18.560Z]   No fixes needed
+[2025-08-08T02:16:18.560Z] Processing: 2025-03-11-gaegeom-geomcal-i-hanggo-pogihae.md
+[2025-08-08T02:16:18.560Z]   No fixes needed
+[2025-08-08T02:16:18.560Z] Processing: 2025-04-05-윤석열-파면-성공.md
+[2025-08-08T02:16:18.560Z]   Damage detected: Content appears truncated (very few lines)
+[2025-08-08T02:16:18.560Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.560Z]   No fixes needed
+[2025-08-08T02:16:18.560Z] Processing: 2025-04-20-모델-컨텍스트-프로토콜-mcp-ai와-외부-데이터를-연결하는-새로운-표준.md
+[2025-08-08T02:16:18.561Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.561Z]   Fixed list formatting
+[2025-08-08T02:16:18.561Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.561Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.561Z]   File successfully fixed
+[2025-08-08T02:16:18.561Z] Processing: 2025-04-22-2025년-주목해야-할-ai-기술-트렌드-개발자를-위한-가이드.md
+[2025-08-08T02:16:18.561Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.561Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.561Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.561Z]   File successfully fixed
+[2025-08-08T02:16:18.561Z] Processing: 2025-04-22-claude-데스크톱과-mcp-서버-연동하기.md
+[2025-08-08T02:16:18.561Z]   No fixes needed
+[2025-08-08T02:16:18.561Z] Processing: 2025-04-28-spring-boot-2-5-5와-gradle-8-x-호환성-문제-해결하기-lazypublishartifact-오류-2.md
+[2025-08-08T02:16:18.561Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.561Z]   Fixed list formatting
+[2025-08-08T02:16:18.561Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.562Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.562Z]   File successfully fixed
+[2025-08-08T02:16:18.562Z] Processing: 2025-05-11-ai-개발자-도구의-진화-chatgpt에서-claude-code까지-개발자의-여정.md
+[2025-08-08T02:16:18.562Z]   No fixes needed
+[2025-08-08T02:16:18.562Z] Processing: 2025-05-12-agi-등장-시점-예측-현재-기술-발전과-전문가-의견-분석-2025년-5월-기준.md
+[2025-08-08T02:16:18.562Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.562Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.562Z]   No fixes needed
+[2025-08-08T02:16:18.562Z] Processing: 2025-05-19-claude-ai-완벽-가이드-desktop-commander로-생산성-높이기.md
+[2025-08-08T02:16:18.562Z]   Damage detected: Contains "$1" placeholders instead of list content, Likely missing image references
+[2025-08-08T02:16:18.562Z]   Fixed list formatting
+[2025-08-08T02:16:18.562Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.562Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.562Z]   File successfully fixed
+[2025-08-08T02:16:18.562Z] Processing: 2025-06-03-janggo-seuteodi-sijag-peurodeogsyeon-jeogyongggaji.md
+[2025-08-08T02:16:18.562Z]   No fixes needed
+[2025-08-08T02:16:18.562Z] Processing: 2025-06-03-새벽-출발-강릉-여행-아이들과-함께하는-완벽한-하루-코스.md
+[2025-08-08T02:16:18.563Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.563Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.563Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.563Z]   File successfully fixed
+[2025-08-08T02:16:18.563Z] Processing: 2025-06-27-claude-code-자동-디버깅-완벽-가이드-에러가-없을-때까지-반복해줘의-마법.md
+[2025-08-08T02:16:18.563Z]   Damage detected: Contains "$1" placeholders instead of list content
+[2025-08-08T02:16:18.563Z]   Fixed list formatting
+[2025-08-08T02:16:18.563Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.563Z]   Content restored from Ghost backup
+[2025-08-08T02:16:18.563Z]   File successfully fixed
+[2025-08-08T02:16:18.563Z] Processing: 2025-07-02-msa-환경에서의-최적의-언어와-아키텍처-선택-가이드.md
+[2025-08-08T02:16:18.563Z]   Damage detected: Likely missing image references
+[2025-08-08T02:16:18.563Z]   Found matching Ghost post, restoring content...
+[2025-08-08T02:16:18.563Z]   No fixes needed
+[2025-08-08T02:16:18.563Z] Processing: 2025-07-08-모놀리식의-귀환-msa-피로감과-rails-8의-새로운-제안.md
+[2025-08-08T02:16:18.563Z]   Fixed list formatting
+[2025-08-08T02:16:18.563Z]   File successfully fixed
+[2025-08-08T02:16:18.563Z] Processing: 2025-07-29-모바일과-데스크톱을-아우르는-ai-코딩-워크플로우-codex와-claude-code로-진화하는-개발-환경.md
+[2025-08-08T02:16:18.564Z]   No fixes needed
+[2025-08-08T02:16:18.564Z] Processing: 2025-07-30-ai-브라우저에서-ai-os로-운영체제와-인공지능의-필연적-융합.md
+[2025-08-08T02:16:18.564Z]   No fixes needed
+[2025-08-08T02:16:18.564Z] Processing: ai-browser-to-ai-os.md
+[2025-08-08T02:16:18.564Z]   No fixes needed
+
+CONFIGURATION USED:
+Ghost backup: /Users/kaflix/Downloads/birdspring.ghost.2025-08-08-00-03-58.json
+Blog directory: /Users/kaflix/Projects/birdspring.com/luv20100918.github.io/src/content/blog
+Images directory: /Users/kaflix/Projects/birdspring.com/luv20100918.github.io/content/images
+Backup directory: /Users/kaflix/Projects/birdspring.com/luv20100918.github.io/backup-2025-08-08
+
+================================================================================
