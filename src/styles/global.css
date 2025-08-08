@@ -61,35 +61,55 @@ h6 {
 	font-family: "-apple-system", "BlinkMacSystemFont", "Apple SD Gothic Neo", "Inter", "Spoqa Han Sans", "Segoe UI", "Atkinson", sans-serif;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: 2.5em;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 2em;
+	margin-top: 2.5rem;
+	margin-bottom: 1rem;
+	padding-bottom: 0.3rem;
+	border-bottom: 1px solid rgb(var(--gray-light));
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.5em;
+	margin-top: 2rem;
+	margin-bottom: 0.75rem;
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.25em;
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
 }
 h5 {
-	font-size: 1.25em;
+	font-size: 1.1em;
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
 }
 strong,
 b {
-	font-weight: 700;
+	font-weight: 600;
+	color: rgb(var(--black));
 }
 a {
 	color: var(--accent);
+	text-decoration: none;
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
+	text-decoration: underline;
 }
 p {
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
+	line-height: 1.8;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1.5em;
+}
+.prose h1:first-child,
+.prose h2:first-child {
+	margin-top: 0;
 }
 textarea {
 	width: 100%;
@@ -98,31 +118,85 @@ textarea {
 input {
 	font-size: 16px;
 }
+/* Tables */
 table {
 	width: 100%;
+	border-collapse: collapse;
+	margin: 2em 0;
+	font-size: 0.9em;
+	overflow-x: auto;
+	display: block;
 }
+table thead {
+	background-color: rgb(var(--gray-light));
+}
+table th,
+table td {
+	padding: 12px 15px;
+	text-align: left;
+	border: 1px solid rgb(var(--gray-light));
+}
+table th {
+	font-weight: 600;
+	color: rgb(var(--black));
+}
+table tbody tr:hover {
+	background-color: rgba(var(--gray-light), 0.3);
+}
+
+/* Lists */
+ul, ol {
+	margin: 1.5em 0;
+	padding-left: 2em;
+}
+ul li, ol li {
+	margin: 0.5em 0;
+	line-height: 1.8;
+}
+ul ul, ol ol, ul ol, ol ul {
+	margin: 0.5em 0;
+}
+
+/* Images */
 img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 8px;
+	margin: 2em auto;
+	display: block;
 }
+/* Code blocks */
 code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+	padding: 0.2em 0.4em;
+	background-color: rgba(var(--gray-light), 0.5);
+	border-radius: 3px;
+	font-size: 0.875em;
+	font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
+	overflow-x: auto;
+	background-color: #1e1e1e !important;
+	margin: 2em 0;
 }
 pre > code {
 	all: unset;
+	font-size: 0.875em;
+	line-height: 1.6;
 }
+
+/* Blockquotes */
 blockquote {
 	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
+	padding: 0.5em 0 0.5em 1.5em;
+	margin: 2em 0;
+	font-style: italic;
+	background-color: rgba(var(--gray-light), 0.2);
+	border-radius: 0 8px 8px 0;
+}
+blockquote p {
+	margin: 0.5em 0;
 }
 hr {
 	border: none;
@@ -153,4 +227,94 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+/* Blog post specific styles */
+.prose {
+	font-size: 1.05rem;
+	color: rgb(var(--gray-dark));
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+	font-weight: 600;
+	letter-spacing: -0.02em;
+}
+
+/* Improve readability for Korean text */
+.prose p,
+.prose li {
+	word-break: keep-all;
+	line-break: auto;
+}
+
+/* Task lists */
+.prose ul.contains-task-list {
+	list-style: none;
+	padding-left: 1.5em;
+}
+
+.prose ul.contains-task-list li {
+	position: relative;
+	padding-left: 1.5em;
+}
+
+.prose ul.contains-task-list input[type="checkbox"] {
+	position: absolute;
+	left: 0;
+	top: 0.5em;
+}
+
+/* Horizontal rule */
+.prose hr {
+	margin: 3em 0;
+	border-color: rgba(var(--gray-light), 0.5);
+}
+
+/* Links in prose */
+.prose a {
+	font-weight: 500;
+	border-bottom: 1px solid rgba(var(--accent), 0.3);
+	transition: all 0.2s ease;
+}
+
+.prose a:hover {
+	border-bottom-color: var(--accent);
+}
+
+/* Emphasis */
+.prose em {
+	font-style: italic;
+	color: rgb(var(--gray-dark));
+}
+
+/* Definition lists */
+.prose dl {
+	margin: 2em 0;
+}
+
+.prose dt {
+	font-weight: 600;
+	margin-top: 1em;
+}
+
+.prose dd {
+	margin-left: 2em;
+	margin-bottom: 1em;
+}
+
+/* Nested lists spacing */
+.prose li > ul,
+.prose li > ol {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+/* Better spacing for consecutive paragraphs */
+.prose p + p {
+	margin-top: 1.5em;
 }
