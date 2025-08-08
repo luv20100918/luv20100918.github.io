@@ -1,0 +1,79 @@
+---
+export interface Props {
+  items?: Array<{
+    icon?: string;
+    label?: string;
+    action?: string;
+    href?: string;
+  }>;
+}
+
+const { items = [] } = Astro.props;
+---
+
+<div class="toolbar-pixel">
+  {items.map((item) => (
+    item.href ? (
+      <a href={item.href} class="toolbar-slot" title={item.label}>
+        <span>{item.icon || item.label?.charAt(0) || '?'}</span>
+      </a>
+    ) : (
+      <button 
+        class="toolbar-slot" 
+        title={item.label}
+        data-action={item.action}
+      >
+        <span>{item.icon || item.label?.charAt(0) || '?'}</span>
+      </button>
+    )
+  ))}
+</div>
+
+<style>
+  .toolbar-pixel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    background-color: var(--fq4-panel-bg);
+    border: var(--pixel-border-width) solid var(--fq4-panel-border);
+    padding: 4px;
+    max-height: calc(var(--toolbar-slot-size) * 2 + 10px);
+    overflow: hidden;
+  }
+
+  .toolbar-slot {
+    width: var(--toolbar-slot-size);
+    height: var(--toolbar-slot-size);
+    background-color: var(--fq4-bg-light);
+    border: var(--pixel-border-width) solid var(--fq4-panel-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--fq4-text-primary);
+    text-decoration: none;
+    font-family: var(--pixel-font);
+    transition: none;
+  }
+
+  .toolbar-slot:hover {
+    background-color: var(--fq4-selection);
+    transform: scale(1.1);
+  }
+
+  .toolbar-slot:active {
+    background-color: var(--fq4-accent);
+    transform: scale(0.95);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.toolbar-slot[data-action]').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const action = (e.currentTarget as HTMLElement).dataset.action;
+      console.log('Toolbar action:', action);
+      // Handle toolbar actions here
+    });
+  });
+</script>
