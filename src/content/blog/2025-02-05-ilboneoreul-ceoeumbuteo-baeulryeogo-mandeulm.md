@@ -7,15 +7,20 @@ updatedDate: '2025-02-05'
 
 요즘에 개발자들이 커서가 핫하다. 무료 플랜으로 일주일 써보고 괜찮아서 유료로 구독을 시작했다. 구독했는데 그냥 썩히면 돈이 아깝기 떄문에 그냥 뭐라도 만들고 싶었다. 마침 시작한 일본어 공부 카루가루 일본어 배우기라는 책을 사서 공부를 시작했는데 처음에 히라가나를 배우는 것 부터 막막했다. 책살 때 포함된 연습하는 종이에 계속 따라서 쓰면서 발음하면서 외워도 잘 안외워지는 것이다. 머리가 굳은 증거. 그래서 계속 누군가 시험을 내줬으면 했다. 그래서 그런 앱이 있나 하고 인터넷 검색을 해도 잘 나오지 않았다. 내친김에 커서한테 만들어달라고 해야겠다고 생각함. 
 ```
+
 # 일본어 글자 외우기
+
 히라가나, 가타카나 외우기
+
 ## 요구사항
+
 1. 히라가나를 외웠는지 체크하고 점수를 매긴다.
 2. 가타카나를 외웠는지 체크하고 점수를 매긴다.
 3. 히라가나와 가타카나를 외우는 비율을 체크하고 점수를 매긴다.
 4. 히라가나와 가타카나를 외우는 비율이 100%가 되면 완료한다.
 
 ## 화면설계
+
 메인화면에는 히라가나와 가타카나를 선택하는 버튼과 시작버튼이 있다. 
 시작버튼을 클릭하면 시험화면으로 전환되며 앞에서 선택한 언어에 맞는 문제가 랜덤으로 출력된다.
 문제의 형태는 언어가 화면중앙에 크게 출력되며 하단에 발음기호를 입력할 수 있는 텍스트박스가 있다. 그 옆에는 정답 버튼이 있다.
@@ -51,9 +56,11 @@ updatedDate: '2025-02-05'
 - 컴포넌트는 재사용이 가능하도록 설계해야 한다.
 
 ## 에이전트 설명 및 역할
+
 You are an expert in JavaScript, Node.js, Next.js App Router, React, Shadcn UI, Radix UI and Tailwind.
 
 ### Key Principles
+
 - Write clean, well-documented JavaScript code with JSDoc comments
 - Use functional and declarative programming patterns; avoid classes
 - Prefer iteration and modularization over code duplication
@@ -61,31 +68,37 @@ You are an expert in JavaScript, Node.js, Next.js App Router, React, Shadcn UI, 
 - Structure files: exported component, subcomponents, helpers, static content
 
 ### Naming Conventions
+
 - Use lowercase with dashes for directories (e.g., components/auth-wizard)
 - Favor named exports for components
 
 ### JavaScript & JSDoc Usage
+
 - Use JSDoc for type documentation and IDE support
 - Document function parameters, return types, and component props
 - Include examples in JSDoc comments for complex functions
 - Use PropTypes for React component prop validation
 
 ### Syntax and Formatting
+
 - Use the "function" keyword for pure functions
 - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements
 - Use declarative JSX
 
 ### UI and Styling
+
 - Use Shadcn UI, Radix, and Tailwind for components and styling
 - Implement responsive design with Tailwind CSS; use a mobile-first approach
 
 ### Performance Optimization
+
 - Minimize 'use client', 'useEffect', and 'setState'; favor React Server Components (RSC)
 - Wrap client components in Suspense with fallback
 - Use dynamic loading for non-critical components
 - Optimize images: use WebP format, include size data, implement lazy loading
 
 ### Key Conventions
+
 - Use 'nuqs' for URL search parameter state management
 - Optimize Web Vitals (LCP, CLS, FID)
 - Limit 'use client':

@@ -6,6 +6,7 @@ updatedDate: '2023-03-31'
 ---
 
 ### Homebrew 설치하기macOS에는 macOS 용 패키지 관리자 Homebrew가 있다. Homebrew를 이용하면 설정 과정이 단순하고, 환경변수 설정이 필요없고, 관리하기 편하다.
+
 터미널에 아래의 명령어 입력
 ```
 /usr/bin/ruby -e "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install])"
@@ -54,7 +55,7 @@ quit or exit
 mysql.server stop
 
 ```### MySQL 삭제아래의 명령어들을 입력해준다.
-```
+```javascript
 sudo rm -rf /usr/local/var/mysql
 sudo rm -rf /usr/local/bin/mysql*
 sudo rm -rf /usr/local/Cellar/mysql

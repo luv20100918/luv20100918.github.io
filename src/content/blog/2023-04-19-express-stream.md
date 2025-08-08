@@ -6,7 +6,7 @@ updatedDate: '2023-08-27'
 ---
 
 익스프레스에서 스트림을 사용하여 결과를 반환하는 예제
-```
+```javascript
 const express = require('express');
 const fs = require('fs');
 

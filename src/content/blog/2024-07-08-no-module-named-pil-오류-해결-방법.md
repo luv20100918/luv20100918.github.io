@@ -20,9 +20,11 @@ pip install pillow
 from PIL import Image
 
 # 이미지 열기
+
 image = Image.open('example.jpg')
 
 # 다른 형식으로 저장하기
+
 image.save('example.png')
 
 ```

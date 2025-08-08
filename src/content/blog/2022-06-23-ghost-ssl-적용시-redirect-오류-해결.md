@@ -6,10 +6,13 @@ updatedDate: '2023-03-31'
 ---
 
 ### 현상발생AWS Lightsail 을 이용해서 Ghost를 설치한다.
+
 Bitnami 고스트가 설치되기 때문에, bncert-tool를 사용해서 SSL 설정을 했다.
 그런데 ghost 의 설정파일인 config.production.json 안에 사이트 주소가 http로 하드코딩 되어있다. https로 변경했다.
 그랬더니 이런 현상이 발생했다.
+
 ### 문제해결아래처럼 주소에 도메인을 치면,
+
 아래처럼 IP로 redirect 된다.
 내기준으로 /opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf
 SSL 처리한 Conf 파일을 연다.

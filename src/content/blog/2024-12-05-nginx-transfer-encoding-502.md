@@ -5,6 +5,7 @@ pubDate: '2024-12-05'
 ---
 
 ## 문제발생아… 개발서버를 다른 서버로 바꿨는데 위와 같은 오류가 발생했다. 정상적인 API와 위처럼 오류나는 API가 같이 발생되는 상황이라 왜지? 의문이 들었다.
+
 여러 API를 비교해보니 비정상적인 API는 내부적으로 다른 마이크로서비스를 호출하는 API들이었다. 그래서 거처가는 모든 백앤드의 로그를 살펴봤는데 로그들이 정상적으로 출력되는 것이 아닌가? 어라? 결국은 마지막에 리턴하는 웹서버의 문제인가? 라는 합리적인 의심이 들었다.
 ![(nginx를 거처서 가면 502, A를 호출하면 B까지 갔다가 정상적으로 200)](/content/images/2024/12/DraggedImage-1.png)(nginx를 거처서 가면 502, A를 호출하면 B까지 갔다가 정상적으로 200)Nginx ingress 컨트롤러 로그를 살펴보니 아래와 같았다.
 ```
@@ -55,7 +56,9 @@ public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 }
 
 ```위와 같이 컨트롤러어드바이스를 만들어서 적용했더니 두개씩 출력되던 transfer-encoding가 하나만 응답으로 내려왔다. 살짝 감동하고 개발서버에 업로드 했는데 여전히 두개가 튀어나오면서 502 에러가 발생하는 거다.
+
 # 해결결론 부터 말하면,
+
 ```
 response.getHeaders().remove("transfer-encoding");
 

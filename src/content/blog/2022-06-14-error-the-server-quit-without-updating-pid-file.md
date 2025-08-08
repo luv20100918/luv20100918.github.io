@@ -6,6 +6,7 @@ updatedDate: '2023-03-31'
 ---
 
 ## 증상맥에서 mySql( 5.7 ) 설치 에러
+
 ```
 brew install mysql@5.7
 
@@ -16,7 +17,9 @@ Starting MySQL
 . ERROR! The server quit without updating PID file (/usr/local/var/mysql/~~~~~~~).
 
 ```위처럼 오류 발생함.
+
 ## 원인mysql 를 여러번 설치/삭제하면서 잔재 폴더가 존재해서 설치시 에러가 발생하던 부분을 간과
+
 해당에러
 ```
 [ERROR] --initialize specified but the data directory has files in it. Aborting.

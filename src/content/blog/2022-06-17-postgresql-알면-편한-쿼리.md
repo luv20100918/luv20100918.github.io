@@ -6,6 +6,7 @@ updatedDate: '2023-03-31'
 ---
 
 ### 테이블 코멘트(Comment) 조회```
+
 SELECT PS.RELNAME    AS TABLE_NAME
       ,PD.DESCRIPTION AS TABLE_COMMENT
   FROM PG_STAT_USER_TABLES PS

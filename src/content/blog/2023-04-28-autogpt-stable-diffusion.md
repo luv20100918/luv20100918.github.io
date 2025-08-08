@@ -25,8 +25,11 @@ vi webui-macos-env.sh
 ```
 #!/bin/bash
 ####################################################################
-#                          macOS defaults                          #
-# Please modify webui-user.sh to change these instead of this file #
+
+#                          macOS defaults
+
+# Please modify webui-user.sh to change these instead of this file
+
 ####################################################################
 
 if [[ -x "$(command -v python3.10)" ]]

@@ -6,7 +6,7 @@ updatedDate: '2023-08-25'
 ---
 
 타입스크립트로 코드를 만들다가 문제가 발생했다.
-```
+```javascript
 const serviceCodes = computed(() => {
   if(!props.rentcar) return [];
   if(!props.rentcar.srvcCodes) return [];
@@ -26,7 +26,7 @@ return acc.concat(values);
 에러내용은 아래와 같다.
 > 오버로드 1/2('(...items: ConcatArray<never>): never')에서 다음 오류가 발생했습니다. 오버로드 2/2('(...items: ConcatArray<never>): never')에서 다음 오류가 발생했습니다.ts(2769)결론은 애매한 타입 추론으로 인해 발생한 에러로 acc에 대한 타입만 명확하게 지정해주면된다.
 수정된 코드는 아래와 같다.
-```
+```javascript
 const serviceCodes = computed(() => {
   if (!props.rentcar) return [];
   if (!props.rentcar.srvcCodes) return [];
