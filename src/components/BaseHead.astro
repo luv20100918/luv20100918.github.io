@@ -85,9 +85,150 @@ const {
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5768884488453878" crossorigin="anonymous" is:inline></script>
 
-<!-- Korean Fonts -->
+<!-- Pixel & Korean Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
 <link href='https://rsms.me/inter/inter.css' rel='stylesheet' type='text/css'/>
 <link href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'/>
+
+<!-- Enhanced Pixel Theme Styles -->
+<style>
+  /* Apply pixelated rendering globally */
+  * {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+
+  /* Enhanced body with stronger dot pattern */
+  body {
+    font-family: "DotGothic16", "Press Start 2P", monospace !important;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Pixel-perfect headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Press Start 2P", "DotGothic16", monospace !important;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 1.5 !important;
+  }
+
+  h1::before {
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+  }
+
+  /* Enhanced code blocks with CRT effect */
+  pre::before {
+    content: 'CODE';
+    position: absolute;
+    top: -2px;
+    left: 12px;
+    background: var(--fq4-border);
+    color: white;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-family: "Press Start 2P", monospace;
+    letter-spacing: 2px;
+  }
+
+  /* Animated list markers */
+  ul li::before {
+    content: "◆";
+    position: absolute;
+    left: -1.5em;
+    color: var(--fq4-accent);
+    font-size: 12px;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.9); }
+  }
+
+  /* Pixelated images */
+  img {
+    image-rendering: pixelated !important;
+    transition: transform 0.2s ease;
+  }
+
+  img:hover {
+    transform: translate(-2px, -2px);
+  }
+
+  /* Selection with pixel style */
+  ::selection {
+    background: var(--fq4-cyan);
+    color: var(--fq4-text);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--fq4-window);
+    border: 2px solid var(--fq4-border);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--fq4-highlight);
+    border: 2px solid var(--fq4-border);
+    box-shadow: 
+      inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+      inset 2px 2px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fq4-accent);
+  }
+
+  /* Glow effect for h1 */
+  @keyframes glow {
+    from {
+      text-shadow: 
+        2px 2px 0 rgba(255, 255, 255, 0.5),
+        3px 3px 0 rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(89, 89, 255, 0.3);
+    }
+    to {
+      text-shadow: 
+        2px 2px 0 rgba(255, 255, 255, 0.5),
+        3px 3px 0 rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(89, 89, 255, 0.5);
+    }
+  }
+
+  h1 {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Pixel-perfect buttons */
+  button, .button, input[type="submit"], input[type="button"], .view-all-btn {
+    font-family: "Press Start 2P", monospace !important;
+    font-size: 10px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.1s ease;
+  }
+
+  button:hover, .button:hover, .view-all-btn:hover {
+    transform: translate(-2px, -2px);
+  }
+
+  button:active, .button:active {
+    transform: translate(0, 0);
+  }
+</style>
 
 <!-- KaTeX for Math -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous"/>
