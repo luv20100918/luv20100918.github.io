@@ -26,8 +26,6 @@ BUILD FAILED in 816ms
 
 오류 메시지는 `org.gradle.api.internal.artifacts.dsl.LazyPublishArtifact.&lt;init&gt;(Lorg/gradle/api/provider/Provider;)V`와 같은 형태로 나타났습니다. 이는 `Provider` 객체를 매개변수로 받는 `LazyPublishArtifact` 클래스의 생성자를 찾을 수 없다는 의미입니다.
 
-```
-
 ### 2. 스택트레이스 확인
 
 --stacktrace 옵션을 사용하여 더 자세한 오류 정보를 확인했을 때, Spring Boot Gradle 플러그인에서 문제가 발생한다는 것을 알 수 있었습니다:
@@ -50,11 +48,14 @@ BUILD FAILED in 816ms
 
 첫 번째로 `PublishToMavenRepository` 작업을 비활성화하는 방법을 시도했습니다:
 
+```
 tasks.withType(PublishToMavenRepository).configureEach { enabled = false }
 
-tasks.withType(PublishToMavenLocal).configureEach { enabled = false }하지만 이 방법으로는 문제가 해결되지 않았습니다.
-
+tasks.withType(PublishToMavenLocal).configureEach { enabled = false }
 ```
+하지만 이 방법으로는 문제가 해결되지 않았습니다.
+
+
 
 ### 2. 네트워크 타임아웃 설정 추가
 
