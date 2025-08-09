@@ -197,8 +197,16 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-			<h1 class="page-title">All Blog Posts</h1>
-			<p class="post-count">Total {posts.length} posts</p>
+			<h1 class="page-title">
+				<span class="pixel-icon book"></span>
+				All Blog Posts
+				<span class="pixel-icon book"></span>
+			</h1>
+			<p class="post-count">
+				<span class="pixel-icon gem"></span>
+				Total {posts.length} posts
+				<span class="pixel-icon gem"></span>
+			</p>
 			<section>
 				<ul>
 					{
@@ -218,8 +226,12 @@ const posts = (await getCollection('blog')).sort(
 										</div>
 									)}
 									<div class="post-content">
-										<h4 class="title">{post.data.title}</h4>
+										<h4 class="title">
+											{post.data.title}
+											{index < 3 && <span class="pixel-badge new">NEW</span>}
+										</h4>
 										<p class="date">
+											<span class="pixel-icon star"></span>
 											<FormattedDate date={post.data.pubDate} />
 										</p>
 									</div>

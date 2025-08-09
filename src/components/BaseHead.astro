@@ -91,6 +91,7 @@ const {
 <link href="https://fastly.jsdelivr.net/gh/neodgm/neodgm-webfont@latest/neodgm.css" rel="stylesheet">
 <link href="https://fastly.jsdelivr.net/gh/neodgm/neodgm-webfont@latest/neodgm_code.css" rel="stylesheet">
 
+
 <!-- Enhanced Pixel Theme Styles -->
 <style>
   /* Apply pixelated rendering globally */
@@ -256,6 +257,144 @@ const {
 
   button:active, .button:active {
     transform: translate(0, 0);
+  }
+  
+  /* Pixel Art Icons & Emoticons */
+  .pixel-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    margin: 0 4px;
+    vertical-align: middle;
+  }
+
+  /* 검 아이콘 */
+  .pixel-icon.sword::before {
+    content: '⚔';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 방패 아이콘 */
+  .pixel-icon.shield::before {
+    content: '🛡';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 하트 아이콘 */
+  .pixel-icon.heart::before {
+    content: '❤';
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 다이아몬드 아이콘 */
+  .pixel-icon.gem::before {
+    content: '💎';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 동전 아이콘 */
+  .pixel-icon.coin::before {
+    content: '🪙';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 별 아이콘 */
+  .pixel-icon.star::before {
+    content: '⭐';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 포션 아이콘 */
+  .pixel-icon.potion::before {
+    content: '🧪';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 책 아이콘 */
+  .pixel-icon.book::before {
+    content: '📖';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 열쇠 아이콘 */
+  .pixel-icon.key::before {
+    content: '🗝';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 몬스터 아이콘 */
+  .pixel-icon.monster::before {
+    content: '👾';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 슬라임 아이콘 */
+  .pixel-icon.slime::before {
+    content: '🟦';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+  }
+
+  /* 보물상자 아이콘 */
+  .pixel-icon.chest::before {
+    content: '📦';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* 픽셀 배지 */
+  .pixel-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    background: var(--fq4-accent);
+    color: white;
+    font-size: 10px;
+    font-family: "NeoDunggeunmo", monospace;
+    border: 1px solid var(--fq4-border);
+    box-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    margin-left: 4px;
+  }
+
+  .pixel-badge.new {
+    background: #DC143C;
+    animation: blink 1s infinite;
   }
 </style>
 

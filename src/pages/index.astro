@@ -256,11 +256,23 @@ const recentPosts = posts.slice(0, 10);
 		<Header />
 		<main>
 			<div class="hero-section">
-				<h1 class="hero-title">{SITE_TITLE}</h1>
-				<p class="hero-description">{SITE_DESCRIPTION}</p>
+				<h1 class="hero-title">
+					<span class="pixel-icon sword"></span>
+					{SITE_TITLE}
+					<span class="pixel-icon shield"></span>
+				</h1>
+				<p class="hero-description">
+					<span class="pixel-icon heart"></span>
+					{SITE_DESCRIPTION}
+					<span class="pixel-icon heart"></span>
+				</p>
 			</div>
 
-			<h2 class="section-title">▶ Recent Posts</h2>
+			<h2 class="section-title">
+				<span class="pixel-icon star"></span>
+				Recent Posts
+				<span class="pixel-badge new">HOT</span>
+			</h2>
 			
 			<section>
 				<ul>
@@ -281,8 +293,12 @@ const recentPosts = posts.slice(0, 10);
 										</div>
 									)}
 									<div class="post-content">
-										<h4 class="title">{post.data.title}</h4>
+										<h4 class="title">
+											{post.data.title}
+											{index === 0 && <span class="pixel-badge new">NEW</span>}
+										</h4>
 										<p class="date">
+											<span class="pixel-icon coin"></span>
 											<FormattedDate date={post.data.pubDate} />
 										</p>
 									</div>
@@ -293,7 +309,9 @@ const recentPosts = posts.slice(0, 10);
 				</ul>
 
 				<a href="/blog-list" class="view-all-btn">
+					<span class="pixel-icon chest"></span>
 					View All Posts
+					<span class="pixel-icon key"></span>
 				</a>
 			</section>
 		</main>
