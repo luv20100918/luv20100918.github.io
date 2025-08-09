@@ -14,13 +14,20 @@
 	--fq4-accent: #5959FF;
 	--fq4-cyan: #59FFFF;
 	
-	/* RPG Menu color palette */
-	--rpg-menu-bg: #C8B8A8;
-	--rpg-menu-light: #E8D8C8;
-	--rpg-menu-mid: #D4C4B0;
-	--rpg-menu-dark: #B8A898;
-	--rpg-menu-border: #8B7355;
-	--rpg-menu-text: #4A3F36;
+	/* Classic RPG color palette - Based on actual game UI */
+	--rpg-window-bg: #6B8A8A; /* Teal-gray window background */
+	--rpg-window-light: #8AABAB; /* Light teal for highlights */
+	--rpg-window-mid: #5A7979; /* Mid teal */
+	--rpg-window-dark: #3A5959; /* Dark teal shadow */
+	--rpg-border-outer: #2A3939; /* Dark border */
+	--rpg-border-inner: #9ACACA; /* Light inner border */
+	--rpg-text-normal: #FFFFFF; /* White text */
+	--rpg-text-shadow: #1A2929; /* Text shadow */
+	--rpg-stat-orange: #FF9933; /* Orange for level/stats */
+	--rpg-stat-green: #33FF66; /* Green for positive stats */
+	--rpg-stat-blue: #3399FF; /* Blue for magic/special */
+	--rpg-gold: #FFD700; /* Gold/yellow highlights */
+	--rpg-header-bg: #4A6B6B; /* Header background */
 	
 	/* Original colors mapped to FQ4 */
 	--accent: var(--fq4-accent);
@@ -57,15 +64,20 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: var(--fq4-green-bg);
+	background: #2A3939;
 	background-image: 
-		linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent),
-		linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
-	background-size: 4px 4px;
+		repeating-linear-gradient(
+			45deg,
+			#2A3939,
+			#2A3939 2px,
+			#253434 2px,
+			#253434 4px
+		);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	word-break: keep-all;
-	color: var(--fq4-text);
+	color: var(--rpg-text-normal);
+	text-shadow: 1px 1px 0 var(--rpg-text-shadow);
 	font-size: 16px;
 	line-height: 1.6;
 	letter-spacing: 0;
@@ -77,14 +89,26 @@ main {
 	width: 920px;
 	max-width: calc(100% - 2em);
 	margin: 20px auto;
-	padding: 24px;
-	background: var(--fq4-window);
-	border: 3px solid var(--fq4-border);
+	padding: 4px;
+	background: var(--rpg-window-bg);
+	border: 2px solid var(--rpg-border-outer);
 	box-shadow: 
-		4px 4px 0 rgba(0, 0, 0, 0.3),
-		inset -2px -2px 0 rgba(0, 0, 0, 0.2),
-		inset 2px 2px 0 rgba(255, 255, 255, 0.3);
+		0 0 0 4px var(--rpg-window-dark),
+		0 0 0 6px var(--rpg-border-inner),
+		0 0 0 8px var(--rpg-border-outer),
+		4px 4px 8px rgba(0, 0, 0, 0.5);
 	position: relative;
+}
+
+main::before {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	right: 2px;
+	bottom: 2px;
+	border: 1px solid var(--rpg-border-inner);
+	pointer-events: none;
 }
 h1,
 h2,
@@ -102,30 +126,35 @@ h6 {
 	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
 }
 h1 {
-	font-size: 28px;
-	margin: 1.5rem 0;
-	padding: 12px 16px;
-	background: var(--fq4-highlight);
-	border: 2px solid var(--fq4-border);
+	font-size: 24px;
+	margin: 1rem 0;
+	padding: 8px 16px;
+	background: var(--rpg-header-bg);
+	border: 2px solid var(--rpg-border-outer);
 	box-shadow: 
-		inset -2px -2px 0 rgba(0, 0, 0, 0.2),
-		inset 2px 2px 0 rgba(255, 255, 255, 0.4);
+		inset -1px -1px 0 var(--rpg-window-dark),
+		inset 1px 1px 0 var(--rpg-border-inner);
 	position: relative;
+	color: var(--rpg-text-normal);
+	text-shadow: 2px 2px 0 var(--rpg-text-shadow);
+	letter-spacing: 1px;
 }
 
 h1::before {
-	content: "▶";
+	content: "◆";
 	margin-right: 8px;
-	color: var(--fq4-accent);
+	color: var(--rpg-gold);
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 h2 {
-	font-size: 20px;
-	margin-top: 2.5rem;
+	font-size: 18px;
+	margin-top: 2rem;
 	margin-bottom: 1rem;
-	padding: 8px 12px;
-	background: linear-gradient(90deg, var(--fq4-accent) 0%, transparent 50%);
-	border-left: 4px solid var(--fq4-accent);
-	color: var(--fq4-text);
+	padding: 6px 12px;
+	background: linear-gradient(90deg, var(--rpg-window-dark) 0%, transparent 50%);
+	border-left: 3px solid var(--rpg-gold);
+	color: var(--rpg-text-normal);
+	text-shadow: 1px 1px 0 var(--rpg-text-shadow);
 }
 h3 {
 	font-size: 1.4em;
@@ -148,19 +177,19 @@ b {
 	color: rgb(var(--black));
 }
 a {
-	color: var(--fq4-accent);
+	color: var(--rpg-stat-blue);
 	text-decoration: none;
 	font-weight: 500;
-	transition: all 0.2s ease;
+	transition: all 0.1s ease;
 	position: relative;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 
 a:hover {
-	color: var(--fq4-text);
-	background: var(--fq4-cyan);
-	padding: 0 4px;
-	margin: 0 -4px;
-	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+	color: var(--rpg-gold);
+	text-shadow: 
+		1px 1px 0 rgba(0, 0, 0, 0.5),
+		0 0 8px rgba(255, 215, 0, 0.5);
 }
 p {
 	margin-bottom: 1.8em;
@@ -269,33 +298,32 @@ pre > code {
 	padding: 0;
 }
 
-/* Blockquotes */
+/* Blockquotes - RPG info window style */
 blockquote {
-	border: 2px solid var(--rpg-menu-border);
+	border: 2px solid var(--rpg-border-outer);
 	padding: 12px 16px;
 	margin: 1.5em 0;
 	font-style: normal;
-	background: linear-gradient(
-		135deg,
-		var(--rpg-menu-light) 0%,
-		var(--rpg-menu-mid) 100%
-	);
+	background: var(--rpg-window-mid);
 	box-shadow: 
-		2px 2px 0 rgba(0, 0, 0, 0.2),
-		inset -1px -1px 0 rgba(0, 0, 0, 0.1),
-		inset 1px 1px 0 rgba(255, 255, 255, 0.3);
+		inset -2px -2px 0 var(--rpg-window-dark),
+		inset 2px 2px 0 var(--rpg-window-light),
+		0 0 0 1px var(--rpg-border-inner);
 	position: relative;
+	color: var(--rpg-text-normal);
 }
 
 blockquote::before {
-	content: "❝";
+	content: "INFO";
 	position: absolute;
-	top: -8px;
+	top: -10px;
 	left: 12px;
-	background: var(--rpg-menu-mid);
-	padding: 0 8px;
-	color: var(--rpg-menu-border);
-	font-size: 24px;
+	background: var(--rpg-header-bg);
+	padding: 2px 8px;
+	color: var(--rpg-gold);
+	font-size: 12px;
+	border: 1px solid var(--rpg-border-outer);
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 blockquote p {
 	margin: 0.5em 0;

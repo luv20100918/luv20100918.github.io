@@ -33,113 +33,124 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.prose {
 				max-width: 920px;
 				margin: 20px auto;
-				padding: 24px;
-				color: var(--fq4-text);
-				/* RPG 메뉴 스타일 배경 */
-				background-color: #C8B8A8;
+				padding: 16px;
+				color: var(--rpg-text-normal);
+				/* Classic RPG status window style */
+				background: var(--rpg-window-bg);
 				background-image: 
 					repeating-linear-gradient(
 						0deg,
 						transparent,
-						transparent 2px,
-						rgba(160, 140, 120, 0.1) 2px,
-						rgba(160, 140, 120, 0.1) 4px
-					),
-					repeating-linear-gradient(
-						90deg,
-						transparent,
-						transparent 2px,
-						rgba(160, 140, 120, 0.1) 2px,
-						rgba(160, 140, 120, 0.1) 4px
+						transparent 1px,
+						rgba(0, 0, 0, 0.05) 1px,
+						rgba(0, 0, 0, 0.05) 2px
 					);
-				border: 3px solid #8B7355;
+				border: 3px solid var(--rpg-border-outer);
 				box-shadow: 
-					4px 4px 0 rgba(0, 0, 0, 0.4),
-					inset -2px -2px 0 rgba(0, 0, 0, 0.3),
-					inset 2px 2px 0 rgba(255, 255, 255, 0.4),
-					inset 0 0 0 8px #B8A898,
-					inset 0 0 0 10px #8B7355;
+					inset -2px -2px 0 var(--rpg-window-dark),
+					inset 2px 2px 0 var(--rpg-window-light),
+					0 0 0 1px var(--rpg-border-inner),
+					0 0 0 5px var(--rpg-window-dark),
+					0 0 0 7px var(--rpg-border-inner),
+					0 0 0 9px var(--rpg-border-outer),
+					6px 6px 12px rgba(0, 0, 0, 0.6);
 				position: relative;
 			}
 			
-			/* RPG 메뉴 코너 장식 */
-			.prose::before,
+			/* RPG window corner decorations */
+			.prose::before {
+				content: '';
+				position: absolute;
+				top: 4px;
+				left: 4px;
+				right: 4px;
+				height: 2px;
+				background: linear-gradient(
+					to right,
+					var(--rpg-border-inner) 0%,
+					var(--rpg-border-inner) 20%,
+					transparent 20%,
+					transparent 80%,
+					var(--rpg-border-inner) 80%,
+					var(--rpg-border-inner) 100%
+				);
+			}
+			
 			.prose::after {
 				content: '';
 				position: absolute;
-				width: 20px;
-				height: 20px;
-				border: 2px solid #8B7355;
-				background: #D4C4B0;
-			}
-			
-			.prose::before {
-				top: 8px;
-				left: 8px;
-				border-right: none;
-				border-bottom: none;
-			}
-			
-			.prose::after {
-				top: 8px;
-				right: 8px;
-				border-left: none;
-				border-bottom: none;
+				bottom: 4px;
+				left: 4px;
+				right: 4px;
+				height: 2px;
+				background: linear-gradient(
+					to right,
+					var(--rpg-window-dark) 0%,
+					var(--rpg-window-dark) 20%,
+					transparent 20%,
+					transparent 80%,
+					var(--rpg-window-dark) 80%,
+					var(--rpg-window-dark) 100%
+				);
 			}
 			.title {
 				margin-bottom: 1.5em;
-				padding: 16px;
+				padding: 12px;
 				text-align: center;
 				line-height: 1.2;
-				background: linear-gradient(
-					135deg,
-					#E8D8C8 0%,
-					#D4C4B0 50%,
-					#C8B8A0 100%
-				);
-				border: 2px solid #8B7355;
+				background: var(--rpg-header-bg);
+				border: 2px solid var(--rpg-border-outer);
 				box-shadow: 
-					inset -2px -2px 0 rgba(0, 0, 0, 0.2),
-					inset 2px 2px 0 rgba(255, 255, 255, 0.4);
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-border-inner),
+					0 2px 4px rgba(0, 0, 0, 0.3);
 				position: relative;
 			}
 			
-			/* 타이틀 코너 장식 */
-			.title::before,
-			.title::after {
-				content: '◆';
-				position: absolute;
-				color: #8B7355;
-				font-size: 12px;
-			}
-			
+			/* Title decorations - RPG style */
 			.title::before {
-				top: 4px;
+				content: '[ ';
+				position: absolute;
 				left: 8px;
+				top: 50%;
+				transform: translateY(-50%);
+				color: var(--rpg-gold);
+				font-size: 20px;
+				text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
 			}
 			
 			.title::after {
-				top: 4px;
+				content: ' ]';
+				position: absolute;
 				right: 8px;
+				top: 50%;
+				transform: translateY(-50%);
+				color: var(--rpg-gold);
+				font-size: 20px;
+				text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
 			}
 			.title h1 {
 				margin: 0 0 0.3em 0;
 				background: transparent;
 				border: none;
 				box-shadow: none;
-				padding: 0;
-				font-size: 24px;
+				padding: 0 40px;
+				font-size: 20px;
+				color: var(--rpg-text-normal);
+				text-shadow: 2px 2px 0 var(--rpg-text-shadow);
+				letter-spacing: 1px;
 			}
 			.title h1::before {
 				content: none;
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: var(--fq4-text);
-				font-family: 'IBM Plex Mono', monospace;
+				color: var(--rpg-stat-orange);
+				font-family: 'NeoDunggeunmo', monospace;
 				font-size: 12px;
 				text-transform: uppercase;
 				letter-spacing: 1px;
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 			}
 			.last-updated-on {
 				font-style: normal;
@@ -148,15 +159,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.title hr {
 				border: none;
-				height: 2px;
-				background: linear-gradient(
-					to right,
-					transparent,
-					var(--fq4-border) 20%,
-					var(--fq4-border) 80%,
-					transparent
-				);
-				margin: 12px 0 0 0;
+				height: 1px;
+				background: var(--rpg-border-inner);
+				margin: 8px 0 0 0;
+				box-shadow: 0 1px 0 var(--rpg-window-dark);
 			}
 		</style>
 	</head>

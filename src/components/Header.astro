@@ -52,62 +52,76 @@ import HeaderLink from './HeaderLink.astro';
 <style>
 	header {
 		margin: 8px;
-		background: var(--fq4-window);
-		border: 3px solid var(--fq4-border);
+		background: var(--rpg-window-bg);
+		border: 2px solid var(--rpg-border-outer);
 		box-shadow: 
-			4px 4px 0 rgba(0, 0, 0, 0.3),
-			inset -2px -2px 0 rgba(0, 0, 0, 0.2),
-			inset 2px 2px 0 rgba(255, 255, 255, 0.3);
+			0 0 0 4px var(--rpg-window-dark),
+			0 0 0 6px var(--rpg-border-inner),
+			0 0 0 8px var(--rpg-border-outer),
+			4px 4px 8px rgba(0, 0, 0, 0.5);
 	}
 	
 	.fq4-titlebar {
-		background: linear-gradient(90deg, var(--fq4-accent) 0%, var(--fq4-cyan) 100%);
+		background: var(--rpg-header-bg);
+		background-image: repeating-linear-gradient(
+			90deg,
+			transparent,
+			transparent 4px,
+			rgba(0, 0, 0, 0.1) 4px,
+			rgba(0, 0, 0, 0.1) 5px
+		);
 		padding: 4px 8px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		border-bottom: 2px solid var(--fq4-border);
+		border-bottom: 2px solid var(--rpg-border-outer);
+		box-shadow: 
+			inset -1px -1px 0 var(--rpg-window-dark),
+			inset 1px 1px 0 var(--rpg-border-inner);
 	}
 	
 	.site-title {
 		margin: 0;
 		font-size: 14px;
-		font-family: 'DotGothic16', 'IBM Plex Mono', monospace;
+		font-family: 'NeoDunggeunmo', monospace;
 		text-transform: uppercase;
-		letter-spacing: 2px;
+		letter-spacing: 1px;
 	}
 	
 	.site-title a {
-		color: white;
+		color: var(--rpg-text-normal);
 		text-decoration: none;
-		text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+		text-shadow: 2px 2px 0 var(--rpg-text-shadow);
 	}
 	
 	.site-title a:hover {
 		background: transparent;
-		color: var(--fq4-cyan);
+		color: var(--rpg-gold);
 		padding: 0;
 		margin: 0;
+		text-shadow: 
+			2px 2px 0 var(--rpg-text-shadow),
+			0 0 8px rgba(255, 215, 0, 0.5);
 	}
 	
 	.window-controls {
 		display: flex;
-		gap: 4px;
+		gap: 2px;
 	}
 	
 	.window-btn {
-		width: 20px;
-		height: 18px;
-		background: var(--fq4-window);
-		border: 2px solid var(--fq4-border);
+		width: 18px;
+		height: 16px;
+		background: var(--rpg-window-mid);
+		border: 1px solid var(--rpg-border-outer);
 		cursor: pointer;
 		box-shadow: 
-			inset -1px -1px 0 rgba(0, 0, 0, 0.2),
-			inset 1px 1px 0 rgba(255, 255, 255, 0.3);
-		font-size: 12px;
+			inset -1px -1px 0 var(--rpg-window-dark),
+			inset 1px 1px 0 var(--rpg-window-light);
+		font-size: 10px;
 		line-height: 1;
-		font-family: 'IBM Plex Mono', monospace;
-		color: var(--fq4-text);
+		font-family: 'NeoDunggeunmo', monospace;
+		color: var(--rpg-text-normal);
 		padding: 0;
 		display: flex;
 		align-items: center;
@@ -115,94 +129,97 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	
 	.window-btn:hover {
-		background: var(--fq4-highlight);
+		background: var(--rpg-window-light);
 	}
 	
 	.window-btn:active {
 		box-shadow: 
-			inset 1px 1px 0 rgba(0, 0, 0, 0.2),
-			inset -1px -1px 0 rgba(255, 255, 255, 0.3);
+			inset 1px 1px 0 var(--rpg-window-dark),
+			inset -1px -1px 0 var(--rpg-window-light);
 	}
 
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 8px 12px;
-		background: var(--fq4-window);
+		padding: 6px 8px;
+		background: var(--rpg-window-bg);
+		border-top: 1px solid var(--rpg-border-inner);
 	}
 	
 	.internal-links {
 		display: flex;
-		gap: 4px;
+		gap: 2px;
 	}
 	
 	nav :global(a) {
-		padding: 6px 12px;
-		color: var(--fq4-text);
+		padding: 4px 10px;
+		color: var(--rpg-text-normal);
 		text-decoration: none;
-		font-family: 'IBM Plex Mono', monospace;
+		font-family: 'NeoDunggeunmo', monospace;
 		font-size: 13px;
-		font-weight: 600;
+		font-weight: normal;
 		text-transform: uppercase;
-		letter-spacing: 1px;
-		border: 2px solid transparent;
-		transition: all 0.2s ease;
+		letter-spacing: 0;
+		border: 1px solid transparent;
+		transition: all 0.1s ease;
+		text-shadow: 1px 1px 0 var(--rpg-text-shadow);
 	}
 	
 	nav :global(a:hover) {
-		background: var(--fq4-highlight);
-		border: 2px solid var(--fq4-border);
+		background: var(--rpg-window-mid);
+		border: 1px solid var(--rpg-border-outer);
 		box-shadow: 
-			inset -1px -1px 0 rgba(0, 0, 0, 0.2),
-			inset 1px 1px 0 rgba(255, 255, 255, 0.3);
-		color: var(--fq4-text);
-		padding: 6px 12px;
+			inset -1px -1px 0 var(--rpg-window-dark),
+			inset 1px 1px 0 var(--rpg-window-light);
+		color: var(--rpg-gold);
+		padding: 4px 10px;
 		margin: 0;
 	}
 	
 	nav :global(a.active) {
-		background: var(--fq4-accent);
-		color: white;
-		border: 2px solid var(--fq4-border);
+		background: var(--rpg-window-dark);
+		color: var(--rpg-gold);
+		border: 1px solid var(--rpg-border-outer);
 		box-shadow: 
-			inset -2px -2px 0 rgba(0, 0, 0, 0.3),
-			inset 2px 2px 0 rgba(255, 255, 255, 0.4);
+			inset 1px 1px 0 var(--rpg-window-dark),
+			inset -1px -1px 0 var(--rpg-window-light);
 	}
 	
 	.social-links {
 		display: flex;
-		gap: 8px;
+		gap: 4px;
 	}
 	
 	.social-links a {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 32px;
-		height: 32px;
+		width: 28px;
+		height: 28px;
 		padding: 4px;
-		background: var(--fq4-window);
-		border: 2px solid var(--fq4-border);
+		background: var(--rpg-window-mid);
+		border: 1px solid var(--rpg-border-outer);
 		box-shadow: 
-			inset -1px -1px 0 rgba(0, 0, 0, 0.2),
-			inset 1px 1px 0 rgba(255, 255, 255, 0.3);
-		transition: all 0.2s ease;
+			inset -1px -1px 0 var(--rpg-window-dark),
+			inset 1px 1px 0 var(--rpg-window-light);
+		transition: all 0.1s ease;
 	}
 	
 	.social-links a:hover {
-		background: var(--fq4-highlight);
+		background: var(--rpg-window-light);
 		transform: translate(-1px, -1px);
 		box-shadow: 
-			3px 3px 0 rgba(0, 0, 0, 0.3),
-			inset -1px -1px 0 rgba(0, 0, 0, 0.2),
-			inset 1px 1px 0 rgba(255, 255, 255, 0.3);
+			2px 2px 0 rgba(0, 0, 0, 0.3),
+			inset -1px -1px 0 var(--rpg-window-dark),
+			inset 1px 1px 0 var(--rpg-window-light);
 	}
 	
 	.social-links svg {
-		width: 20px;
-		height: 20px;
-		color: var(--fq4-text);
+		width: 18px;
+		height: 18px;
+		color: var(--rpg-text-normal);
+		filter: drop-shadow(1px 1px 0 var(--rpg-text-shadow));
 	}
 	
 	@media (max-width: 720px) {
