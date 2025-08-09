@@ -35,23 +35,92 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin: 20px auto;
 				padding: 24px;
 				color: var(--fq4-text);
-				background: var(--fq4-window);
-				border: 3px solid var(--fq4-border);
+				/* RPG 메뉴 스타일 배경 */
+				background-color: #C8B8A8;
+				background-image: 
+					repeating-linear-gradient(
+						0deg,
+						transparent,
+						transparent 2px,
+						rgba(160, 140, 120, 0.1) 2px,
+						rgba(160, 140, 120, 0.1) 4px
+					),
+					repeating-linear-gradient(
+						90deg,
+						transparent,
+						transparent 2px,
+						rgba(160, 140, 120, 0.1) 2px,
+						rgba(160, 140, 120, 0.1) 4px
+					);
+				border: 3px solid #8B7355;
 				box-shadow: 
-					4px 4px 0 rgba(0, 0, 0, 0.3),
-					inset -2px -2px 0 rgba(0, 0, 0, 0.2),
-					inset 2px 2px 0 rgba(255, 255, 255, 0.3);
+					4px 4px 0 rgba(0, 0, 0, 0.4),
+					inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+					inset 2px 2px 0 rgba(255, 255, 255, 0.4),
+					inset 0 0 0 8px #B8A898,
+					inset 0 0 0 10px #8B7355;
+				position: relative;
+			}
+			
+			/* RPG 메뉴 코너 장식 */
+			.prose::before,
+			.prose::after {
+				content: '';
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				border: 2px solid #8B7355;
+				background: #D4C4B0;
+			}
+			
+			.prose::before {
+				top: 8px;
+				left: 8px;
+				border-right: none;
+				border-bottom: none;
+			}
+			
+			.prose::after {
+				top: 8px;
+				right: 8px;
+				border-left: none;
+				border-bottom: none;
 			}
 			.title {
 				margin-bottom: 1.5em;
 				padding: 16px;
 				text-align: center;
 				line-height: 1.2;
-				background: var(--fq4-highlight);
-				border: 2px solid var(--fq4-border);
+				background: linear-gradient(
+					135deg,
+					#E8D8C8 0%,
+					#D4C4B0 50%,
+					#C8B8A0 100%
+				);
+				border: 2px solid #8B7355;
 				box-shadow: 
 					inset -2px -2px 0 rgba(0, 0, 0, 0.2),
 					inset 2px 2px 0 rgba(255, 255, 255, 0.4);
+				position: relative;
+			}
+			
+			/* 타이틀 코너 장식 */
+			.title::before,
+			.title::after {
+				content: '◆';
+				position: absolute;
+				color: #8B7355;
+				font-size: 12px;
+			}
+			
+			.title::before {
+				top: 4px;
+				left: 8px;
+			}
+			
+			.title::after {
+				top: 4px;
+				right: 8px;
 			}
 			.title h1 {
 				margin: 0 0 0.3em 0;

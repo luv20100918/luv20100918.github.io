@@ -14,6 +14,14 @@
 	--fq4-accent: #5959FF;
 	--fq4-cyan: #59FFFF;
 	
+	/* RPG Menu color palette */
+	--rpg-menu-bg: #C8B8A8;
+	--rpg-menu-light: #E8D8C8;
+	--rpg-menu-mid: #D4C4B0;
+	--rpg-menu-dark: #B8A898;
+	--rpg-menu-border: #8B7355;
+	--rpg-menu-text: #4A3F36;
+	
 	/* Original colors mapped to FQ4 */
 	--accent: var(--fq4-accent);
 	--accent-dark: #4040CC;
@@ -263,11 +271,15 @@ pre > code {
 
 /* Blockquotes */
 blockquote {
-	border: 2px solid var(--fq4-accent);
+	border: 2px solid var(--rpg-menu-border);
 	padding: 12px 16px;
 	margin: 1.5em 0;
 	font-style: normal;
-	background: var(--fq4-window);
+	background: linear-gradient(
+		135deg,
+		var(--rpg-menu-light) 0%,
+		var(--rpg-menu-mid) 100%
+	);
 	box-shadow: 
 		2px 2px 0 rgba(0, 0, 0, 0.2),
 		inset -1px -1px 0 rgba(0, 0, 0, 0.1),
@@ -280,9 +292,9 @@ blockquote::before {
 	position: absolute;
 	top: -8px;
 	left: 12px;
-	background: var(--fq4-window);
+	background: var(--rpg-menu-mid);
 	padding: 0 8px;
-	color: var(--fq4-accent);
+	color: var(--rpg-menu-border);
 	font-size: 24px;
 }
 blockquote p {
@@ -363,7 +375,7 @@ hr {
 /* Blog post specific styles */
 .prose {
 	font-size: 1.05rem;
-	color: rgb(var(--gray-dark));
+	color: var(--rpg-menu-text);
 	max-width: none;
 }
 
