@@ -86,9 +86,10 @@ const {
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5768884488453878" crossorigin="anonymous" is:inline></script>
 
 <!-- Pixel & Korean Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
-<link href='https://rsms.me/inter/inter.css' rel='stylesheet' type='text/css'/>
-<link href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'/>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&family=Silkscreen:wght@400;700&family=VT323&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff" rel="stylesheet" type="text/css">
+<link href="https://fastly.jsdelivr.net/gh/neodgm/neodgm-webfont@latest/neodgm.css" rel="stylesheet">
+<link href="https://fastly.jsdelivr.net/gh/neodgm/neodgm-webfont@latest/neodgm_code.css" rel="stylesheet">
 
 <!-- Enhanced Pixel Theme Styles -->
 <style>
@@ -101,17 +102,42 @@ const {
 
   /* Enhanced body with stronger dot pattern */
   body {
-    font-family: "DotGothic16", "Press Start 2P", monospace !important;
+    font-family: "NeoDunggeunmo", "DungGeunMo", "DotGothic16", monospace !important;
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
-  /* Pixel-perfect headings */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Press Start 2P", "DotGothic16", monospace !important;
-    text-transform: uppercase;
+  /* Pixel-perfect headings with classic RPG style */
+  h1 {
+    font-family: "NeoDunggeunmo", "DungGeunMo", monospace !important;
+    font-weight: normal;
     letter-spacing: 0;
     line-height: 1.5 !important;
+    font-size: 28px !important;
+  }
+  
+  h2 {
+    font-family: "NeoDunggeunmo", "DungGeunMo", monospace !important;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 1.5 !important;
+    font-size: 24px !important;
+  }
+  
+  h3, h4 {
+    font-family: "NeoDunggeunmo", "DungGeunMo", monospace !important;
+    letter-spacing: 0;
+    line-height: 1.5 !important;
+    font-size: 20px !important;
+  }
+  
+  h5, h6 {
+    font-family: "NeoDunggeunmo", "DungGeunMo", monospace !important;
+    letter-spacing: 0;
+    line-height: 1.5 !important;
+    font-size: 18px !important;
   }
 
   h1::before {
@@ -124,17 +150,21 @@ const {
   }
 
   /* Enhanced code blocks with CRT effect */
+  pre {
+    font-family: "NeoDunggeunmo Code", "NeoDunggeunmo", monospace !important;
+  }
+  
   pre::before {
-    content: 'CODE';
+    content: '코드';
     position: absolute;
     top: -2px;
     left: 12px;
     background: var(--fq4-border);
     color: white;
     padding: 2px 8px;
-    font-size: 10px;
-    font-family: "Press Start 2P", monospace;
-    letter-spacing: 2px;
+    font-size: 12px;
+    font-family: "NeoDunggeunmo", "DungGeunMo", monospace;
+    letter-spacing: 0;
   }
 
   /* Animated list markers */
@@ -214,10 +244,9 @@ const {
 
   /* Pixel-perfect buttons */
   button, .button, input[type="submit"], input[type="button"], .view-all-btn {
-    font-family: "Press Start 2P", monospace !important;
-    font-size: 10px !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-family: "NeoDunggeunmo", "DungGeunMo", monospace !important;
+    font-size: 14px !important;
+    letter-spacing: 0;
     transition: all 0.1s ease;
   }
 
