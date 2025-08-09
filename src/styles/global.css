@@ -351,7 +351,7 @@ code {
     background: #000000;
     color: #00FF00;
     font-size: 14px;
-    font-family: "Galmuri14", "NeoDunggeunmo Code", "NeoDunggeunmo", monospace;
+    font-family: "Galmuri11", "NeoDunggeunmo Code", "NeoDunggeunmo", monospace;
     border: 1px solid var(--fq4-border);
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
@@ -368,7 +368,7 @@ pre {
 
 pre>code {
     all: unset;
-    font-family: "Galmuri14", "NeoDunggeunmo", monospace;
+    font-family: "Galmuri11", "NeoDunggeunmo", monospace;
     font-size: 14px;
     line-height: 1.5;
     color: #00FF00;
@@ -638,5 +638,5 @@ hr {
 
 *[style*="font-size: 14px"],
 .font-size-14 {
-    font-family: "Galmuri14", "NeoDunggeunmo", monospace !important;
+    font-family: "Galmuri11", "NeoDunggeunmo", monospace !important;
 }
