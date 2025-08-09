@@ -118,16 +118,19 @@ CSV 파일을 읽어서 데이터를 정제하고 분석하는 Python 스크립�
 $ python data_analysis.py
 Traceback (most recent call last):
 File "data_analysis.py", line 2, in <module> import pandas as pd
-ModuleNotFoundError: No module named 'pandas' ```
+ModuleNotFoundError: No module named 'pandas' 
+```
 
 **Claude Code: pandas 설치 추가**
 ```bash
-$ pip install pandas matplotlib seaborn ```
+$ pip install pandas matplotlib seaborn 
+```
 
 **2차 시도**
 ```bash
 $ python data_analysis.py
-FileNotFoundError: [Errno 2] No such file or directory: 'sales_data.csv' ```
+FileNotFoundError: [Errno 2] No such file or directory: 'sales_data.csv' 
+```
 
 **Claude Code: 파일 존재 여부 확인 코드 추가**
 ```python
@@ -138,17 +141,20 @@ print("Creating sample data...") create_sample_data()
 **3차 시도**
 ```bash
 $ python data_analysis.py
-ValueError: could not convert string to float: 'N/A' ```
+ValueError: could not convert string to float: 'N/A' 
+```
 
 **Claude Code: 데이터 정제 로직 추가**
 ```python
 df['sales'] = pd.to_numeric(df['sales'], errors='coerce')
-df['sales'].fillna(df['sales'].mean(), inplace=True) ```
+df['sales'].fillna(df['sales'].mean(), inplace=True) 
+```
 
 **4차 시도**
 ```bash
 $ python data_analysis.py
-Success! Report generated: report.pdf ```
+Success! Report generated: report.pdf 
+```
 
 ## 실제 프로젝트에서의 Claude Code 활용
 
@@ -261,7 +267,8 @@ React + TypeScript + Next.js로 실시간 채팅 애플리케이션을 만들어
 
 # 1. requirements.txt 자동 생성
 # 2. pip install -r requirements.txt 실행
-# 3. 가상환경 설정 추가 ```
+# 3. 가상환경 설정 추가 
+```
 
 ### 2. 타입 에러
 
@@ -269,7 +276,8 @@ React + TypeScript + Next.js로 실시간 채팅 애플리케이션을 만들어
 
 // 에러: Type 'string' is not assignable to type 'number' // Claude Code의 해결:
 // 1. 타입 정의 수정 // 2. 타입 가드 추가
-// 3. 제네릭 사용으로 유연성 확보 ```
+// 3. 제네릭 사용으로 유연성 확보 
+```
 
 ### 3. 비동기 처리 에러
 
@@ -277,7 +285,8 @@ React + TypeScript + Next.js로 실시간 채팅 애플리케이션을 만들어
 
 // 에러: UnhandledPromiseRejectionWarning // Claude Code의 해결:
 // 1. try-catch 블록 추가 // 2. .catch() 체인 추가
-// 3. async/await 패턴으로 리팩토링 ```
+// 3. async/await 패턴으로 리팩토링 
+```
 
 ## 주의사항 및 한계
 

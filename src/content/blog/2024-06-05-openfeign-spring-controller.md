@@ -150,7 +150,8 @@ return ResponseEntity.ok("Received data"); }
 #### 예제 2: JSON 본문
 
 데이터JSON 본문 데이터를 객체로 받을 때는 @RequestBody를 사용합니다:
-#### 예제 2: JSON 본문 데이터JSON 본문 데이터를 객체로 받을 때는 @RequestBody를 사용합니다: ```java
+#### 예제 2: JSON 본문 데이터JSON 본문 데이터를 객체로 받을 때는 @RequestBody를 사용합니다: 
+```java
 
 @RestController @RequestMapping("/api")
 public class ExampleController { @PostMapping("/example")

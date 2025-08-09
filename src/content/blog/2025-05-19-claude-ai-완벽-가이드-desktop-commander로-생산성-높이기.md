@@ -38,17 +38,20 @@ Desktop Commander MCP를 설치하는 방법은 다음과 같습니다. 먼저 *
 ### **방법 1: Smithery를 통한 자동 설치**
 
 ```bash
-npx -y @smithery/cli install @wonderwhy-er/desktop-commander --client claude ```
+npx -y @smithery/cli install @wonderwhy-er/desktop-commander --client claude 
+```
 
 ### **방법 2: NPX를 통한 직접 설치**
 
 ```bash
-npx @wonderwhy-er/desktop-commander@latest setup ```
+npx @wonderwhy-er/desktop-commander@latest setup 
+```
 
 ### **방법 3: macOS 사용자를 위한 Bash 스크립트 설치**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install.sh | bash ```
+curl -fsSL https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/refs/heads/main/install.sh | bash 
+```
 
 ### **방법 4: 수동 설정**
 
@@ -64,7 +67,8 @@ claude_desktop_config.json 파일에 다음 내용을 추가합니다:
 "args": [ "-y",
 "@wonderwhy-er/desktop-commander" ]
 } }
-} ```
+} 
+```
 
 설치 후에는 반드시 Claude Desktop 앱을 재시작해야 합니다.
 
@@ -156,14 +160,16 @@ Claude에게 요청할 때는 구체적이고 명확한 지시를 제공하는 �
 Claude가 더 효과적으로 도움을 줄 수 있도록 프로젝트 컨텍스트를 제공하세요:
 
 ```
-"이 프로젝트는 React와 TypeScript를 사용하는 전자상거래 웹사이트야. 주요 기능은 상품 목록 표시, 장바구니 관리, 사용자 인증이야. 현재 상품 목록을 필터링하는 기능을 개선하고 싶어." ```
+"이 프로젝트는 React와 TypeScript를 사용하는 전자상거래 웹사이트야. 주요 기능은 상품 목록 표시, 장바구니 관리, 사용자 인증이야. 현재 상품 목록을 필터링하는 기능을 개선하고 싶어." 
+```
 
 ### **3. 권한 관리**
 
 Desktop Commander MCP는 구성 설정을 통해 보안을 관리할 수 있습니다. Claude에게 다음과 같이 구성을 요청할 수 있습니다:
 
 ```
-"Desktop Commander에서 접근 가능한 디렉토리를 내 프로젝트 폴더로만 제한하고 싶어." ```
+"Desktop Commander에서 접근 가능한 디렉토리를 내 프로젝트 폴더로만 제한하고 싶어." 
+```
 
 Claude는 `get_config`와 `set_config_value` 도구를 사용하여 설정을 확인하고 변경할 수 있습니다:
 
@@ -181,7 +187,8 @@ Claude는 `get_config`와 `set_config_value` 도구를 사용하여 설정을 �
 최신 버전의 Desktop Commander MCP는 이미지 파일(PNG, JPEG, GIF, WebP) 지원을 추가했습니다. 이를 통해 디자인 자산을 직접 확인하고 작업할 수 있습니다:
 
 ```
-"images/logo.png 파일을 보여줘" ```
+"images/logo.png 파일을 보여줘" 
+```
 
 ## **자주 묻는 질문 (FAQ)**
 
@@ -212,21 +219,24 @@ A: 네, 사용자들은 대규모 코드베이스(44K 파일, 1100만 라인의 
 팀에서 코드 리뷰 시간을 단축하고 싶을 때, Desktop Commander MCP와 Claude를 활용해 자동화된 1차 코드 리뷰를 진행할 수 있습니다.
 
 ```
-"src 디렉토리의 모든 pull request 대상 파일을 검사하여 코딩 표준 위반, 잠재적 버그, 개선 가능한 성능 문제가 있는지 확인해줘" ```
+"src 디렉토리의 모든 pull request 대상 파일을 검사하여 코딩 표준 위반, 잠재적 버그, 개선 가능한 성능 문제가 있는지 확인해줘" 
+```
 
 ### **시나리오 2: 레거시 코드 마이그레이션**
 
 오래된 jQuery 코드를 React로 마이그레이션해야 할 때:
 
 ```
-"js/legacy 폴더의 모든 jQuery 코드를 분석하고 동일한 기능을 하는 React 컴포넌트로 변환해줘. 각 컴포넌트는 함수형으로 작성하고 hooks를 사용해줘." ```
+"js/legacy 폴더의 모든 jQuery 코드를 분석하고 동일한 기능을 하는 React 컴포넌트로 변환해줘. 각 컴포넌트는 함수형으로 작성하고 hooks를 사용해줘." 
+```
 
 ### **시나리오 3: 문서화 자동화**
 
 대규모 코드베이스에 대한 문서화가 필요할 때:
 
 ```
-"src/api 디렉토리의 모든 API 엔드포인트를 분석하고 각 함수의 목적, 매개변수, 반환값을 포함한 마크다운 문서를 생성해줘." ```
+"src/api 디렉토리의 모든 API 엔드포인트를 분석하고 각 함수의 목적, 매개변수, 반환값을 포함한 마크다운 문서를 생성해줘." 
+```
 
 ## **커뮤니티 및 지원**
 

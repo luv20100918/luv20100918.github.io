@@ -67,25 +67,18 @@ org.gradle.internal.http.socketTimeout=180000이 방법도 핵심 문제를 해�
 
 plugins {} 블록 대신 buildscript {} 블록을 사용하여 플러그인을 적용하는 방식도 시도했으나 또 다른 문제가 발생했습니다.
 
-```
-
 ### 4. 성공적인 해결책: Gradle 버전 다운그레이드
 
 결국 Gradle 7.x 버전을 사용하는 것이 가장 효과적인 해결책이었습니다. Homebrew를 통해 Gradle 7.6.4를 설치하고 이를 사용하여 빌드를 실행했습니다:
 
 ```bash
-
-```bash
-# Gradle 7.x 설치 ```
-
+# Gradle 7.x 설치 
 brew install gradle@7
 
-```bash
-
-```bash
-# Gradle 7.x로 빌드 실행 ```
-
-/usr/local/opt/gradle@7/bin/gradle build이 방법을 통해 빌드가 성공적으로 진행되었습니다! ```
+# Gradle 7.x로 빌드 실행 
+/usr/local/opt/gradle@7/bin/gradle build
+```
+이 방법을 통해 빌드가 성공적으로 진행되었습니다! 
 
 ## 결론 및 장기적 해결책
 
