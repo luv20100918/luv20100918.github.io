@@ -1,99 +1,445 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+// NPC characters data
+const npcs = [
+	{ id: 'king', name: '왕', icon: '👑', title: '버드스프링 왕국의 지배자' },
+	{ id: 'knight', name: '기사단장', icon: '⚔️', title: '18년차 전설의 검사' },
+	{ id: 'wizard', name: '대마법사', icon: '🧙', title: 'AI 마법의 대가' },
+	{ id: 'merchant', name: '상인', icon: '💰', title: '기술 스택 수집가' },
+	{ id: 'bard', name: '음유시인', icon: '🎵', title: '이야기 전달자' },
+	{ id: 'scholar', name: '학자', icon: '📚', title: 'INTJ 현자' },
+];
+
+const currentNPC = 'king';
 ---
 
-<Layout
-	title="About Me - INTJ Developer & Father"
-	description="18년차 개발자, 두 아이의 아빠, AI 기술 애호가"
-	pubDate={new Date('2025-08-08')}
-	heroImage={AboutHeroImage}
->
-	<h2>👨‍💻 안녕하세요, 저는 INTJ 개발자입니다</h2>
-	
-	<p>
-		18년이라는 긴 시간 동안 개발자의 길을 걸어오며, 끊임없이 변화하는 기술의 파도를 타고 있습니다.
-		INTJ 특유의 분석적 사고와 체계적인 접근 방식으로 복잡한 문제들을 해결하는 것을 즐기며,
-		항상 더 나은 솔루션을 찾기 위해 고민합니다.
-	</p>
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={`${SITE_TITLE} - Royal Palace`} description={SITE_DESCRIPTION} />
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background: #2A3939;
+				overflow-x: hidden;
+			}
 
-	<h2>👨‍👧‍👦 두 아이의 아빠</h2>
-	
-	<p>
-		개발자이기 이전에 두 아이의 아빠입니다. 아이들과 함께하는 시간은 제게 가장 큰 행복이자,
-		새로운 시각으로 세상을 바라보게 해주는 영감의 원천입니다.
-		복잡한 코드를 작성하다가도, 아이들의 순수한 질문 하나가 때로는 가장 단순하고 명쾌한 해답을 
-		제시해주곤 합니다.
-	</p>
+			.palace-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 8px;
+				min-height: calc(100vh - 200px);
+			}
 
-	<h2>🤖 AI 시대를 적극적으로 수용하기</h2>
-	
-	<p>
-		최근 AI 기술의 급격한 발전에 깊은 관심을 가지고 있으며, 특히 <strong>Claude Code</strong>를 
-		적극적으로 활용하고 있습니다. 단순히 코드 작성을 넘어서, 정보 분석, 데이터 처리, 
-		문제 해결의 파트너로서 AI를 활용하는 방법을 끊임없이 탐구하고 있습니다.
-	</p>
+			/* Palace Scene */
+			.palace-scene {
+				background: linear-gradient(to bottom, #4A3A5A 0%, #6B4A6B 50%, #8A5A7A 100%);
+				border: 3px solid var(--rpg-border-outer);
+				box-shadow: 
+					inset -2px -2px 0 var(--rpg-window-dark),
+					inset 2px 2px 0 var(--rpg-window-light),
+					0 0 0 1px var(--rpg-border-inner);
+				position: relative;
+				height: 400px;
+				overflow: hidden;
+			}
 
-	<p>
-		AI는 단순한 도구가 아닌, 사고를 확장시켜주는 동반자라고 생각합니다. 
-		Claude Code와의 협업을 통해 더 효율적이고 창의적인 개발 방법론을 만들어가고 있으며,
-		이러한 경험들을 이 블로그를 통해 공유하고자 합니다.
-	</p>
+			/* Throne Room Background */
+			.throne-room {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-image: 
+					repeating-linear-gradient(
+						90deg,
+						transparent,
+						transparent 50px,
+						rgba(255, 215, 0, 0.05) 50px,
+						rgba(255, 215, 0, 0.05) 52px
+					),
+					repeating-linear-gradient(
+						0deg,
+						transparent,
+						transparent 50px,
+						rgba(255, 215, 0, 0.05) 50px,
+						rgba(255, 215, 0, 0.05) 52px
+					);
+			}
 
-	<h2>🎯 기술 스택 & 관심 분야</h2>
-	
-	<ul>
-		<li><strong>Backend</strong>: Spring Boot, Node.js, Python, Go</li>
-		<li><strong>Frontend</strong>: Vue.js, React, TypeScript</li>
-		<li><strong>Database</strong>: PostgreSQL, MySQL, MongoDB, Redis</li>
-		<li><strong>DevOps</strong>: Docker, Kubernetes, Jenkins, AWS</li>
-		<li><strong>AI Tools</strong>: Claude Code, GitHub Copilot, ChatGPT</li>
-		<li><strong>현재 관심사</strong>: AI-Assisted Development, MCP (Model Context Protocol), Prompt Engineering</li>
-	</ul>
+			/* Decorative Elements */
+			.palace-decoration {
+				position: absolute;
+				top: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 48px;
+				filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+			}
 
-	<h2>💡 개발 철학</h2>
-	
-	<blockquote>
-		"완벽한 코드는 없지만, 더 나은 코드는 항상 존재한다"
-	</blockquote>
+			.throne {
+				position: absolute;
+				top: 60px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 64px;
+				animation: float 3s ease-in-out infinite;
+			}
 
-	<p>
-		INTJ의 완벽주의적 성향과 18년의 경험이 만나, 효율성과 확장성을 동시에 추구하는 
-		실용적인 개발 철학을 가지게 되었습니다. 과도한 최적화보다는 적절한 균형점을 찾고,
-		미래의 변화에 유연하게 대응할 수 있는 구조를 설계하는 것을 중요하게 생각합니다.
-	</p>
+			@keyframes float {
+				0%, 100% { transform: translateX(-50%) translateY(0); }
+				50% { transform: translateX(-50%) translateY(-10px); }
+			}
 
-	<h2>🌱 이 블로그에서는</h2>
-	
-	<p>
-		18년간의 개발 경험과 AI 시대의 새로운 인사이트를 공유합니다:
-	</p>
-	
-	<ul>
-		<li>실무에서 마주친 문제들과 해결 과정</li>
-		<li>AI 도구들을 활용한 개발 생산성 향상 방법</li>
-		<li>새로운 기술 트렌드와 실제 적용 경험</li>
-		<li>개발자이자 아빠로서의 일상과 균형 잡기</li>
-		<li>INTJ 개발자의 시각으로 바라본 기술 세계</li>
-	</ul>
+			/* NPCs Display */
+			.npcs-container {
+				position: absolute;
+				bottom: 80px;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				gap: 40px;
+				padding: 0 20px;
+			}
 
-	<h2>📬 연락하기</h2>
-	
-	<p>
-		개발 관련 질문, 협업 제안, 또는 단순한 기술 토론이라도 환영합니다.
-		저와 비슷한 관심사를 가진 분들과의 교류를 언제나 기대하고 있습니다.
-	</p>
+			.npc {
+				text-align: center;
+				cursor: pointer;
+				transition: all 0.2s ease;
+			}
 
-	<p style="text-align: center; margin-top: 2rem;">
-		<strong>✉️ Email:</strong> <a href="mailto:evilcurse@birdspring.com">evilcurse@birdspring.com</a><br/>
-		<strong>🌐 Blog:</strong> <a href="https://birdspring.com">birdspring.com</a><br/>
-		<strong>💻 GitHub:</strong> <a href="https://github.com/luv20100918">@luv20100918</a>
-	</p>
+			.npc:hover {
+				transform: translateY(-8px);
+			}
 
-	<hr style="margin: 3rem 0;"/>
+			.npc-sprite {
+				font-size: 48px;
+				display: block;
+				filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+			}
 
-	<p style="text-align: center; font-style: italic; opacity: 0.8;">
-		"기술은 계속 진화하지만, 문제를 해결하려는 개발자의 열정은 변하지 않습니다."<br/>
-		- 18년차 개발자, 두 아이의 아빠, 그리고 영원한 학습자
-	</p>
-</Layout>
+			.npc-name {
+				background: var(--rpg-header-bg);
+				color: var(--rpg-text-normal);
+				padding: 2px 8px;
+				border: 1px solid var(--rpg-border-outer);
+				font-size: 10px;
+				font-family: 'NeoDunggeunmo', monospace;
+				margin-top: 4px;
+				display: inline-block;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+			}
+
+			.npc.active .npc-name {
+				background: var(--rpg-gold);
+				color: var(--rpg-header-bg);
+			}
+
+			/* Dialog Box */
+			.dialog-container {
+				margin-top: 8px;
+			}
+
+			.dialog-box {
+				background: var(--rpg-window-bg);
+				border: 3px solid var(--rpg-border-outer);
+				box-shadow: 
+					inset -2px -2px 0 var(--rpg-window-dark),
+					inset 2px 2px 0 var(--rpg-window-light),
+					0 0 0 1px var(--rpg-border-inner);
+				padding: 16px;
+				position: relative;
+				min-height: 200px;
+			}
+
+			.speaker-label {
+				position: absolute;
+				top: -12px;
+				left: 20px;
+				background: var(--rpg-header-bg);
+				padding: 4px 12px;
+				border: 2px solid var(--rpg-border-outer);
+				color: var(--rpg-gold);
+				font-family: 'NeoDunggeunmo', monospace;
+				font-size: 14px;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			.dialog-content {
+				color: var(--rpg-text-normal);
+				font-family: 'NeoDunggeunmo', monospace;
+				font-size: 14px;
+				line-height: 1.8;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				padding-top: 8px;
+			}
+
+			.dialog-content h3 {
+				color: var(--rpg-gold);
+				font-size: 16px;
+				margin: 16px 0 8px 0;
+				text-shadow: 2px 2px 0 var(--rpg-text-shadow);
+			}
+
+			.dialog-content p {
+				margin-bottom: 12px;
+			}
+
+			.dialog-content ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			.dialog-content li {
+				padding: 4px 0;
+				padding-left: 20px;
+				position: relative;
+			}
+
+			.dialog-content li::before {
+				content: '▶';
+				position: absolute;
+				left: 0;
+				color: var(--rpg-stat-orange);
+			}
+
+			/* Choice Buttons */
+			.choices-container {
+				margin-top: 16px;
+				padding-top: 16px;
+				border-top: 1px solid var(--rpg-border-outer);
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+			}
+
+			.choice-btn {
+				background: var(--rpg-window-dark);
+				border: 1px solid var(--rpg-border-outer);
+				padding: 6px 12px;
+				color: var(--rpg-text-normal);
+				font-family: 'NeoDunggeunmo', monospace;
+				font-size: 12px;
+				cursor: pointer;
+				transition: all 0.1s ease;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				box-shadow: 
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+			}
+
+			.choice-btn:hover {
+				background: var(--rpg-window-mid);
+				color: var(--rpg-gold);
+				transform: translateY(-2px);
+			}
+
+			.choice-btn::before {
+				content: '◆ ';
+				color: var(--rpg-gold);
+			}
+
+			/* Stats Panel */
+			.stats-panel {
+				background: var(--rpg-window-bg);
+				border: 2px solid var(--rpg-border-outer);
+				padding: 12px;
+				margin-top: 8px;
+				box-shadow: 
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+			}
+
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 8px;
+			}
+
+			.stat-item {
+				background: var(--rpg-window-dark);
+				border: 1px solid var(--rpg-border-outer);
+				padding: 6px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.stat-label {
+				color: var(--rpg-text-normal);
+				font-size: 11px;
+				font-family: 'NeoDunggeunmo', monospace;
+			}
+
+			.stat-value {
+				color: var(--rpg-stat-orange);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+			}
+
+			/* Mobile Responsive */
+			@media (max-width: 768px) {
+				.palace-scene {
+					height: 300px;
+				}
+
+				.npcs-container {
+					gap: 20px;
+					bottom: 60px;
+				}
+
+				.npc-sprite {
+					font-size: 36px;
+				}
+
+				.dialog-content {
+					font-size: 12px;
+				}
+			}
+
+			/* Message indicator */
+			.message-indicator {
+				position: absolute;
+				bottom: 8px;
+				right: 12px;
+				color: var(--rpg-gold);
+				font-size: 12px;
+				animation: blink 1s infinite;
+			}
+
+			@keyframes blink {
+				0%, 50% { opacity: 1; }
+				51%, 100% { opacity: 0; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<div class="palace-container">
+			<div class="palace-scene">
+				<div class="throne-room">
+					<div class="palace-decoration">⚜️ ⚜️ ⚜️</div>
+					<div class="throne">👑</div>
+					<div class="npcs-container">
+						{npcs.map((npc) => (
+							<div class={`npc ${npc.id === currentNPC ? 'active' : ''}`} data-npc={npc.id}>
+								<span class="npc-sprite">{npc.icon}</span>
+								<span class="npc-name">{npc.name}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+
+			<div class="dialog-container">
+				<div class="dialog-box">
+					<div class="speaker-label">
+						<span>👑</span>
+						<span>버드스프링 왕국의 왕</span>
+					</div>
+					<div class="dialog-content">
+						<p>
+							"어서오게, 용감한 방문자여! 나는 이 버드스프링 왕국을 다스리는 자일세.
+							자네가 이곳까지 찾아온 것은 분명 특별한 이유가 있을 것이야."
+						</p>
+
+						<h3>왕국의 역사</h3>
+						<p>
+							"이 왕국은 18년 전, 한 젊은 개발자가 첫 'Hello World'를 외치며 시작되었다네.
+							그 이후로 수많은 프로젝트들이 이곳을 거쳐갔고, 각각은 왕국의 소중한 보물이 되었지."
+						</p>
+
+						<h3>왕실 구성원</h3>
+						<ul>
+							<li><strong>왕</strong>: INTJ 성향의 개발자, 두 왕자의 아버지</li>
+							<li><strong>기사단장</strong>: Spring Boot, Node.js로 무장한 백엔드 전사</li>
+							<li><strong>대마법사</strong>: Claude Code와 AI 마법을 다루는 현자</li>
+							<li><strong>상인</strong>: Docker, Kubernetes, AWS 등 귀중한 기술을 거래</li>
+							<li><strong>음유시인</strong>: 기술 블로그를 통해 지식을 전파하는 이야기꾼</li>
+							<li><strong>학자</strong>: 끊임없이 새로운 기술을 연구하는 탐구자</li>
+						</ul>
+
+						<h3>왕국의 보물</h3>
+						<p>
+							"우리 왕국에는 Vue.js의 반응형 갑옷, TypeScript의 타입 안전 방패,
+							PostgreSQL의 데이터 성배 등 수많은 보물들이 있다네. 
+							그리고 최근에는 AI라는 강력한 마법의 힘을 손에 넣었지."
+						</p>
+
+						<h3>왕의 철학</h3>
+						<p>
+							<em>"완벽한 코드는 없지만, 더 나은 코드는 항상 존재한다"</em><br/>
+							"이것이 우리 왕국의 모토일세. 끊임없이 개선하고, 학습하며, 성장하는 것.
+							그것이 진정한 개발자의 길이라고 믿고 있다네."
+						</p>
+					</div>
+					<div class="choices-container">
+						<button class="choice-btn">왕국의 역사 더 듣기</button>
+						<button class="choice-btn">기사단장과 대화하기</button>
+						<button class="choice-btn">대마법사를 만나기</button>
+						<button class="choice-btn">상인과 거래하기</button>
+						<button class="choice-btn">작별 인사</button>
+					</div>
+					<span class="message-indicator">▼</span>
+				</div>
+			</div>
+
+			<div class="stats-panel">
+				<div class="stats-grid">
+					<div class="stat-item">
+						<span class="stat-label">경험치</span>
+						<span class="stat-value">18년</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-label">직업</span>
+						<span class="stat-value">풀스택 개발자</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-label">성향</span>
+						<span class="stat-value">INTJ</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-label">주무기</span>
+						<span class="stat-value">Claude Code</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-label">길드</span>
+						<span class="stat-value">BirdSpring</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-label">연락처</span>
+						<span class="stat-value">@luv20100918</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<Footer />
+
+		<script>
+			// NPC interaction
+			document.querySelectorAll('.npc').forEach(npc => {
+				npc.addEventListener('click', function() {
+					const npcId = this.dataset.npc;
+					console.log('Talking to:', npcId);
+					// Here you could add dialog changes based on NPC
+				});
+			});
+
+			// Choice buttons interaction
+			document.querySelectorAll('.choice-btn').forEach(btn => {
+				btn.addEventListener('click', function() {
+					console.log('Selected:', this.textContent);
+					// Here you could add dialog progression
+				});
+			});
+		</script>
+	</body>
+</html>

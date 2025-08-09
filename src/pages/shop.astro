@@ -1,0 +1,408 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// Group posts by year-month for categories
+const postsByMonth = posts.reduce((acc, post) => {
+	const date = new Date(post.data.pubDate);
+	const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+	if (!acc[key]) acc[key] = [];
+	acc[key].push(post);
+	return acc;
+}, {} as Record<string, typeof posts>);
+
+// Sort months in descending order
+const sortedMonths = Object.keys(postsByMonth).sort((a, b) => b.localeCompare(a));
+
+// Item types and prices for shop UI
+const itemTypes = ['미글', '고급장비', '희귀템', '일반템', '소모품', '퀘스트템'];
+const itemIcons = ['💎', '⚔️', '🏺', '🛡️', '🧪', '📜'];
+
+function getItemInfo(post: any, index: number) {
+	const titleLength = post.data.title.length;
+	const price = 500 + (titleLength * 50) + Math.floor(Math.random() * 500);
+	const stock = Math.floor(Math.random() * 99) + 1;
+	const type = itemTypes[index % itemTypes.length];
+	const icon = itemIcons[index % itemIcons.length];
+	
+	return { price, stock, type, icon };
+}
+
+// Current selected category
+const selectedCategory = sortedMonths[0];
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={`${SITE_TITLE} - Item Shop`} description={SITE_DESCRIPTION} />
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background: #2A3939;
+				overflow-x: hidden;
+			}
+
+			.shop-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 8px;
+			}
+
+			/* Shop Header */
+			.shop-header {
+				background: var(--rpg-window-bg);
+				border: 3px solid var(--rpg-border-outer);
+				padding: 8px;
+				margin-bottom: 8px;
+				box-shadow: 
+					inset -2px -2px 0 var(--rpg-window-dark),
+					inset 2px 2px 0 var(--rpg-window-light);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.shop-title {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+
+			.shop-name {
+				color: var(--rpg-gold);
+				font-size: 16px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 2px 2px 0 var(--rpg-text-shadow);
+			}
+
+			.shop-keeper {
+				font-size: 24px;
+			}
+
+			.money-display {
+				background: var(--rpg-window-dark);
+				padding: 4px 12px;
+				border: 1px solid var(--rpg-border-outer);
+				color: var(--rpg-stat-orange);
+				font-family: 'NeoDunggeunmo', monospace;
+				font-size: 14px;
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+			}
+
+			/* Main Shop Layout */
+			.shop-layout {
+				display: flex;
+				gap: 8px;
+			}
+
+			/* Categories Sidebar */
+			.categories-panel {
+				width: 200px;
+				background: var(--rpg-window-bg);
+				border: 2px solid var(--rpg-border-outer);
+				box-shadow: 
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+			}
+
+			.category-header {
+				background: var(--rpg-header-bg);
+				padding: 4px 8px;
+				border-bottom: 1px solid var(--rpg-border-outer);
+				color: var(--rpg-text-normal);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+			}
+
+			.category-list {
+				padding: 4px;
+				max-height: 500px;
+				overflow-y: auto;
+			}
+
+			.category-item {
+				display: block;
+				padding: 4px 8px;
+				margin: 2px 0;
+				background: var(--rpg-window-dark);
+				border: 1px solid var(--rpg-border-outer);
+				color: var(--rpg-text-normal);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				cursor: pointer;
+				text-decoration: none;
+				transition: all 0.1s ease;
+			}
+
+			.category-item:hover {
+				background: var(--rpg-window-mid);
+				color: var(--rpg-gold);
+			}
+
+			.category-item.active {
+				background: var(--rpg-header-bg);
+				color: var(--rpg-gold);
+				box-shadow: 
+					inset 1px 1px 0 var(--rpg-window-dark),
+					inset -1px -1px 0 var(--rpg-window-light);
+			}
+
+			.category-count {
+				float: right;
+				color: var(--rpg-stat-green);
+			}
+
+			/* Items Display */
+			.items-panel {
+				flex: 1;
+				background: var(--rpg-window-bg);
+				border: 3px solid var(--rpg-border-outer);
+				box-shadow: 
+					inset -2px -2px 0 var(--rpg-window-dark),
+					inset 2px 2px 0 var(--rpg-window-light);
+			}
+
+			.items-header {
+				background: var(--rpg-header-bg);
+				padding: 6px 12px;
+				border-bottom: 2px solid var(--rpg-border-outer);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.items-title {
+				color: var(--rpg-text-normal);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+			}
+
+			.items-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 8px;
+				padding: 8px;
+				max-height: 500px;
+				overflow-y: auto;
+			}
+
+			.item-card {
+				background: var(--rpg-window-dark);
+				border: 1px solid var(--rpg-border-outer);
+				padding: 8px;
+				cursor: pointer;
+				transition: all 0.1s ease;
+				text-decoration: none;
+				display: block;
+			}
+
+			.item-card:hover {
+				background: var(--rpg-window-mid);
+				transform: translateY(-2px);
+				box-shadow: 
+					0 4px 8px rgba(0, 0, 0, 0.3),
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+			}
+
+			.item-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 4px;
+			}
+
+			.item-icon {
+				font-size: 24px;
+			}
+
+			.item-type {
+				color: var(--rpg-stat-blue);
+				font-size: 10px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+			}
+
+			.item-name {
+				color: var(--rpg-text-normal);
+				font-size: 11px;
+				font-family: 'NeoDunggeunmo', monospace;
+				line-height: 1.3;
+				margin-bottom: 6px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				min-height: 26px;
+			}
+
+			.item-footer {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding-top: 6px;
+				border-top: 1px solid var(--rpg-border-outer);
+			}
+
+			.item-price {
+				color: var(--rpg-stat-orange);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+			}
+
+			.item-stock {
+				color: var(--rpg-stat-green);
+				font-size: 10px;
+				font-family: 'NeoDunggeunmo', monospace;
+			}
+
+			/* Dialog Box */
+			.dialog-box {
+				background: var(--rpg-window-bg);
+				border: 2px solid var(--rpg-border-outer);
+				padding: 12px;
+				margin-top: 8px;
+				box-shadow: 
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+			}
+
+			.dialog-text {
+				color: var(--rpg-text-normal);
+				font-size: 13px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				line-height: 1.5;
+			}
+
+			/* Mobile Responsive */
+			@media (max-width: 768px) {
+				.shop-layout {
+					flex-direction: column;
+				}
+
+				.categories-panel {
+					width: 100%;
+				}
+
+				.category-list {
+					display: flex;
+					overflow-x: auto;
+					max-height: none;
+					gap: 4px;
+					padding: 8px;
+				}
+
+				.category-item {
+					white-space: nowrap;
+					flex-shrink: 0;
+				}
+
+				.items-grid {
+					grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+				}
+			}
+
+			/* Scrollbar Styling */
+			.items-grid::-webkit-scrollbar,
+			.category-list::-webkit-scrollbar {
+				width: 8px;
+			}
+
+			.items-grid::-webkit-scrollbar-track,
+			.category-list::-webkit-scrollbar-track {
+				background: var(--rpg-window-dark);
+				border-left: 1px solid var(--rpg-border-outer);
+			}
+
+			.items-grid::-webkit-scrollbar-thumb,
+			.category-list::-webkit-scrollbar-thumb {
+				background: var(--rpg-window-mid);
+				border: 1px solid var(--rpg-border-outer);
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<div class="shop-container">
+			<div class="shop-header">
+				<div class="shop-title">
+					<span class="shop-keeper">🧙</span>
+					<h1 class="shop-name">수상한 상인의 잡화점</h1>
+				</div>
+				<div class="money-display">
+					💰 {posts.length * 1000} Gold
+				</div>
+			</div>
+
+			<div class="shop-layout">
+				<div class="categories-panel">
+					<div class="category-header">▶ 카테고리</div>
+					<div class="category-list">
+						{sortedMonths.map((month) => {
+							const [year, monthNum] = month.split('-');
+							const monthName = new Date(parseInt(year), parseInt(monthNum) - 1).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long' });
+							const isActive = month === selectedCategory;
+							
+							return (
+								<a href={`#${month}`} class={`category-item ${isActive ? 'active' : ''}`}>
+									{monthName}
+									<span class="category-count">{postsByMonth[month].length}</span>
+								</a>
+							);
+						})}
+					</div>
+				</div>
+
+				<div class="items-panel">
+					<div class="items-header">
+						<div class="items-title">▶ 판매 아이템</div>
+						<div class="items-title">총 {posts.length}개</div>
+					</div>
+					<div class="items-grid">
+						{posts.map((post, index) => {
+							const item = getItemInfo(post, index);
+							
+							return (
+								<a href={`/${post.id}/`} class="item-card">
+									<div class="item-header">
+										<span class="item-icon">{item.icon}</span>
+										<span class="item-type">{item.type}</span>
+									</div>
+									<div class="item-name">{post.data.title}</div>
+									<div class="item-footer">
+										<span class="item-price">{item.price}G</span>
+										<span class="item-stock">재고: {item.stock}</span>
+									</div>
+								</a>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+
+			<div class="dialog-box">
+				<div class="dialog-text">
+					"어서오세요. 희귀한 아이템을 찾고 계신가요? 여기 있는 모든 것들은 특별한 이야기를 담고 있답니다. 
+					천천히 둘러보시고, 마음에 드는 것이 있으면 말씀해 주세요."
+				</div>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>

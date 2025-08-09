@@ -1,0 +1,435 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// Group posts by year for regions
+const postsByYear = posts.reduce((acc, post) => {
+	const year = new Date(post.data.pubDate).getFullYear();
+	if (!acc[year]) acc[year] = [];
+	acc[year].push(post);
+	return acc;
+}, {} as Record<number, typeof posts>);
+
+const years = Object.keys(postsByYear).map(Number).sort((a, b) => b - a);
+
+// Region names and icons
+const regionNames = ['카라온', '바르시아', '솔로몬', '울릉', '그레이스', '크리스탈', '샤에로', '사베트'];
+const regionIcons = ['🏔️', '🌊', '🏜️', '🌲', '🏰', '💎', '🌋', '❄️'];
+
+// Create regions data
+const regions = years.map((year, index) => ({
+	year,
+	name: regionNames[index % regionNames.length],
+	icon: regionIcons[index % regionIcons.length],
+	count: postsByYear[year].length,
+	level: Math.max(99 - index * 10, 1)
+}));
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={`${SITE_TITLE} - World Map`} description={SITE_DESCRIPTION} />
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background: #2A3939;
+				overflow-x: hidden;
+			}
+
+			.map-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 8px;
+			}
+
+			/* Map Header */
+			.map-header {
+				background: var(--rpg-header-bg);
+				border: 2px solid var(--rpg-border-outer);
+				padding: 8px;
+				margin-bottom: 8px;
+				text-align: center;
+				box-shadow: 
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+			}
+
+			.map-title {
+				color: var(--rpg-gold);
+				font-size: 18px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 2px 2px 0 var(--rpg-text-shadow);
+				letter-spacing: 2px;
+				margin: 0;
+			}
+
+			/* Main Map Layout */
+			.map-layout {
+				display: flex;
+				gap: 8px;
+			}
+
+			/* World Map Area */
+			.world-map {
+				flex: 1;
+				background: linear-gradient(135deg, #3A5F3A 0%, #4A7F4A 50%, #5A9F5A 100%);
+				border: 3px solid var(--rpg-border-outer);
+				box-shadow: 
+					inset -2px -2px 0 var(--rpg-window-dark),
+					inset 2px 2px 0 var(--rpg-window-light),
+					0 0 0 1px var(--rpg-border-inner);
+				position: relative;
+				min-height: 600px;
+				overflow: hidden;
+			}
+
+			/* Map Grid Pattern */
+			.map-grid {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-image: 
+					repeating-linear-gradient(
+						0deg,
+						transparent,
+						transparent 39px,
+						rgba(0, 0, 0, 0.1) 39px,
+						rgba(0, 0, 0, 0.1) 40px
+					),
+					repeating-linear-gradient(
+						90deg,
+						transparent,
+						transparent 39px,
+						rgba(0, 0, 0, 0.1) 39px,
+						rgba(0, 0, 0, 0.1) 40px
+					);
+			}
+
+			/* Map Regions */
+			.map-regions {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				padding: 20px;
+			}
+
+			.region {
+				position: absolute;
+				width: 120px;
+				height: 120px;
+				background: var(--rpg-window-bg);
+				border: 2px solid var(--rpg-border-outer);
+				box-shadow: 
+					0 4px 8px rgba(0, 0, 0, 0.3),
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+				cursor: pointer;
+				transition: all 0.2s ease;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				color: var(--rpg-text-normal);
+			}
+
+			.region:hover {
+				transform: scale(1.1);
+				z-index: 10;
+				background: var(--rpg-window-light);
+				box-shadow: 
+					0 6px 12px rgba(0, 0, 0, 0.5),
+					0 0 20px rgba(255, 215, 0, 0.3);
+			}
+
+			.region-icon {
+				font-size: 36px;
+				margin-bottom: 4px;
+			}
+
+			.region-name {
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				margin-bottom: 2px;
+			}
+
+			.region-year {
+				font-size: 10px;
+				color: var(--rpg-stat-orange);
+				font-family: 'NeoDunggeunmo', monospace;
+			}
+
+			.region-count {
+				font-size: 10px;
+				color: var(--rpg-stat-green);
+				font-family: 'NeoDunggeunmo', monospace;
+			}
+
+			/* Position regions in a scattered pattern */
+			.region:nth-child(1) { top: 10%; left: 20%; }
+			.region:nth-child(2) { top: 15%; left: 60%; }
+			.region:nth-child(3) { top: 35%; left: 35%; }
+			.region:nth-child(4) { top: 40%; left: 70%; }
+			.region:nth-child(5) { top: 60%; left: 15%; }
+			.region:nth-child(6) { top: 65%; left: 50%; }
+			.region:nth-child(7) { top: 75%; left: 30%; }
+			.region:nth-child(8) { top: 80%; left: 65%; }
+
+			/* Map Paths */
+			.map-path {
+				position: absolute;
+				border-bottom: 2px dashed rgba(255, 215, 0, 0.3);
+				transform-origin: left center;
+				pointer-events: none;
+			}
+
+			/* Info Panel */
+			.info-panel {
+				width: 300px;
+				background: var(--rpg-window-bg);
+				border: 2px solid var(--rpg-border-outer);
+				box-shadow: 
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+			}
+
+			.panel-header {
+				background: var(--rpg-header-bg);
+				padding: 6px 12px;
+				border-bottom: 1px solid var(--rpg-border-outer);
+				color: var(--rpg-text-normal);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+			}
+
+			.panel-content {
+				padding: 12px;
+			}
+
+			.stat-row {
+				display: flex;
+				justify-content: space-between;
+				padding: 4px 0;
+				border-bottom: 1px solid var(--rpg-window-dark);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+			}
+
+			.stat-label {
+				color: var(--rpg-text-normal);
+			}
+
+			.stat-value {
+				color: var(--rpg-stat-orange);
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+			}
+
+			/* Quest List */
+			.quest-list {
+				margin-top: 16px;
+				padding-top: 12px;
+				border-top: 1px solid var(--rpg-border-outer);
+			}
+
+			.quest-title {
+				color: var(--rpg-gold);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				margin-bottom: 8px;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+			}
+
+			.quest-item {
+				padding: 4px 0;
+				font-size: 11px;
+				font-family: 'NeoDunggeunmo', monospace;
+				color: var(--rpg-text-normal);
+				padding-left: 16px;
+				position: relative;
+			}
+
+			.quest-item::before {
+				content: '◆';
+				position: absolute;
+				left: 0;
+				color: var(--rpg-stat-green);
+			}
+
+			/* Legend */
+			.map-legend {
+				background: var(--rpg-window-bg);
+				border: 2px solid var(--rpg-border-outer);
+				padding: 8px;
+				margin-top: 8px;
+				box-shadow: 
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+			}
+
+			.legend-items {
+				display: flex;
+				justify-content: center;
+				gap: 20px;
+				flex-wrap: wrap;
+			}
+
+			.legend-item {
+				display: flex;
+				align-items: center;
+				gap: 4px;
+				font-size: 11px;
+				font-family: 'NeoDunggeunmo', monospace;
+				color: var(--rpg-text-normal);
+			}
+
+			.legend-icon {
+				font-size: 16px;
+			}
+
+			/* Mobile Responsive */
+			@media (max-width: 768px) {
+				.map-layout {
+					flex-direction: column;
+				}
+
+				.info-panel {
+					width: 100%;
+				}
+
+				.world-map {
+					min-height: 400px;
+				}
+
+				.region {
+					width: 80px;
+					height: 80px;
+				}
+
+				.region-icon {
+					font-size: 24px;
+				}
+			}
+
+			/* Compass */
+			.compass {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				width: 60px;
+				height: 60px;
+				background: var(--rpg-window-bg);
+				border: 2px solid var(--rpg-border-outer);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 24px;
+				box-shadow: 
+					0 2px 4px rgba(0, 0, 0, 0.3),
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+				animation: rotate 20s linear infinite;
+			}
+
+			@keyframes rotate {
+				from { transform: rotate(0deg); }
+				to { transform: rotate(360deg); }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<div class="map-container">
+			<div class="map-header">
+				<h1 class="map-title">◆ WORLD MAP ◆</h1>
+			</div>
+
+			<div class="map-layout">
+				<div class="world-map">
+					<div class="map-grid"></div>
+					<div class="map-regions">
+						{regions.map((region, index) => (
+							<a href={`#${region.year}`} class="region">
+								<span class="region-icon">{region.icon}</span>
+								<span class="region-name">{region.name}</span>
+								<span class="region-year">{region.year}년</span>
+								<span class="region-count">부대 {region.count}</span>
+							</a>
+						))}
+						<div class="compass">🧭</div>
+					</div>
+				</div>
+
+				<div class="info-panel">
+					<div class="panel-header">▶ 정보</div>
+					<div class="panel-content">
+						<div class="stat-row">
+							<span class="stat-label">총 지역</span>
+							<span class="stat-value">{years.length} 부대</span>
+						</div>
+						<div class="stat-row">
+							<span class="stat-label">총 퀘스트</span>
+							<span class="stat-value">{posts.length} 개</span>
+						</div>
+						<div class="stat-row">
+							<span class="stat-label">최신 지역</span>
+							<span class="stat-value">{years[0]}년</span>
+						</div>
+						<div class="stat-row">
+							<span class="stat-label">최초 지역</span>
+							<span class="stat-value">{years[years.length - 1]}년</span>
+						</div>
+
+						<div class="quest-list">
+							<div class="quest-title">▶ 최근 퀘스트</div>
+							{posts.slice(0, 5).map(post => (
+								<div class="quest-item">
+									{post.data.title.length > 20 
+										? post.data.title.substring(0, 20) + '...' 
+										: post.data.title}
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="map-legend">
+				<div class="legend-items">
+					<div class="legend-item">
+						<span class="legend-icon">🏔️</span>
+						<span>산악 지대</span>
+					</div>
+					<div class="legend-item">
+						<span class="legend-icon">🌊</span>
+						<span>해안 지역</span>
+					</div>
+					<div class="legend-item">
+						<span class="legend-icon">🏜️</span>
+						<span>사막 지역</span>
+					</div>
+					<div class="legend-item">
+						<span class="legend-icon">🌲</span>
+						<span>숲 지역</span>
+					</div>
+					<div class="legend-item">
+						<span class="legend-icon">🏰</span>
+						<span>성채 지역</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>
