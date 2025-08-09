@@ -90,7 +90,7 @@ body {
 	font-weight: 300;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-size: 15px;
+	font-size: 16px;
 	line-height: 1.7;
 	letter-spacing: 0.3px;
 	image-rendering: pixelated;
@@ -204,12 +204,14 @@ a:hover {
 		0 0 8px rgba(255, 215, 0, 0.5);
 }
 p {
+	font-size: 16px;
 	margin-bottom: 1.8em;
 	line-height: 1.8;
 	word-break: keep-all;
 	letter-spacing: -0.01em;
 }
 .prose p {
+	font-size: 16px;
 	margin-bottom: 1.5em;
 }
 .prose h1:first-child,
@@ -414,7 +416,7 @@ hr {
 
 /* Blog post specific styles */
 .prose {
-	font-size: 1.05rem;
+	font-size: 16px;
 	color: var(--rpg-menu-text);
 	max-width: none;
 }
@@ -444,6 +446,7 @@ hr {
 /* Improve readability for Korean text */
 .prose p,
 .prose li {
+	font-size: 16px;
 	word-break: keep-all;
 	line-break: auto;
 	margin-bottom: 1.6em;
