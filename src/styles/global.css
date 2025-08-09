@@ -64,7 +64,7 @@
 	font-family: "NeoDunggeunmo";
 	src: url("/fonts/NeoDunggeunmo.woff2") format("woff2"),
 	     url("/fonts/NeoDunggeunmo.woff") format("woff");
-	font-weight: 400;
+	font-weight: 300 700;
 	font-style: normal;
 	font-display: swap;
 }
@@ -86,10 +86,13 @@ body {
 	overflow-wrap: break-word;
 	word-break: keep-all;
 	color: var(--rpg-text-normal);
-	text-shadow: 1px 1px 0 var(--rpg-text-shadow);
-	font-size: 16px;
-	line-height: 1.6;
-	letter-spacing: 0;
+	text-shadow: 0.5px 0.5px 0 var(--rpg-text-shadow);
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 15px;
+	line-height: 1.7;
+	letter-spacing: 0.3px;
 	image-rendering: pixelated;
 	image-rendering: -moz-crisp-edges;
 	image-rendering: crisp-edges;
