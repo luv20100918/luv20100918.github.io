@@ -115,7 +115,7 @@
 }
 
 body {
-    font-family: "NeoDunggeunmo", "DungGeunMo", "DotGothic16", monospace;
+    font-family: "NeoDunggeunmo", "DungGeunMo", 'Galmuri14', "DotGothic16", monospace;
     margin: 0;
     padding: 0;
     text-align: left;
@@ -168,7 +168,7 @@ h6 {
     margin: 0 0 1rem 0;
     color: var(--fq4-text);
     line-height: 1.5;
-    font-family: "NeoDunggeunmo", "DungGeunMo", monospace;
+    font-family: "NeoDunggeunmo", "DungGeunMo", 'Galmuri14', monospace;
     font-weight: normal;
     letter-spacing: 0;
     word-break: keep-all;
