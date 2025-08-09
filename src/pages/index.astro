@@ -11,8 +11,20 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-// Get recent 10 posts for homepage
-const recentPosts = posts.slice(0, 10);
+// Get recent posts for battlefield
+const recentPosts = posts.slice(0, 20);
+
+// Character icons array
+const characterIcons = ['⚔️', '🛡️', '🏹', '🗡️', '🔮', '💎', '🎯', '⚡', '🔥', '❄️', '🌟', '💫', '✨', '🔨', '🪓', '🏺', '📜', '🧪', '💊', '🍄'];
+
+// Generate random positions for units on the battlefield
+function getRandomPosition(index: number) {
+	const row = Math.floor(index / 4);
+	const col = index % 4;
+	const x = 15 + col * 22 + Math.random() * 10;
+	const y = 10 + row * 15 + Math.random() * 8;
+	return { x, y };
+}
 ---
 
 <!doctype html>
@@ -20,355 +32,433 @@ const recentPosts = posts.slice(0, 10);
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			.hero-section {
-				background: var(--rpg-window-bg);
-				padding: 32px 24px;
-				text-align: center;
-				margin: 20px;
-				border: 3px solid var(--rpg-border-outer);
-				box-shadow: 
-					inset -2px -2px 0 var(--rpg-window-dark),
-					inset 2px 2px 0 var(--rpg-window-light),
-					0 0 0 1px var(--rpg-border-inner),
-					4px 4px 8px rgba(0, 0, 0, 0.5);
-				position: relative;
-			}
-			
-			.hero-section::before {
-				content: 'MAIN QUEST';
-				position: absolute;
-				top: -10px;
-				left: 50%;
-				transform: translateX(-50%);
-				background: var(--rpg-header-bg);
-				padding: 2px 12px;
-				color: var(--rpg-gold);
-				font-size: 10px;
-				border: 1px solid var(--rpg-border-outer);
-				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-				font-family: 'NeoDunggeunmo', monospace;
-			}
-
-			.hero-title {
-				font-size: 24px;
-				font-family: 'NeoDunggeunmo', monospace;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				margin: 0 0 16px 0;
-				color: var(--rpg-text-normal);
-				text-shadow: 2px 2px 0 var(--rpg-text-shadow);
-			}
-
-			.hero-title::before {
-				content: "▶ ";
-				color: var(--rpg-gold);
-			}
-
-			.hero-description {
-				font-size: 14px;
-				font-family: 'NeoDunggeunmo', monospace;
-				color: var(--rpg-text-normal);
+			body {
 				margin: 0;
-				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
-			}
-
-			main {
-				width: 960px;
-				max-width: calc(100% - 2em);
-				margin: 20px auto;
-			}
-
-			.section-title {
-				font-size: 18px;
-				font-family: 'NeoDunggeunmo', monospace;
-				text-transform: uppercase;
-				padding: 8px 16px;
-				margin: 20px;
-				background: var(--rpg-header-bg);
-				border: 2px solid var(--rpg-border-outer);
-				box-shadow: 
-					inset -1px -1px 0 var(--rpg-window-dark),
-					inset 1px 1px 0 var(--rpg-border-inner);
-				color: var(--rpg-text-normal);
-				text-shadow: 2px 2px 0 var(--rpg-text-shadow);
-				letter-spacing: 1px;
-			}
-
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0 20px;
 				padding: 0;
+				overflow-x: hidden;
 			}
 
-			ul li {
-				width: calc(50% - 1rem);
-				background: var(--rpg-window-bg);
-				border: 2px solid var(--rpg-border-outer);
-				box-shadow: 
-					inset -1px -1px 0 var(--rpg-window-dark),
-					inset 1px 1px 0 var(--rpg-window-light);
-				transition: transform 0.1s ease, box-shadow 0.1s ease;
-				position: relative;
-			}
-
-			ul li:hover {
-				transform: translate(-1px, -1px);
-				box-shadow: 
-					3px 3px 6px rgba(0, 0, 0, 0.4),
-					inset -1px -1px 0 var(--rpg-window-dark),
-					inset 1px 1px 0 var(--rpg-window-light);
-				border-color: var(--rpg-gold);
-			}
-
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-			}
-
-			ul li:first-child img {
-				width: 100%;
-				height: 300px;
-				object-fit: cover;
-			}
-
-			ul li:first-child .post-content {
-				padding: 20px;
-			}
-
-			ul li:first-child .title {
-				font-size: 24px;
-			}
-
-			ul li img {
-				width: 100%;
-				height: 200px;
-				object-fit: cover;
-				border-bottom: 2px solid var(--fq4-border);
-			}
-
-			ul li a {
-				display: block;
-			}
-
-			.post-content {
-				padding: 12px;
-				position: relative;
+			/* Battle Field Container */
+			.battle-container {
+				background: #2A3939;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
 			}
 			
-			/* RPG-style level indicator */
-			.post-level {
-				position: absolute;
-				top: -12px;
-				right: 8px;
-				background: var(--rpg-header-bg);
+			/* Top Menu Bar */
+			.menu-bar {
+				background: var(--rpg-window-bg);
+				border-bottom: 2px solid var(--rpg-border-outer);
+				padding: 4px 8px;
+				display: flex;
+				gap: 4px;
+				box-shadow: 
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+				align-items: center;
+			}
+			
+			.menu-item {
+				padding: 4px 12px;
+				background: var(--rpg-window-mid);
 				border: 1px solid var(--rpg-border-outer);
-				padding: 2px 6px;
-				font-size: 10px;
-				color: var(--rpg-stat-orange);
+				color: var(--rpg-text-normal);
+				font-size: 12px;
 				font-family: 'NeoDunggeunmo', monospace;
-				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				cursor: pointer;
 				box-shadow: 
 					inset -1px -1px 0 var(--rpg-window-dark),
 					inset 1px 1px 0 var(--rpg-window-light);
 			}
-
-			.title {
-				margin: 0 0 8px 0;
-				color: var(--rpg-text-normal);
-				line-height: 1.3;
-				font-family: 'NeoDunggeunmo', monospace;
-				font-weight: normal;
-				font-size: 14px;
-				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
-			}
-
-			.date {
-				margin: 0;
-				color: var(--rpg-stat-orange);
-				font-family: 'NeoDunggeunmo', monospace;
-				font-size: 11px;
-				text-transform: uppercase;
-				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-			}
-
-			ul li a:hover .title {
+			
+			.menu-item:hover {
+				background: var(--rpg-window-light);
 				color: var(--rpg-gold);
-				text-shadow: 
-					1px 1px 0 var(--rpg-text-shadow),
-					0 0 4px rgba(255, 215, 0, 0.3);
 			}
 
-			.no-image-placeholder {
-				width: 100%;
-				height: 200px;
+			.menu-item.active {
 				background: var(--rpg-window-dark);
+				color: var(--rpg-gold);
+				box-shadow: 
+					inset 1px 1px 0 var(--rpg-window-dark),
+					inset -1px -1px 0 var(--rpg-window-light);
+			}
+
+			.menu-spacer {
+				flex: 1;
+			}
+
+			.turn-indicator {
+				color: var(--rpg-stat-orange);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				margin-right: 8px;
+			}
+			
+			/* Battle Field */
+			.battle-field {
+				background: #4A7C4A;
 				background-image: 
 					repeating-linear-gradient(
-						45deg,
-						transparent,
-						transparent 10px,
-						rgba(0, 0, 0, 0.1) 10px,
-						rgba(0, 0, 0, 0.1) 20px
+						0deg,
+						rgba(0, 0, 0, 0.1),
+						rgba(0, 0, 0, 0.1) 1px,
+						transparent 1px,
+						transparent 32px
+					),
+					repeating-linear-gradient(
+						90deg,
+						rgba(0, 0, 0, 0.1),
+						rgba(0, 0, 0, 0.1) 1px,
+						transparent 1px,
+						transparent 32px
 					);
+				border: 3px solid var(--rpg-border-outer);
+				box-shadow: 
+					inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+					inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+				min-height: 450px;
+				position: relative;
+				flex: 1;
+				margin: 8px;
+			}
+			
+			/* Character Sprites (Blog Posts) */
+			.battle-units {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding: 20px;
+			}
+			
+			.unit {
+				position: absolute;
+				width: 48px;
+				height: 48px;
+				cursor: pointer;
+				transition: all 0.2s ease;
+				z-index: 1;
+				text-decoration: none;
+			}
+			
+			.unit:hover {
+				transform: translateY(-4px);
+				z-index: 10;
+			}
+			
+			.unit-sprite {
+				width: 100%;
+				height: 100%;
+				background: var(--rpg-window-bg);
+				border: 2px solid var(--rpg-border-outer);
+				box-shadow: 
+					0 2px 4px rgba(0, 0, 0, 0.4),
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				border-bottom: 1px solid var(--rpg-border-outer);
+				font-size: 20px;
+				position: relative;
+			}
+			
+			.unit:hover .unit-sprite {
+				box-shadow: 
+					0 4px 8px rgba(0, 0, 0, 0.6),
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light),
+					0 0 16px rgba(255, 215, 0, 0.3);
+			}
+			
+			/* Shadow under unit */
+			.unit-shadow {
+				position: absolute;
+				bottom: -6px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 32px;
+				height: 8px;
+				background: rgba(0, 0, 0, 0.3);
+				border-radius: 50%;
+				z-index: -1;
+			}
+			
+			.unit.ally .unit-sprite {
+				background: #4A6B6B;
+				border-color: var(--rpg-stat-blue);
+			}
+			
+			.unit.enemy .unit-sprite {
+				background: #6B4A4A;
+				border-color: var(--rpg-stat-orange);
+			}
+
+			.unit.boss .unit-sprite {
+				background: #4A3A5A;
+				border-color: var(--rpg-gold);
+				width: 64px;
+				height: 64px;
+				font-size: 28px;
+			}
+			
+			.unit-level {
+				position: absolute;
+				top: -8px;
+				right: -4px;
+				background: var(--rpg-header-bg);
+				color: var(--rpg-stat-orange);
+				font-size: 9px;
+				padding: 1px 3px;
+				border: 1px solid var(--rpg-border-outer);
 				font-family: 'NeoDunggeunmo', monospace;
-				font-size: 32px;
-				color: var(--rpg-window-mid);
-				text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+				z-index: 2;
 			}
-
-			ul li:first-child .no-image-placeholder {
-				height: 300px;
-				font-size: 72px;
+			
+			.unit-info {
+				position: absolute;
+				bottom: -30px;
+				left: 50%;
+				transform: translateX(-50%);
+				background: rgba(0, 0, 0, 0.9);
+				color: white;
+				padding: 3px 8px;
+				font-size: 10px;
+				white-space: nowrap;
+				border: 1px solid var(--rpg-gold);
+				display: none;
+				font-family: 'NeoDunggeunmo', monospace;
+				z-index: 100;
+				max-width: 200px;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
-
+			
+			.unit:hover .unit-info {
+				display: block;
+			}
+			
+			/* Party Status Panel */
+			.party-status {
+				background: var(--rpg-window-bg);
+				border: 3px solid var(--rpg-border-outer);
+				box-shadow: 
+					inset -2px -2px 0 var(--rpg-window-dark),
+					inset 2px 2px 0 var(--rpg-window-light);
+				margin: 8px;
+				padding: 8px;
+			}
+			
+			.status-header {
+				background: var(--rpg-header-bg);
+				border: 1px solid var(--rpg-border-outer);
+				padding: 4px 8px;
+				margin-bottom: 8px;
+				color: var(--rpg-text-normal);
+				font-size: 12px;
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			
+			.party-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+				gap: 4px;
+				max-height: 180px;
+				overflow-y: auto;
+			}
+			
+			.party-member {
+				background: var(--rpg-window-dark);
+				border: 1px solid var(--rpg-border-outer);
+				padding: 6px;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				cursor: pointer;
+				transition: all 0.1s ease;
+				text-decoration: none;
+			}
+			
+			.party-member:hover {
+				background: var(--rpg-window-mid);
+				border-color: var(--rpg-gold);
+			}
+			
+			.member-icon {
+				width: 32px;
+				height: 32px;
+				background: var(--rpg-window-bg);
+				border: 1px solid var(--rpg-border-outer);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 16px;
+				flex-shrink: 0;
+			}
+			
+			.member-info {
+				flex: 1;
+				min-width: 0;
+			}
+			
+			.member-name {
+				font-size: 11px;
+				color: var(--rpg-text-normal);
+				font-family: 'NeoDunggeunmo', monospace;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				margin-bottom: 3px;
+				line-height: 1.2;
+			}
+			
+			.member-stats {
+				display: flex;
+				gap: 12px;
+				font-size: 10px;
+				font-family: 'NeoDunggeunmo', monospace;
+			}
+			
+			.stat {
+				color: var(--rpg-stat-orange);
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+			}
+			
+			.stat.date {
+				color: var(--rpg-stat-green);
+			}
+			
+			/* View All Button */
+			.view-all-container {
+				text-align: center;
+				padding: 8px;
+			}
+			
 			.view-all-btn {
 				display: inline-block;
-				margin: 40px 20px;
-				padding: 12px 24px;
-				background: var(--fq4-accent);
-				color: white;
+				padding: 6px 16px;
+				background: var(--rpg-window-mid);
+				color: var(--rpg-text-normal);
 				text-decoration: none;
-				font-family: 'IBM Plex Mono', monospace;
-				font-size: 14px;
-				font-weight: 600;
+				font-family: 'NeoDunggeunmo', monospace;
+				font-size: 12px;
 				text-transform: uppercase;
-				letter-spacing: 1px;
-				border: 2px solid var(--fq4-border);
+				border: 1px solid var(--rpg-border-outer);
 				box-shadow: 
-					3px 3px 0 rgba(0, 0, 0, 0.3),
-					inset -2px -2px 0 rgba(0, 0, 0, 0.2),
-					inset 2px 2px 0 rgba(255, 255, 255, 0.3);
-				transition: all 0.2s ease;
+					inset -1px -1px 0 var(--rpg-window-dark),
+					inset 1px 1px 0 var(--rpg-window-light);
+				transition: all 0.1s ease;
+				text-shadow: 1px 1px 0 var(--rpg-text-shadow);
 			}
 
 			.view-all-btn:hover {
-				transform: translate(-2px, -2px);
-				box-shadow: 
-					5px 5px 0 rgba(0, 0, 0, 0.3),
-					inset -2px -2px 0 rgba(0, 0, 0, 0.2),
-					inset 2px 2px 0 rgba(255, 255, 255, 0.3);
-				background: var(--fq4-cyan);
-				color: var(--fq4-text);
+				background: var(--rpg-window-light);
+				color: var(--rpg-gold);
 			}
 
-			.view-all-btn::after {
-				content: " →";
-			}
-
-			@media (max-width: 720px) {
-				main {
-					width: 100%;
+			@media (max-width: 768px) {
+				.battle-field {
+					min-height: 350px;
 				}
 				
-				ul {
-					gap: 1.5rem;
-					margin: 0 10px;
+				.party-grid {
+					grid-template-columns: 1fr;
 				}
-
-				ul li {
-					width: 100%;
+				
+				.unit {
+					width: 36px;
+					height: 36px;
 				}
-
-				ul li:first-child {
-					margin-bottom: 1.5rem;
-				}
-
-				ul li:first-child .title {
-					font-size: 20px;
-				}
-
-				.hero-section {
-					margin: 10px;
-					padding: 32px 16px;
-				}
-
-				.hero-title {
-					font-size: 24px;
-				}
-
-				.section-title {
-					margin: 10px;
-					font-size: 18px;
+				
+				.unit-sprite {
+					font-size: 16px;
 				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<div class="hero-section">
-				<h1 class="hero-title">
-					<span class="pixel-icon sword"></span>
-					{SITE_TITLE}
-					<span class="pixel-icon shield"></span>
-				</h1>
-				<p class="hero-description">
-					<span class="pixel-icon heart"></span>
-					{SITE_DESCRIPTION}
-					<span class="pixel-icon heart"></span>
-				</p>
+		<div class="battle-container">
+			<!-- Menu Bar -->
+			<div class="menu-bar">
+				<span class="menu-item active">전투</span>
+				<span class="menu-item">아이템</span>
+				<span class="menu-item">마법</span>
+				<span class="menu-item">장비</span>
+				<span class="menu-item">상태</span>
+				<span class="menu-item">도망</span>
+				<span class="menu-spacer"></span>
+				<span class="turn-indicator">TURN: {posts.length}</span>
 			</div>
 
-			<h2 class="section-title">
-				<span class="pixel-icon star"></span>
-				Recent Posts
-				<span class="pixel-badge new">HOT</span>
-			</h2>
-			
-			<section>
-				<ul>
-					{
-						recentPosts.map((post, index) => (
-							<li>
-								<a href={`/${post.id}/`}>
-									{post.data.heroImage ? (
-										<Image 
-											width={index === 0 ? 920 : 460} 
-											height={index === 0 ? 300 : 200} 
-											src={post.data.heroImage} 
-											alt={post.data.title}
-										/>
-									) : (
-										<div class="no-image-placeholder">
-											◆
-										</div>
-									)}
-									<div class="post-content">
-										<span class="post-level">LV.{99 - index}</span>
-										<h4 class="title">
-											{post.data.title}
-											{index === 0 && <span class="pixel-badge new">NEW</span>}
-										</h4>
-										<p class="date">
-											<span class="pixel-icon coin"></span>
-											<FormattedDate date={post.data.pubDate} />
-										</p>
-									</div>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+			<!-- Battle Field -->
+			<div class="battle-field">
+				<div class="battle-units">
+					{recentPosts.map((post, index) => {
+						const pos = getRandomPosition(index);
+						const icon = characterIcons[index % characterIcons.length];
+						const level = 99 - index;
+						const unitClass = index === 0 ? 'boss' : index < 8 ? 'ally' : 'enemy';
+						
+						return (
+							<a 
+								href={`/${post.id}/`}
+								class={`unit ${unitClass}`}
+								style={`left: ${pos.x}%; top: ${pos.y}%;`}
+							>
+								<div class="unit-sprite">
+									{icon}
+									<span class="unit-level">LV.{level}</span>
+									<div class="unit-shadow"></div>
+								</div>
+								<div class="unit-info">{post.data.title}</div>
+							</a>
+						);
+					})}
+				</div>
+			</div>
 
-				<a href="/blog-list" class="view-all-btn">
-					<span class="pixel-icon chest"></span>
-					View All Posts
-					<span class="pixel-icon key"></span>
-				</a>
-			</section>
-		</main>
+			<!-- Party Status Panel -->
+			<div class="party-status">
+				<div class="status-header">
+					<span>PARTY STATUS</span>
+					<span>TOTAL: {posts.length} POSTS</span>
+				</div>
+				<div class="party-grid">
+					{posts.slice(0, 12).map((post, index) => (
+						<a href={`/${post.id}/`} class="party-member">
+							<div class="member-icon">
+								{characterIcons[index % characterIcons.length]}
+							</div>
+							<div class="member-info">
+								<div class="member-name">{post.data.title}</div>
+								<div class="member-stats">
+									<span class="stat">LV.{99 - index}</span>
+									<span class="stat date">
+										<FormattedDate date={post.data.pubDate} />
+									</span>
+								</div>
+							</div>
+						</a>
+					))}
+				</div>
+				<div class="view-all-container">
+					<a href="/blog-list" class="view-all-btn">
+						전체 포스트 보기 →
+					</a>
+				</div>
+			</div>
+		</div>
 		<Footer />
 	</body>
 </html>
