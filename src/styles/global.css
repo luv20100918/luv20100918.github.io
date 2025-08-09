@@ -60,6 +60,14 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+	font-family: "NeoDunggeunmo";
+	src: url("/fonts/NeoDunggeunmo.woff2") format("woff2"),
+	     url("/fonts/NeoDunggeunmo.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
 body {
 	font-family: "NeoDunggeunmo", "DungGeunMo", "DotGothic16", monospace;
 	margin: 0;
