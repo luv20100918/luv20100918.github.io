@@ -1,7 +1,7 @@
 ---
 title: 'ChatGPT-5 Pro 회사 공용 계정의 비극: 위젯이 모든 걸 보고 있다'
 description: '회사에서 ChatGPT-5 Pro를 공용으로 쓰면서 벌어진 웃픈 에피소드들. 위젯 알림이 가져온 예상치 못한 민망한 순간들을 공유합니다.'
-pubDate: 2025-01-10
+pubDate: 2025-08-10
 heroImage: ''
 ---
 

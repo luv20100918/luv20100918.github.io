@@ -1,7 +1,7 @@
 ---
 title: 'ChatGPT-5 출시와 Claude Code: AI 코딩 어시스턴트 시대의 새로운 전환점'
 description: 'OpenAI의 ChatGPT-5 출시 소식과 함께 살펴보는 Claude Code의 혁신적인 기능들. 두 AI 코딩 도구가 개발자들의 미래를 어떻게 바꾸고 있는지 분석합니다.'
-pubDate: 2025-01-10
+pubDate: 2025-08-10
 heroImage: ''
 ---
 

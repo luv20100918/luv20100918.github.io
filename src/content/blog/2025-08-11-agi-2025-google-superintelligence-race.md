@@ -1,7 +1,7 @@
 ---
 title: 'AGI 경쟁 2025: 구글 DeepMind의 과학 데이터 우위'
 description: 'GPT-5와 Gemini 2.5의 AGI 경쟁 분석. AlphaFold, AlphaProteo, AlphaGeometry가 보여주는 구글의 독특한 접근법.'
-pubDate: 2025-01-11
+pubDate: 2025-08-11
 heroImage: ''
 ---
 
