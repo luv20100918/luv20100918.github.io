@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { calculateReadingTime } from '../utils/readingTime';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -338,6 +339,11 @@ function getRandomPosition(index: number) {
 				color: var(--rpg-stat-green);
 			}
 			
+			.stat.reading-time {
+				color: var(--rpg-stat-blue);
+				font-size: 9px;
+			}
+			
 			/* View All Button */
 			.view-all-container {
 				text-align: center;
@@ -435,22 +441,26 @@ function getRandomPosition(index: number) {
 					<span>TOTAL: {posts.length} POSTS</span>
 				</div>
 				<div class="party-grid">
-					{posts.slice(0, 12).map((post, index) => (
-						<a href={`/${post.id}/`} class="party-member">
-							<div class="member-icon">
-								{characterIcons[index % characterIcons.length]}
-							</div>
-							<div class="member-info">
-								<div class="member-name">{post.data.title}</div>
-								<div class="member-stats">
-									<span class="stat">LV.{99 - index}</span>
-									<span class="stat date">
-										<FormattedDate date={post.data.pubDate} />
-									</span>
+					{posts.slice(0, 12).map((post, index) => {
+						const readingTime = calculateReadingTime(post.body).text;
+						return (
+							<a href={`/${post.id}/`} class="party-member">
+								<div class="member-icon">
+									{characterIcons[index % characterIcons.length]}
 								</div>
-							</div>
-						</a>
-					))}
+								<div class="member-info">
+									<div class="member-name">{post.data.title}</div>
+									<div class="member-stats">
+										<span class="stat">LV.{99 - index}</span>
+										<span class="stat date">
+											<FormattedDate date={post.data.pubDate} />
+										</span>
+										<span class="stat reading-time">📖 {readingTime}</span>
+									</div>
+								</div>
+							</a>
+						);
+					})}
 				</div>
 				<div class="view-all-container">
 					<a href="/blog-list" class="view-all-btn">

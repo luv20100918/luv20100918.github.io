@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { calculateReadingTime } from '../utils/readingTime';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -22,6 +23,9 @@ function getPostStats(post: any, index: number) {
 	const titleLength = post.data.title.length;
 	const daysSincePublish = Math.floor((Date.now() - post.data.pubDate.getTime()) / (1000 * 60 * 60 * 24));
 	
+	// Calculate reading time
+	const readingTime = calculateReadingTime(post.body);
+	
 	return {
 		level: Math.max(1, baseLevel),
 		hp: 310 + (titleLength * 10) + Math.floor(Math.random() * 200),
@@ -33,7 +37,8 @@ function getPostStats(post: any, index: number) {
 		exp: Math.max(0, 1000 - daysSincePublish * 10),
 		class: characterClasses[index % characterClasses.length],
 		icon: characterIcons[index % characterIcons.length],
-		element: elementIcons[index % elementIcons.length]
+		element: elementIcons[index % elementIcons.length],
+		readingTime: readingTime.minutes
 	};
 }
 ---
@@ -120,6 +125,7 @@ function getPostStats(post: any, index: number) {
 			.col-agi { width: 60px; text-align: right; }
 			.col-int { width: 60px; text-align: right; }
 			.col-exp { width: 60px; text-align: right; }
+			.col-time { width: 50px; text-align: center; color: var(--rpg-stat-blue); }
 			.col-item { width: 50px; text-align: center; }
 			.col-el { width: 30px; text-align: center; }
 
@@ -254,7 +260,7 @@ function getPostStats(post: any, index: number) {
 			}
 
 			@media (max-width: 480px) {
-				.col-atk, .col-exp, .col-el {
+				.col-atk, .col-exp, .col-el, .col-time {
 					display: none;
 				}
 			}
@@ -301,6 +307,7 @@ function getPostStats(post: any, index: number) {
 					<div class="col-agi">AG</div>
 					<div class="col-int">MD</div>
 					<div class="col-exp">FT</div>
+					<div class="col-time">TIME</div>
 					<div class="col-item">ITEM</div>
 					<div class="col-el">EL</div>
 				</div>
@@ -334,6 +341,7 @@ function getPostStats(post: any, index: number) {
 								<div class="col-agi">{stats.agi}</div>
 								<div class="col-int">{stats.int}</div>
 								<div class="col-exp">{stats.exp}</div>
+								<div class="col-time">{stats.readingTime}분</div>
 								<div class="col-item">{stats.icon}</div>
 								<div class="col-el">{stats.element}</div>
 							</a>
