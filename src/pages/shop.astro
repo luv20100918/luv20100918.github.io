@@ -335,6 +335,15 @@ const selectedCategory = sortedMonths[0];
 				background: var(--rpg-window-mid);
 				border: 1px solid var(--rpg-border-outer);
 			}
+
+			/* Hide items initially */
+			.item-card[data-month] {
+				display: none;
+			}
+
+			.item-card.visible {
+				display: block;
+			}
 		</style>
 	</head>
 	<body>
@@ -360,7 +369,7 @@ const selectedCategory = sortedMonths[0];
 							const isActive = month === selectedCategory;
 							
 							return (
-								<a href={`#${month}`} class={`category-item ${isActive ? 'active' : ''}`}>
+								<a href={`#${month}`} class={`category-item ${isActive ? 'active' : ''}`} data-category={month}>
 									{monthName}
 									<span class="category-count">{postsByMonth[month].length}</span>
 								</a>
@@ -377,9 +386,12 @@ const selectedCategory = sortedMonths[0];
 					<div class="items-grid">
 						{posts.map((post, index) => {
 							const item = getItemInfo(post, index);
+							const date = new Date(post.data.pubDate);
+							const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+							const isVisible = monthKey === selectedCategory;
 							
 							return (
-								<a href={`/${post.id}/`} class="item-card">
+								<a href={`/${post.id}/`} class={`item-card ${isVisible ? 'visible' : ''}`} data-month={monthKey}>
 									<div class="item-header">
 										<span class="item-icon">{item.icon}</span>
 										<span class="item-type">{item.type}</span>
@@ -404,5 +416,65 @@ const selectedCategory = sortedMonths[0];
 			</div>
 		</div>
 		<Footer />
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const categoryItems = document.querySelectorAll('.category-item');
+				const itemCards = document.querySelectorAll('.item-card');
+				const itemsTitle = document.querySelector('.items-header .items-title:last-child');
+
+				// Show first category items by default
+				const firstCategory = categoryItems[0]?.dataset.category;
+				if (firstCategory) {
+					showCategory(firstCategory);
+				}
+
+				// Handle category clicks
+				categoryItems.forEach(category => {
+					category.addEventListener('click', (e) => {
+						e.preventDefault();
+						const selectedCategory = category.dataset.category;
+						
+						// Update active state
+						categoryItems.forEach(c => c.classList.remove('active'));
+						category.classList.add('active');
+						
+						// Show items for selected category
+						showCategory(selectedCategory);
+						
+						// Update URL hash
+						window.location.hash = selectedCategory;
+					});
+				});
+
+				// Handle initial hash
+				if (window.location.hash) {
+					const hash = window.location.hash.slice(1);
+					const category = document.querySelector(`[data-category="${hash}"]`);
+					if (category) {
+						categoryItems.forEach(c => c.classList.remove('active'));
+						category.classList.add('active');
+						showCategory(hash);
+					}
+				}
+
+				function showCategory(category) {
+					let visibleCount = 0;
+					itemCards.forEach(item => {
+						if (item.dataset.month === category) {
+							item.classList.add('visible');
+							visibleCount++;
+						} else {
+							item.classList.remove('visible');
+						}
+					});
+					
+					// Update item count
+					if (itemsTitle) {
+						itemsTitle.textContent = `총 ${visibleCount}개`;
+					}
+				}
+			});
+		</script>
 	</body>
 </html>
